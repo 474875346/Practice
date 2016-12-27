@@ -102,6 +102,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		89F82A181E121AD60070A857 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				89F9CCCB1E12103100295C70 /* File.swift */,
+				89F9CCCC1E12103100295C70 /* HttpRequestTool.swift */,
+			);
+			name = Tool;
+			sourceTree = "<group>";
+		};
+		89F82A191E121AE30070A857 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				89F82A1A1E121AEB0070A857 /* C */,
+				89F82A1B1E121AEF0070A857 /* V */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		89F82A1A1E121AEB0070A857 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				89F9CC9D1E120FA800295C70 /* AppDelegate.swift */,
+				89F9CC9F1E120FA800295C70 /* ViewController.swift */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		89F82A1B1E121AEF0070A857 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				89F9CCCF1E12103A00295C70 /* LabelAndTFView.swift */,
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
 		89F9CC911E120FA800295C70 = {
 			isa = PBXGroup;
 			children = (
@@ -127,11 +162,8 @@
 		89F9CC9C1E120FA800295C70 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
-				89F9CC9D1E120FA800295C70 /* AppDelegate.swift */,
-				89F9CC9F1E120FA800295C70 /* ViewController.swift */,
-				89F9CCCF1E12103A00295C70 /* LabelAndTFView.swift */,
-				89F9CCCB1E12103100295C70 /* File.swift */,
-				89F9CCCC1E12103100295C70 /* HttpRequestTool.swift */,
+				89F82A191E121AE30070A857 /* Main */,
+				89F82A181E121AD60070A857 /* Tool */,
 				89F9CCA11E120FA800295C70 /* Main.storyboard */,
 				89F9CCA41E120FA800295C70 /* Assets.xcassets */,
 				89F9CCA61E120FA800295C70 /* LaunchScreen.storyboard */,

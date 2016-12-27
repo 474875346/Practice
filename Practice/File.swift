@@ -73,7 +73,7 @@ class CreateUI {
         let button = UIButton(frame: frame)
         button.backgroundColor = backgroundColor
         button.setTitle(title, for:.normal)
-        button.titleLabel!.textColor = textColor
+        button.setTitleColor(textColor, for: .normal)
         button.titleLabel!.font = UIFont.systemFont(ofSize: 14)
         button.addTarget(sender, action:action, for:UIControlEvents.touchUpInside)
         return button
