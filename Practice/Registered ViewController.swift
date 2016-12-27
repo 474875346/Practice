@@ -13,7 +13,7 @@ class Registered_ViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBackImg()
-        self.addNavTitle(Title: "注册")
+        self.addNavTitle(Title: "输入手机号")
         self.addBackButton()
     }
 }

@@ -149,7 +149,7 @@
 			name = "注册";
 			sourceTree = "<group>";
 		};
-		89F82A1F1E121D450070A857 /* Base */ = {
+		89F82A221E1237A20070A857 /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				89F82A201E121D550070A857 /* BaseViewController.swift */,
@@ -185,8 +185,8 @@
 				89F82A1C1E121B3B0070A857 /* 注册 */,
 				89F82A191E121AE30070A857 /* Main */,
 				89F82A181E121AD60070A857 /* Tool */,
-				89F82A1F1E121D450070A857 /* Base */,
 				89F9CCA41E120FA800295C70 /* Assets.xcassets */,
+				89F82A221E1237A20070A857 /* Base */,
 				89F9CCA61E120FA800295C70 /* LaunchScreen.storyboard */,
 				89F9CCA11E120FA800295C70 /* Main.storyboard */,
 				89F9CCA91E120FA800295C70 /* Info.plist */,
