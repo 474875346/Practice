@@ -34,7 +34,7 @@ class BaseViewController: UIViewController {
     func addBackButton() -> Void {
         let BackBtn = UIButton(type: .custom)
         BackBtn.frame = CGRect(x: 10, y: 20, width: 54, height: 44)
-        let Backimg = UIImage(named: "返回")
+        let Backimg = UIImage(named: "back")
         BackBtn.setImage(Backimg, for: .normal)
         BackBtn.imageEdgeInsets = UIEdgeInsets(top: 12, left: 10, bottom: 12, right: 35)
         BackBtn.addTarget(self, action: #selector(BackButton), for: .touchUpInside)
