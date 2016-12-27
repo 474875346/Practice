@@ -19,8 +19,10 @@ class RegularExpressions: NSObject {
             if type == ValidatedType.Email {
                 pattern = "^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$"
             }
-            else {
+            else if type == ValidatedType.PhoneNumber {
                 pattern = "^1[0-9]{10}$"
+            } else {
+                pattern = "^[0-9]"
             }
             
             let regex: NSRegularExpression = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
