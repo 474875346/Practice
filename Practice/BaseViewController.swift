@@ -41,6 +41,7 @@ class BaseViewController: UIViewController {
         self.view.addSubview(BackBtn)
     }
     func BackButton() -> Void {
+        print("返回上一界面")
       _ =  self.navigationController?.popViewController(animated: true)
     }
 }
