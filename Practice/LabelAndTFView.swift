@@ -9,9 +9,9 @@
 import UIKit
 
 class LabelAndTFView: UIView {
+    let TFArray = NSMutableArray(capacity: 0)
     init(frame:CGRect,titlyArray:[String],PlaceholderArray : [String] ) {
         super.init(frame: frame)
-        let TFArray = NSMutableArray()
         self.clipsToBounds = true
         let height = H(self)/ConversionCGFloat(titlyArray.count)
         let width = W(self)
