@@ -46,6 +46,8 @@ class Registered_ViewController: BaseViewController {
     }
     //MARK:下一步
     func NextBtn(_ btn : UIButton ) -> Void {
-        
+        let MessageIdentify = MessageIdentifyViewController()
+        MessageIdentify.PhoneString = phoneTF.text!
+        self.navigationController?.pushViewController(MessageIdentify, animated: true)
     }
 }
