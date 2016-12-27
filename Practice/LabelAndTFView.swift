@@ -25,7 +25,7 @@ class LabelAndTFView: UIView {
             textfiled.backgroundColor = UIColor.clear
             self.addSubview(textfiled)
             TFArray.add(textfiled)
-            let line  = UIView(frame: CGRect(x: 0, y: ConversionCGFloat(i+1)*H(textfiled)-0.5, width: width, height: 1))
+            let line  = UIView(frame: CGRect(x: 0, y: ConversionCGFloat(i+1)*H(textfiled)-1, width: width, height: 1))
             line.backgroundColor = UIColor.lightGray
             self.addSubview(line)
             let titly  = titlyArray[i]
