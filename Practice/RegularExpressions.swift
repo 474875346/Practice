@@ -12,6 +12,7 @@ class RegularExpressions: NSObject {
     enum ValidatedType {
         case Email
         case PhoneNumber
+        case Number
     }
     func ValidateText(validatedType type: ValidatedType, validateString: String) -> Bool {
         do {
