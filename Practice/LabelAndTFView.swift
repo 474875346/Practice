@@ -9,14 +9,15 @@
 import UIKit
 
 class LabelAndTFView: UIView {
-     init(frame:CGRect,titlyArray:[String],PlaceholderArray : [String] ) {
+    init(frame:CGRect,titlyArray:[String],PlaceholderArray : [String] ) {
         super.init(frame: frame)
         let TFArray = NSMutableArray()
         self.clipsToBounds = true
         let height = H(self)/ConversionCGFloat(titlyArray.count)
         let width = W(self)
         for i in 0..<titlyArray.count {
-            let label = CreateUI.Label(UIColor.black, backgroundColor: UIColor.clear, title: titlyArray[i], frame: CGRect(x: 0, y: ConversionCGFloat(i)*height, width: 0.25*width, height: height), font: 15)
+            let label = CreateUI.Label(UIColor.black, backgroundColor: UIColor.clear, title: titlyArray[i], frame: CGRect(x: 0, y: ConversionCGFloat(i)*height, width: 0.2*width, height: height), font: 18)
+            label.textAlignment = .right
             self.addSubview(label)
             let textfiled = UITextField(frame: CGRect(x: 0.25*width, y: ConversionCGFloat(i)*height, width: 0.75*width, height: height))
             textfiled.placeholder = PlaceholderArray[i]

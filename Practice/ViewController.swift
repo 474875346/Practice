@@ -8,12 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.white
         //手机号和密码
-        let view  = LabelAndTFView(frame: CGRect(x: 0.05*SCREEN_WIDTH, y: 200, width: 0.9*SCREEN_WIDTH, height: 80), titlyArray: ["手机号","密码"], PlaceholderArray: ["请输入手机号","请输入密码"])
+        let view  = LabelAndTFView(frame: CGRect(x: 0.05*SCREEN_WIDTH, y: 200, width: 0.9*SCREEN_WIDTH, height: 80), titlyArray: ["手机号:","密码:"], PlaceholderArray: ["请输入手机号","请输入密码"])
         self.view.addSubview(view)
         //登录
         let LoginButton = CreateUI.Button("登录", action: #selector((LogInBtn(_:))), sender: self, frame: CGRect(x: 0.05*SCREEN_WIDTH, y: YH(view)+30, width: 0.9*SCREEN_WIDTH, height: 40), backgroundColor:RGBA(76, g: 171, b: 253, a: 1.0) , textColor: UIColor.white)
@@ -27,7 +28,7 @@ class ViewController: UIViewController {
     }
     //MARK:注册
     func registerButton(_ btn : UIButton ) -> Void {
-        
+        self.navigationController?.pushViewController(Registered_ViewController(), animated: true)
     }
     //MARK:忘记密码
     func forgetButton(_ btn : UIButton) -> Void {
