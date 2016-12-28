@@ -9,7 +9,7 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
@@ -18,11 +18,16 @@ class BaseViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
     }
+}
+//MARK:- 共有方法
+extension  BaseViewController {
+    //MARK:导航栏背景
     func addNavBackImg() -> Void {
         let NavImg = UIImageView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 64))
         NavImg.backgroundColor = RGBA(76, g: 171, b: 253, a: 1.0)
         self.view.addSubview(NavImg)
     }
+    //MARK:导航栏标题
     func addNavTitle(Title:String) -> Void {
         let NavTitle = UILabel(frame: CGRect(x: 80, y: 20, width: SCREEN_WIDTH-160, height: 44))
         NavTitle.text = Title
@@ -31,6 +36,7 @@ class BaseViewController: UIViewController {
         NavTitle.textAlignment = .center
         self.view.addSubview(NavTitle)
     }
+    //MARK:导航栏返回按钮
     func addBackButton() -> Void {
         let BackBtn = UIButton(type: .custom)
         BackBtn.frame = CGRect(x: 10, y: 20, width: 54, height: 44)
@@ -41,7 +47,6 @@ class BaseViewController: UIViewController {
         self.view.addSubview(BackBtn)
     }
     func BackButton() -> Void {
-        print("返回上一界面")
-      _ =  self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 }

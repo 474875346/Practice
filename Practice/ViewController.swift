@@ -9,10 +9,15 @@
 import UIKit
 
 class ViewController: BaseViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
+        self.CreatUI()
+    }
+}
+//MARK:-登录界面
+private extension ViewController {
+    func CreatUI() -> Void {
         //手机号和密码
         let view  = LabelAndTFView(frame: CGRect(x: 0.05*SCREEN_WIDTH, y: 200, width: 0.9*SCREEN_WIDTH, height: 80), titlyArray: ["手机号:","密码:"], PlaceholderArray: ["请输入手机号","请输入密码"])
         self.view.addSubview(view)
@@ -27,21 +32,18 @@ class ViewController: BaseViewController {
         self.view.addSubview(RegisterButton)
     }
     //MARK:注册
-    func registerButton(_ btn : UIButton ) -> Void {
+    @objc func registerButton(_ btn : UIButton ) -> Void {
         self.navigationController?.pushViewController(Registered_ViewController(), animated: true)
     }
     //MARK:忘记密码
-    func forgetButton(_ btn : UIButton) -> Void {
+    @objc func forgetButton(_ btn : UIButton) -> Void {
         
     }
     //MARK:登录
-    func LogInBtn(_ btn : UIButton) -> Void {
+    @objc func LogInBtn(_ btn : UIButton) -> Void {
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
+
+
+
 

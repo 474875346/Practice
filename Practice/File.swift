@@ -6,6 +6,8 @@ import UIKit
 import Foundation
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
+let BaseURL = "http://172.16.1.5:8080"
+
 //颜色
 func RGBA(_ r:Int,g:Int,b:Int,a:Float) -> UIColor {
     let R = Float(r)
