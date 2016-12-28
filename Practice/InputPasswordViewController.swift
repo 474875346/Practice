@@ -43,7 +43,7 @@ private extension InputPasswordViewController {
     func collegeData() -> Void {
         HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: collegelist, type: .POST, parameters: ["":""], successed: {
             success in
-            print(success as Any)
+            print(success! as Any)
         }, failed: {
             error in
             print(error as Any)
