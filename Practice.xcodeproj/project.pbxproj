@@ -11,6 +11,7 @@
 		8922D21F1E139DBF00E93EF9 /* InputPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922D21E1E139DBF00E93EF9 /* InputPasswordViewController.swift */; };
 		8922D2211E13A61800E93EF9 /* URLaddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922D2201E13A61800E93EF9 /* URLaddress.swift */; };
 		89788F601E149EE400C5477F /* InputPasswordCollege.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89788F5F1E149EE400C5477F /* InputPasswordCollege.swift */; };
+		89788F621E150D5D00C5477F /* SwiftMessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89788F611E150D5D00C5477F /* SwiftMessageManager.swift */; };
 		89F82A1E1E121B720070A857 /* Registered ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A1D1E121B720070A857 /* Registered ViewController.swift */; };
 		89F82A211E121D550070A857 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A201E121D550070A857 /* BaseViewController.swift */; };
 		89F82A241E123DD00070A857 /* RegularExpressions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A231E123DD00070A857 /* RegularExpressions.swift */; };
@@ -50,6 +51,7 @@
 		8922D21E1E139DBF00E93EF9 /* InputPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputPasswordViewController.swift; sourceTree = "<group>"; };
 		8922D2201E13A61800E93EF9 /* URLaddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLaddress.swift; sourceTree = "<group>"; };
 		89788F5F1E149EE400C5477F /* InputPasswordCollege.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputPasswordCollege.swift; sourceTree = "<group>"; };
+		89788F611E150D5D00C5477F /* SwiftMessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMessageManager.swift; sourceTree = "<group>"; };
 		89F82A1D1E121B720070A857 /* Registered ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Registered ViewController.swift"; sourceTree = "<group>"; };
 		89F82A201E121D550070A857 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		89F82A231E123DD00070A857 /* RegularExpressions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularExpressions.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				89F9CCCC1E12103100295C70 /* HttpRequestTool.swift */,
 				89F82A231E123DD00070A857 /* RegularExpressions.swift */,
 				8922D2201E13A61800E93EF9 /* URLaddress.swift */,
+				89788F611E150D5D00C5477F /* SwiftMessageManager.swift */,
 			);
 			name = Tool;
 			sourceTree = "<group>";
@@ -171,13 +174,13 @@
 			name = V;
 			sourceTree = "<group>";
 		};
-		89F82A1C1E121B3B0070A857 /* 注册 */ = {
+		89F82A1C1E121B3B0070A857 /* 注册或找回密码 */ = {
 			isa = PBXGroup;
 			children = (
 				89788F5E1E149E4700C5477F /* M */,
 				89788F5D1E149E4000C5477F /* C */,
 			);
-			name = "注册";
+			name = "注册或找回密码";
 			sourceTree = "<group>";
 		};
 		89F82A221E1237A20070A857 /* Base */ = {
@@ -213,7 +216,7 @@
 		89F9CC9C1E120FA800295C70 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
-				89F82A1C1E121B3B0070A857 /* 注册 */,
+				89F82A1C1E121B3B0070A857 /* 注册或找回密码 */,
 				89F82A191E121AE30070A857 /* Main */,
 				89F82A181E121AD60070A857 /* Tool */,
 				89F9CCA41E120FA800295C70 /* Assets.xcassets */,
@@ -441,6 +444,7 @@
 				89F9CC9E1E120FA800295C70 /* AppDelegate.swift in Sources */,
 				89F9CCCE1E12103100295C70 /* HttpRequestTool.swift in Sources */,
 				89F82A261E123FDD0070A857 /* MessageIdentifyViewController.swift in Sources */,
+				89788F621E150D5D00C5477F /* SwiftMessageManager.swift in Sources */,
 				89F82A211E121D550070A857 /* BaseViewController.swift in Sources */,
 				89F82A1E1E121B720070A857 /* Registered ViewController.swift in Sources */,
 			);

@@ -9,4 +9,7 @@
 import Foundation
 //获取学院列表
 let collegelist = "/api/college/list"
-
+//发送验证码
+let SendCode = "/api/message/send"
+//验证验证码
+let VerifyCode = "/api/message/verifyCode"

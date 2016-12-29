@@ -33,11 +33,15 @@ private extension ViewController {
     }
     //MARK:注册
     @objc func registerButton(_ btn : UIButton ) -> Void {
-        self.navigationController?.pushViewController(Registered_ViewController(), animated: true)
+        let registered = Registered_ViewController()
+        registered.titleCode = "注册"
+        self.navigationController?.pushViewController(registered, animated: true)
     }
     //MARK:忘记密码
     @objc func forgetButton(_ btn : UIButton) -> Void {
-        
+        let registered = Registered_ViewController()
+        registered.titleCode = "忘记密码"
+        self.navigationController?.pushViewController(registered, animated: true)
     }
     //MARK:登录
     @objc func LogInBtn(_ btn : UIButton) -> Void {

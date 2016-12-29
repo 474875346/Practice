@@ -7,10 +7,13 @@
 //
 
 import UIKit
-
+import SwiftMessages
 class Registered_ViewController: BaseViewController {
     var nextBtn = UIButton()
     var phoneTF = UITextField()
+    var titleCode = NSString()
+    var flag = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBackImg()
@@ -34,6 +37,12 @@ private extension Registered_ViewController {
         nextBtn.alpha = 0.3
         nextBtn.isUserInteractionEnabled = false
         self.view.addSubview(nextBtn)
+        
+        if titleCode.isEqual(to: "注册") {
+            flag = "0"
+        } else {
+            flag = "1"
+        }
     }
     //MARK:手机号监听
     @objc func PhoneTF() -> Void {
@@ -51,8 +60,23 @@ private extension Registered_ViewController {
     }
     //MARK:下一步
     @objc func NextBtn(_ btn : UIButton ) -> Void {
-        let MessageIdentify = MessageIdentifyViewController()
-        MessageIdentify.PhoneString = phoneTF.text!
-        self.navigationController?.pushViewController(MessageIdentify, animated: true)
+        self.SendCodeData()
+    }
+    //MARK:发送验证码
+    func SendCodeData() -> Void {
+        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: SendCode, type: .POST, parameters: ["phone":phoneTF.text!,"flag":flag], successed: { (success) in
+            let status = success?["status"] as! Int
+            if status == 200 {
+                let MessageIdentify = MessageIdentifyViewController()
+                MessageIdentify.PhoneString = self.phoneTF.text!
+                MessageIdentify.titleCode = self.titleCode
+                self.navigationController?.pushViewController(MessageIdentify, animated: true)
+            } else {
+                let msg = success?["msg"] as! String
+                SwiftMessageManager.showMessage(layoutType: .MessageView, themeType:.Info, iconImageType:.light, presentationStyleType:.top, title: "", body: msg, isHiddenBtn: true, seconds: 5)
+            }
+        }) { (error) in
+            print("网络问题，请休息一下")
+        }
     }
 }

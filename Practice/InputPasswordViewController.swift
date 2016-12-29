@@ -9,12 +9,15 @@
 import UIKit
 
 class InputPasswordViewController: BaseViewController,UIPickerViewDelegate,UIPickerViewDataSource {
+    lazy var collegeArray : [InputPasswordCollege] = [InputPasswordCollege]()
     var nameTF = UITextField()
     var passwordTF = UITextField()
     var collegeTF = UITextField()
     var picker = UIPickerView()
-    lazy var collegeArray : [InputPasswordCollege] = [InputPasswordCollege]()
     var collegeId = ""
+    var nextButton : UIButton? = nil
+    var titleCode = NSString()
+    var verifyCode = NSString()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +26,7 @@ class InputPasswordViewController: BaseViewController,UIPickerViewDelegate,UIPic
         self.addBackButton()
         self.CreatUI()
     }
-    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return self.collegeArray.count
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -57,12 +60,28 @@ private extension InputPasswordViewController {
         //学院按钮
         let collegeBtn = CreateUI.Button("", action: #selector((self.collegePicker)), sender: self, frame: CGRect(x: X(collegeTF), y: Y(view)+80, width: W(collegeTF), height: H(collegeTF)), backgroundColor: UIColor.clear, textColor: UIColor.clear)
         self.view.addSubview(collegeBtn)
+        //加载学院列表
         self.collegeData()
+        //滚轮
         self.picker.frame = CGRect(x: 0, y: SCREEN_HEIGHT-200, width: SCREEN_WIDTH, height: 200)
         self.picker.delegate = self
         self.picker.dataSource = self
         self.picker.isHidden = true
         self.view.addSubview(self.picker)
+        //注册或找回密码
+        nextButton = UIButton(type: .custom)
+        nextButton?.frame = CGRect(x: 0.05 * SCREEN_WIDTH, y: YH(view)+30, width: 0.9 * SCREEN_WIDTH, height: 40)
+        LRViewBorderRadius(nextButton!, Radius: 5, Width: 0, Color: UIColor.clear)
+        nextButton?.alpha = 0.3
+        nextButton?.isUserInteractionEnabled = false
+        nextButton?.backgroundColor = RGBA(76, g: 171, b: 253, a: 1)
+        nextButton?.setTitle("注册", for: .normal)
+        nextButton?.addTarget(self, action: #selector((self.RegistrationOrRetrievePassword)), for: .touchUpInside)
+        self.view.addSubview(nextButton!)
+    }
+    //MARK:注册或找回密码
+    @objc func RegistrationOrRetrievePassword() -> Void {
+        _ = self.navigationController?.popToRootViewController(animated: true)
     }
     //MARK:学院请求
     func collegeData() -> Void {
@@ -83,6 +102,22 @@ private extension InputPasswordViewController {
     }
     //MARK:昵称密码监听
     @objc func textFieldDidChange() {
-        
+        let nameString = nameTF.text! as NSString
+        let pswString = passwordTF.text! as NSString
+        if !nameString.isEqual(to: "") {
+            if !pswString.isEqual(to: "") {
+                nextButton?.alpha = 1.0
+                nextButton?.isUserInteractionEnabled = true
+                if pswString.length > 20 {
+                    passwordTF.text = pswString.substring(to: 20)
+                }
+            } else {
+                nextButton?.alpha = 0.3
+                nextButton?.isUserInteractionEnabled = false
+            }
+        } else {
+            nextButton?.alpha = 0.3
+            nextButton?.isUserInteractionEnabled = false
+        }
     }
 }

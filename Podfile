@@ -2,6 +2,7 @@
 platform :ios, '8.0'
 target 'Practice' do
 use_frameworks!
+pod 'SwiftMessages'#Tost(Swift)
 pod 'Alamofire'#网络请求   (Swift)
 pod 'Kingfisher'#缓存图片   (Swift)
 pod 'UMengSocialCOM'    #友盟分享    (oc)
