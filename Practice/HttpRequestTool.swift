@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
 //创建请求类枚举
 enum RequestType: Int {
     case GET
@@ -37,7 +36,7 @@ extension HttpRequestTool {
      *Successed：成功请求回调
      *Failed：失败请求回调
      */
-    func HttpRequestJSONDataWithUrl(url: String , type:RequestType , parameters: [String:String], successed:@escaping (_ responseObject: JSON? ) -> (), failed: @escaping (_ error: NSError?) -> ()) {
+    func HttpRequestJSONDataWithUrl(url: String , type:RequestType , parameters: [String:String], successed:@escaping (_ responseObject: AnyObject? ) -> (), failed: @escaping (_ error: NSError?) -> ()) {
         //请求类型
         let HTTPType:HTTPMethod = type == .GET ? .get : .post
         //请求网址
@@ -47,9 +46,10 @@ extension HttpRequestTool {
         //发送请求
         Alamofire.request(URLString, method: HTTPType ,parameters:parameters).validate().responseJSON(completionHandler: { DataResponse in
             if DataResponse.result.isSuccess {
-                let json = JSON(DataResponse.result.value as Any)
-                successed(json)
+                print(DataResponse.result.value!)
+                successed(DataResponse.result.value as AnyObject?)
             }else {
+                print(DataResponse.result.error as Any)
                 failed(DataResponse.result.error as NSError?)
             }
         })
