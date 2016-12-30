@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftMessages
 class Registered_ViewController: BaseViewController {
     var nextBtn = UIButton()
     var phoneTF = UITextField()
@@ -73,10 +72,10 @@ private extension Registered_ViewController {
                 self.navigationController?.pushViewController(MessageIdentify, animated: true)
             } else {
                 let msg = success?["msg"] as! String
-                SwiftMessageManager.showMessage(layoutType: .MessageView, themeType:.Info, iconImageType:.light, presentationStyleType:.top, title: "", body: msg, isHiddenBtn: true, seconds: 5)
+                self.WaringTost(Title:"", Body: msg)
             }
         }) { (error) in
-            print("网络问题，请休息一下")
+            self.ErrorTost()
         }
     }
 }

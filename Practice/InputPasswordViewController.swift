@@ -17,12 +17,13 @@ class InputPasswordViewController: BaseViewController,UIPickerViewDelegate,UIPic
     var collegeId = ""
     var nextButton : UIButton? = nil
     var titleCode = NSString()
-    var verifyCode = NSString()
+    var verifyCode = String()
+    var PhoneString = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBackImg()
-        self.addNavTitle(Title: "设置昵称密码")
+        
         self.addBackButton()
         self.CreatUI()
     }
@@ -70,12 +71,18 @@ private extension InputPasswordViewController {
         self.view.addSubview(self.picker)
         //注册或找回密码
         nextButton = UIButton(type: .custom)
-        nextButton?.frame = CGRect(x: 0.05 * SCREEN_WIDTH, y: YH(view)+30, width: 0.9 * SCREEN_WIDTH, height: 40)
+        nextButton?.frame = CGRect(x: 0.05 * SCREEN_WIDTH, y: 150, width: 0.9 * SCREEN_WIDTH, height: 40)
         LRViewBorderRadius(nextButton!, Radius: 5, Width: 0, Color: UIColor.clear)
         nextButton?.alpha = 0.3
         nextButton?.isUserInteractionEnabled = false
         nextButton?.backgroundColor = RGBA(76, g: 171, b: 253, a: 1)
-        nextButton?.setTitle("注册", for: .normal)
+        if titleCode.isEqual(to: "注册") {
+            self.addNavTitle(Title: "设置昵称密码")
+             nextButton?.setTitle("注册", for: .normal)
+        } else {
+            self.addNavTitle(Title: "找回密码")
+             nextButton?.setTitle("找回密码", for: .normal)
+        }
         nextButton?.addTarget(self, action: #selector((self.RegistrationOrRetrievePassword)), for: .touchUpInside)
         self.view.addSubview(nextButton!)
     }
@@ -118,6 +125,21 @@ private extension InputPasswordViewController {
         } else {
             nextButton?.alpha = 0.3
             nextButton?.isUserInteractionEnabled = false
+        }
+    }
+    //MARK:重置密码
+    func resetPassData() -> Void {
+        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: resetPsw, type:.POST, parameters: ["phone":PhoneString,"verifyCode":verifyCode,"password":passwordTF.text!], successed: { (success) in
+            let status = success?["status"] as! Int
+            if status == 200 {
+                self.SuccessTost(Title: "", Body: "找回密码成功")
+                _ = self.navigationController?.popToRootViewController(animated: true)
+            } else {
+                let msg = success?["msg"] as! String
+                self.WaringTost(Title: "", Body: msg)
+            }
+        }) { (error) in
+            self.ErrorTost()
         }
     }
 }

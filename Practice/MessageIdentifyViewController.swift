@@ -140,7 +140,8 @@ private extension MessageIdentifyViewController {
                 if status == 200 {
                     let inputpsw = InputPasswordViewController()
                     inputpsw.titleCode = self.titleCode
-                    inputpsw.verifyCode = success?["data"] as! NSString
+                    inputpsw.PhoneString = self.PhoneString
+                    inputpsw.verifyCode = success?["data"] as! String
                     self.navigationController?.pushViewController(inputpsw, animated: true)
                     for i in 0..<NumString.length {
                         let button = self.buttonArray[i] as! UIButton
@@ -152,10 +153,11 @@ private extension MessageIdentifyViewController {
                         self.inputButton = firstButton
                     }
                 } else {
-                    print(success?["msg"] as! String)
+                    let msg = success?["msg"] as! String
+                    self.WaringTost(Title: "", Body: msg)
                 }
             }) { (error) in
-                print("网络问题，请休息一下")
+               self.ErrorTost()
             }
         }else {
             let button = self.buttonArray[NumString.length] as! UIButton
@@ -169,13 +171,13 @@ private extension MessageIdentifyViewController {
         HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: SendCode, type: .POST, parameters: ["phone":PhoneString,"flag":flag], successed: { (success) in
             let status = success?["status"] as! Int
             if status == 200 {
-                
+                self.SuccessTost(Title: "", Body: "验证码已发送")
             } else {
-                print(success?["msg"] as! String)
+                let msg = success?["msg"] as! String
+                self.WaringTost(Title: "", Body: msg)
             }
-
         }) { (error) in
-            print("网络问题，请休息一下")
+           self.ErrorTost()
         }
     }
 }

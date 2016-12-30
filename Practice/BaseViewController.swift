@@ -48,4 +48,16 @@ extension  BaseViewController {
     func BackButton() -> Void {
         _ = self.navigationController?.popViewController(animated: true)
     }
+    //MARK:成功弹框
+    func SuccessTost(Title:String , Body:String) -> Void {
+          SwiftMessageManager.showMessage(layoutType: .MessageView, themeType: .Success, iconImageType: .light, presentationStyleType: .top, title: Title, body: Body, isHiddenBtn: true, seconds: 3)
+    }
+    //MARK:警告弹框
+    func WaringTost(Title:String , Body:String) -> Void {
+        SwiftMessageManager.showMessage(layoutType: .MessageView, themeType:.Warning, iconImageType:.light, presentationStyleType:.bottom, title: Title, body: Body, isHiddenBtn: true, seconds: 3)
+    }
+    //MARK:错误弹框
+    func ErrorTost() -> Void {
+         SwiftMessageManager.showMessage(layoutType: .MessageView, themeType: .Error, iconImageType: .light, presentationStyleType: .top, title: "", body: "网络问题，请休息一下", isHiddenBtn: true, seconds: 3)
+    }
 }

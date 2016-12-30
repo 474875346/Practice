@@ -13,3 +13,5 @@ let collegelist = "/api/college/list"
 let SendCode = "/api/message/send"
 //验证验证码
 let VerifyCode = "/api/message/verifyCode"
+//重置密码
+let resetPsw = "/api/student/resetPass"
