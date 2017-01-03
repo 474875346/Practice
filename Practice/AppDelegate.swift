@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let tabbar = UITabBarController()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if (UserDefauTake(ZToken) != nil) {
             self.CreatTabbar()
@@ -26,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         home.title = "主页"
         let Message = UINavigationController.init(rootViewController: MessageViewController())
         Message.title = "消息"
-        let tabbar = UITabBarController()
         tabbar.viewControllers = [home,Message]
         let TestLeft = UINavigationController.init(rootViewController: PersonalInformationViewController())
 

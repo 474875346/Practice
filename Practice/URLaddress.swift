@@ -19,3 +19,5 @@ let ResetPsw = "/api/student/resetPass"
 let Student_Register = "/api/student/register"
 //学员登录
 let Student_Login = "/api/student/login"
+//消息列表
+let Student_pageQuery = "/api/notice/pageQuery"

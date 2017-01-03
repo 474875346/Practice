@@ -21,7 +21,7 @@ private extension ViewController {
     //MARK:-登录布局
     func CreatUI() -> Void {
         //MARK:手机号和密码
-        let view  = LabelAndTFView(frame: CGRect(x: 0.05*SCREEN_WIDTH, y: 200, width: 0.9*SCREEN_WIDTH, height: 80), titlyArray: ["手机号:","密码:"], PlaceholderArray: ["请输入手机号","请输入密码"])
+        let view  = LabelAndTFView(frame: CGRect(x: 0.05*SCREEN_WIDTH, y: 200, width: 0.9*SCREEN_WIDTH, height: 80), titlyArray: ["手机号","密码"], PlaceholderArray: ["请输入手机号","请输入密码"])
         phoneTF = view.TFArray[0] as! UITextField
         pswTF = view.TFArray[1] as! UITextField
         self.view.addSubview(view)
@@ -63,6 +63,7 @@ private extension ViewController {
                 UserDefaultSave("CollegeName", Value: college)
                 let delegate = UIApplication.shared.delegate as! AppDelegate
                 delegate.CreatTabbar()
+                self.SuccessTost(Title: "", Body: "登录成功")
             } else {
                 let msg = success?["msg"] as! String
                 self.WaringTost(Title: "", Body: msg)

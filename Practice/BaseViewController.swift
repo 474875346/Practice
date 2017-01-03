@@ -65,4 +65,17 @@ extension  BaseViewController {
     func ErrorTost() -> Void {
          SwiftMessageManager.showMessage(layoutType: .MessageView, themeType: .Error, iconImageType: .light, presentationStyleType: .top, title: "", body: "网络问题，请休息一下", isHiddenBtn: true, seconds: 3)
     }
+    //MARK:tabbar隐藏
+    func tabBarHidden() -> Void {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.tabbar.tabBar.isHidden = true
+        delegate.tabbar.tabBar.isTranslucent = true
+    }
+    //MARK:tabbar显示
+    func tabBarShow() -> Void {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.tabbar.tabBar.isHidden = false
+        delegate.tabbar.tabBar.isTranslucent = false
+    }
+
 }

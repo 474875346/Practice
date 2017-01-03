@@ -17,6 +17,8 @@
 		897EFE3F1E1B44190082D6F4 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE3E1E1B44190082D6F4 /* HomePageViewController.swift */; };
 		897EFE411E1B443D0082D6F4 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE401E1B443D0082D6F4 /* MessageViewController.swift */; };
 		897EFE431E1B445C0082D6F4 /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE421E1B445C0082D6F4 /* PersonalInformationViewController.swift */; };
+		897EFE471E1B77A90082D6F4 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE461E1B77A90082D6F4 /* MessageModel.swift */; };
+		897EFE4A1E1B808E0082D6F4 /* MessageForDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE491E1B808E0082D6F4 /* MessageForDetailsViewController.swift */; };
 		89F82A1E1E121B720070A857 /* Registered ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A1D1E121B720070A857 /* Registered ViewController.swift */; };
 		89F82A211E121D550070A857 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A201E121D550070A857 /* BaseViewController.swift */; };
 		89F82A241E123DD00070A857 /* RegularExpressions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A231E123DD00070A857 /* RegularExpressions.swift */; };
@@ -62,6 +64,8 @@
 		897EFE3E1E1B44190082D6F4 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		897EFE401E1B443D0082D6F4 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		897EFE421E1B445C0082D6F4 /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
+		897EFE461E1B77A90082D6F4 /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		897EFE491E1B808E0082D6F4 /* MessageForDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageForDetailsViewController.swift; sourceTree = "<group>"; };
 		89F82A1D1E121B720070A857 /* Registered ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Registered ViewController.swift"; sourceTree = "<group>"; };
 		89F82A201E121D550070A857 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		89F82A231E123DD00070A857 /* RegularExpressions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularExpressions.swift; sourceTree = "<group>"; };
@@ -167,7 +171,9 @@
 		897EFE3C1E1B43BF0082D6F4 /* 消息 */ = {
 			isa = PBXGroup;
 			children = (
-				897EFE401E1B443D0082D6F4 /* MessageViewController.swift */,
+				897EFE481E1B804E0082D6F4 /* 消息详情 */,
+				897EFE451E1B77930082D6F4 /* M */,
+				897EFE441E1B778E0082D6F4 /* C */,
 			);
 			name = "消息";
 			sourceTree = "<group>";
@@ -178,6 +184,30 @@
 				897EFE421E1B445C0082D6F4 /* PersonalInformationViewController.swift */,
 			);
 			name = "个人信息";
+			sourceTree = "<group>";
+		};
+		897EFE441E1B778E0082D6F4 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				897EFE401E1B443D0082D6F4 /* MessageViewController.swift */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		897EFE451E1B77930082D6F4 /* M */ = {
+			isa = PBXGroup;
+			children = (
+				897EFE461E1B77A90082D6F4 /* MessageModel.swift */,
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
+		897EFE481E1B804E0082D6F4 /* 消息详情 */ = {
+			isa = PBXGroup;
+			children = (
+				897EFE491E1B808E0082D6F4 /* MessageForDetailsViewController.swift */,
+			);
+			name = "消息详情";
 			sourceTree = "<group>";
 		};
 		89F82A181E121AD60070A857 /* Tool */ = {
@@ -483,6 +513,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89F82A241E123DD00070A857 /* RegularExpressions.swift in Sources */,
+				897EFE4A1E1B808E0082D6F4 /* MessageForDetailsViewController.swift in Sources */,
 				89F9CCA01E120FA800295C70 /* ViewController.swift in Sources */,
 				897EFE391E1B42790082D6F4 /* SwiftSlideRootViewController.swift in Sources */,
 				897EFE3A1E1B42790082D6F4 /* UIView+Extension.swift in Sources */,
@@ -494,6 +525,7 @@
 				8922D2211E13A61800E93EF9 /* URLaddress.swift in Sources */,
 				89F9CC9E1E120FA800295C70 /* AppDelegate.swift in Sources */,
 				89F9CCCE1E12103100295C70 /* HttpRequestTool.swift in Sources */,
+				897EFE471E1B77A90082D6F4 /* MessageModel.swift in Sources */,
 				89F82A261E123FDD0070A857 /* MessageIdentifyViewController.swift in Sources */,
 				897EFE3F1E1B44190082D6F4 /* HomePageViewController.swift in Sources */,
 				897EFE411E1B443D0082D6F4 /* MessageViewController.swift in Sources */,
