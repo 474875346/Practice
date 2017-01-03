@@ -14,4 +14,8 @@ let SendCode = "/api/message/send"
 //验证验证码
 let VerifyCode = "/api/message/verifyCode"
 //重置密码
-let resetPsw = "/api/student/resetPass"
+let ResetPsw = "/api/student/resetPass"
+//学员注册
+let Student_Register = "/api/student/register"
+//学员登录
+let Student_Login = "/api/student/login"

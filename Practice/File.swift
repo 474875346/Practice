@@ -6,8 +6,11 @@ import UIKit
 import Foundation
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
-let BaseURL = "http://172.16.1.5:8080"
-
+let BaseURL = "http://172.16.1.16:8080"
+let deviceUUID = UIDevice.current.identifierForVendor?.uuidString
+//取数据的key
+let ZToken = "access_token"
+let ZCollegeName = "CollegeName"
 //颜色
 func RGBA(_ r:Int,g:Int,b:Int,a:Float) -> UIColor {
     let R = Float(r)
@@ -44,10 +47,14 @@ func YH(_ view:UIView) -> CGFloat {
     return view.frame.origin.y+view.frame.size.height
 }
 //存数据
-func UserDefaultSave(_ Key:String,Value:AnyObject) {
-    UserDefaults().set(Value, forKey: Key)
+func UserDefaultSave(_ Key:String,Value:String?) {
+   UserDefaults().set(Value, forKey: Key)
 }
 //取数据
+func UserDefauTake(_ Key:String) -> String? {
+    return UserDefaults().object(forKey: Key) as! String?
+}
+//删除数据
 func UserDefaultRemove(_ Key:String) {
     UserDefaults().removeObject(forKey: Key)
 }

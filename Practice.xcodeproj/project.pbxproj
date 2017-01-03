@@ -12,6 +12,11 @@
 		8922D2211E13A61800E93EF9 /* URLaddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922D2201E13A61800E93EF9 /* URLaddress.swift */; };
 		89788F601E149EE400C5477F /* InputPasswordCollege.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89788F5F1E149EE400C5477F /* InputPasswordCollege.swift */; };
 		89788F621E150D5D00C5477F /* SwiftMessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89788F611E150D5D00C5477F /* SwiftMessageManager.swift */; };
+		897EFE391E1B42790082D6F4 /* SwiftSlideRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE371E1B42790082D6F4 /* SwiftSlideRootViewController.swift */; };
+		897EFE3A1E1B42790082D6F4 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE381E1B42790082D6F4 /* UIView+Extension.swift */; };
+		897EFE3F1E1B44190082D6F4 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE3E1E1B44190082D6F4 /* HomePageViewController.swift */; };
+		897EFE411E1B443D0082D6F4 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE401E1B443D0082D6F4 /* MessageViewController.swift */; };
+		897EFE431E1B445C0082D6F4 /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE421E1B445C0082D6F4 /* PersonalInformationViewController.swift */; };
 		89F82A1E1E121B720070A857 /* Registered ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A1D1E121B720070A857 /* Registered ViewController.swift */; };
 		89F82A211E121D550070A857 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A201E121D550070A857 /* BaseViewController.swift */; };
 		89F82A241E123DD00070A857 /* RegularExpressions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A231E123DD00070A857 /* RegularExpressions.swift */; };
@@ -52,6 +57,11 @@
 		8922D2201E13A61800E93EF9 /* URLaddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLaddress.swift; sourceTree = "<group>"; };
 		89788F5F1E149EE400C5477F /* InputPasswordCollege.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputPasswordCollege.swift; sourceTree = "<group>"; };
 		89788F611E150D5D00C5477F /* SwiftMessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMessageManager.swift; sourceTree = "<group>"; };
+		897EFE371E1B42790082D6F4 /* SwiftSlideRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSlideRootViewController.swift; sourceTree = "<group>"; };
+		897EFE381E1B42790082D6F4 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		897EFE3E1E1B44190082D6F4 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		897EFE401E1B443D0082D6F4 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		897EFE421E1B445C0082D6F4 /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
 		89F82A1D1E121B720070A857 /* Registered ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Registered ViewController.swift"; sourceTree = "<group>"; };
 		89F82A201E121D550070A857 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		89F82A231E123DD00070A857 /* RegularExpressions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularExpressions.swift; sourceTree = "<group>"; };
@@ -136,9 +146,44 @@
 			name = M;
 			sourceTree = "<group>";
 		};
+		897EFE361E1B42790082D6F4 /* 侧滑 */ = {
+			isa = PBXGroup;
+			children = (
+				897EFE371E1B42790082D6F4 /* SwiftSlideRootViewController.swift */,
+				897EFE381E1B42790082D6F4 /* UIView+Extension.swift */,
+			);
+			name = "侧滑";
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		897EFE3B1E1B43B50082D6F4 /* 主页 */ = {
+			isa = PBXGroup;
+			children = (
+				897EFE3E1E1B44190082D6F4 /* HomePageViewController.swift */,
+			);
+			name = "主页";
+			sourceTree = "<group>";
+		};
+		897EFE3C1E1B43BF0082D6F4 /* 消息 */ = {
+			isa = PBXGroup;
+			children = (
+				897EFE401E1B443D0082D6F4 /* MessageViewController.swift */,
+			);
+			name = "消息";
+			sourceTree = "<group>";
+		};
+		897EFE3D1E1B43C50082D6F4 /* 个人信息 */ = {
+			isa = PBXGroup;
+			children = (
+				897EFE421E1B445C0082D6F4 /* PersonalInformationViewController.swift */,
+			);
+			name = "个人信息";
+			sourceTree = "<group>";
+		};
 		89F82A181E121AD60070A857 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				897EFE361E1B42790082D6F4 /* 侧滑 */,
 				89F9CCCB1E12103100295C70 /* File.swift */,
 				89F9CCCC1E12103100295C70 /* HttpRequestTool.swift */,
 				89F82A231E123DD00070A857 /* RegularExpressions.swift */,
@@ -216,6 +261,9 @@
 		89F9CC9C1E120FA800295C70 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
+				897EFE3D1E1B43C50082D6F4 /* 个人信息 */,
+				897EFE3C1E1B43BF0082D6F4 /* 消息 */,
+				897EFE3B1E1B43B50082D6F4 /* 主页 */,
 				89F82A221E1237A20070A857 /* Base */,
 				89F82A1C1E121B3B0070A857 /* 注册或找回密码 */,
 				89F82A191E121AE30070A857 /* Main */,
@@ -436,7 +484,10 @@
 			files = (
 				89F82A241E123DD00070A857 /* RegularExpressions.swift in Sources */,
 				89F9CCA01E120FA800295C70 /* ViewController.swift in Sources */,
+				897EFE391E1B42790082D6F4 /* SwiftSlideRootViewController.swift in Sources */,
+				897EFE3A1E1B42790082D6F4 /* UIView+Extension.swift in Sources */,
 				89F9CCD01E12103A00295C70 /* LabelAndTFView.swift in Sources */,
+				897EFE431E1B445C0082D6F4 /* PersonalInformationViewController.swift in Sources */,
 				89788F601E149EE400C5477F /* InputPasswordCollege.swift in Sources */,
 				89F9CCCD1E12103100295C70 /* File.swift in Sources */,
 				8922D21F1E139DBF00E93EF9 /* InputPasswordViewController.swift in Sources */,
@@ -444,6 +495,8 @@
 				89F9CC9E1E120FA800295C70 /* AppDelegate.swift in Sources */,
 				89F9CCCE1E12103100295C70 /* HttpRequestTool.swift in Sources */,
 				89F82A261E123FDD0070A857 /* MessageIdentifyViewController.swift in Sources */,
+				897EFE3F1E1B44190082D6F4 /* HomePageViewController.swift in Sources */,
+				897EFE411E1B443D0082D6F4 /* MessageViewController.swift in Sources */,
 				89788F621E150D5D00C5477F /* SwiftMessageManager.swift in Sources */,
 				89F82A211E121D550070A857 /* BaseViewController.swift in Sources */,
 				89F82A1E1E121B720070A857 /* Registered ViewController.swift in Sources */,

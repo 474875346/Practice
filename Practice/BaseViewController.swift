@@ -54,7 +54,7 @@ extension  BaseViewController {
     }
     //MARK:警告弹框
     func WaringTost(Title:String , Body:String) -> Void {
-        SwiftMessageManager.showMessage(layoutType: .MessageView, themeType:.Warning, iconImageType:.light, presentationStyleType:.bottom, title: Title, body: Body, isHiddenBtn: true, seconds: 3)
+        SwiftMessageManager.showMessage(layoutType: .MessageView, themeType:.Warning, iconImageType:.light, presentationStyleType:.top, title: Title, body: Body, isHiddenBtn: true, seconds: 3)
     }
     //MARK:错误弹框
     func ErrorTost() -> Void {
