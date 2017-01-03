@@ -48,6 +48,11 @@ extension  BaseViewController {
     func BackButton() -> Void {
         _ = self.navigationController?.popViewController(animated: true)
     }
+    //MARK:隐藏侧滑
+    func SlideHiend() -> Void {
+        let swiftSlideRoot = UIApplication.shared.keyWindow?.rootViewController as! SwiftSlideRootViewController
+        swiftSlideRoot.slideBack()
+    }
     //MARK:成功弹框
     func SuccessTost(Title:String , Body:String) -> Void {
           SwiftMessageManager.showMessage(layoutType: .MessageView, themeType: .Success, iconImageType: .light, presentationStyleType: .top, title: Title, body: Body, isHiddenBtn: true, seconds: 3)
