@@ -21,6 +21,12 @@
 		897EFE431E1B445C0082D6F4 /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE421E1B445C0082D6F4 /* PersonalInformationViewController.swift */; };
 		897EFE471E1B77A90082D6F4 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE461E1B77A90082D6F4 /* MessageModel.swift */; };
 		897EFE4A1E1B808E0082D6F4 /* MessageForDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE491E1B808E0082D6F4 /* MessageForDetailsViewController.swift */; };
+		89C594071E1C99FF003002EE /* PersonalInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C594051E1C99FF003002EE /* PersonalInformationTableViewCell.swift */; };
+		89C594081E1C99FF003002EE /* PersonalInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89C594061E1C99FF003002EE /* PersonalInformationTableViewCell.xib */; };
+		89C5940B1E1CA6D3003002EE /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C5940A1E1CA6D3003002EE /* PersonalViewController.swift */; };
+		89C5940F1E1CBCB8003002EE /* SetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C5940E1E1CBCB8003002EE /* SetUpViewController.swift */; };
+		89C594131E1CD236003002EE /* gcm.systop.com.cn.cer in Resources */ = {isa = PBXBuildFile; fileRef = 89C594121E1CD236003002EE /* gcm.systop.com.cn.cer */; };
+		89C594171E1CD47A003002EE /* ChangePswViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C594161E1CD47A003002EE /* ChangePswViewController.swift */; };
 		89F82A1E1E121B720070A857 /* Registered ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A1D1E121B720070A857 /* Registered ViewController.swift */; };
 		89F82A211E121D550070A857 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A201E121D550070A857 /* BaseViewController.swift */; };
 		89F82A241E123DD00070A857 /* RegularExpressions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A231E123DD00070A857 /* RegularExpressions.swift */; };
@@ -70,6 +76,12 @@
 		897EFE421E1B445C0082D6F4 /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
 		897EFE461E1B77A90082D6F4 /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		897EFE491E1B808E0082D6F4 /* MessageForDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageForDetailsViewController.swift; sourceTree = "<group>"; };
+		89C594051E1C99FF003002EE /* PersonalInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInformationTableViewCell.swift; sourceTree = "<group>"; };
+		89C594061E1C99FF003002EE /* PersonalInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalInformationTableViewCell.xib; sourceTree = "<group>"; };
+		89C5940A1E1CA6D3003002EE /* PersonalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
+		89C5940E1E1CBCB8003002EE /* SetUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetUpViewController.swift; sourceTree = "<group>"; };
+		89C594121E1CD236003002EE /* gcm.systop.com.cn.cer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gcm.systop.com.cn.cer; sourceTree = "<group>"; };
+		89C594161E1CD47A003002EE /* ChangePswViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePswViewController.swift; sourceTree = "<group>"; };
 		89F82A1D1E121B720070A857 /* Registered ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Registered ViewController.swift"; sourceTree = "<group>"; };
 		89F82A201E121D550070A857 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		89F82A231E123DD00070A857 /* RegularExpressions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularExpressions.swift; sourceTree = "<group>"; };
@@ -182,12 +194,15 @@
 			name = "消息";
 			sourceTree = "<group>";
 		};
-		897EFE3D1E1B43C50082D6F4 /* 个人信息 */ = {
+		897EFE3D1E1B43C50082D6F4 /* 个人设置 */ = {
 			isa = PBXGroup;
 			children = (
-				897EFE421E1B445C0082D6F4 /* PersonalInformationViewController.swift */,
+				89C5940D1E1CBC99003002EE /* 设置 */,
+				89C594091E1CA698003002EE /* 个人信息 */,
+				89C594041E1C99CB003002EE /* V */,
+				89C594031E1C99C5003002EE /* C */,
 			);
-			name = "个人信息";
+			name = "个人设置";
 			sourceTree = "<group>";
 		};
 		897EFE441E1B778E0082D6F4 /* C */ = {
@@ -212,6 +227,64 @@
 				897EFE491E1B808E0082D6F4 /* MessageForDetailsViewController.swift */,
 			);
 			name = "消息详情";
+			sourceTree = "<group>";
+		};
+		89C594031E1C99C5003002EE /* C */ = {
+			isa = PBXGroup;
+			children = (
+				897EFE421E1B445C0082D6F4 /* PersonalInformationViewController.swift */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		89C594041E1C99CB003002EE /* V */ = {
+			isa = PBXGroup;
+			children = (
+				89C594051E1C99FF003002EE /* PersonalInformationTableViewCell.swift */,
+				89C594061E1C99FF003002EE /* PersonalInformationTableViewCell.xib */,
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		89C594091E1CA698003002EE /* 个人信息 */ = {
+			isa = PBXGroup;
+			children = (
+				89C5940C1E1CAA32003002EE /* C */,
+			);
+			name = "个人信息";
+			sourceTree = "<group>";
+		};
+		89C5940C1E1CAA32003002EE /* C */ = {
+			isa = PBXGroup;
+			children = (
+				89C5940A1E1CA6D3003002EE /* PersonalViewController.swift */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		89C5940D1E1CBC99003002EE /* 设置 */ = {
+			isa = PBXGroup;
+			children = (
+				89C594151E1CD43E003002EE /* 修改密码 */,
+				89C594141E1CD438003002EE /* C */,
+			);
+			name = "设置";
+			sourceTree = "<group>";
+		};
+		89C594141E1CD438003002EE /* C */ = {
+			isa = PBXGroup;
+			children = (
+				89C5940E1E1CBCB8003002EE /* SetUpViewController.swift */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		89C594151E1CD43E003002EE /* 修改密码 */ = {
+			isa = PBXGroup;
+			children = (
+				89C594161E1CD47A003002EE /* ChangePswViewController.swift */,
+			);
+			name = "修改密码";
 			sourceTree = "<group>";
 		};
 		89F82A181E121AD60070A857 /* Tool */ = {
@@ -295,7 +368,7 @@
 		89F9CC9C1E120FA800295C70 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
-				897EFE3D1E1B43C50082D6F4 /* 个人信息 */,
+				897EFE3D1E1B43C50082D6F4 /* 个人设置 */,
 				897EFE3C1E1B43BF0082D6F4 /* 消息 */,
 				897EFE3B1E1B43B50082D6F4 /* 主页 */,
 				89F82A221E1237A20070A857 /* Base */,
@@ -306,6 +379,7 @@
 				89F9CCA61E120FA800295C70 /* LaunchScreen.storyboard */,
 				89F9CCA11E120FA800295C70 /* Main.storyboard */,
 				89F9CCA91E120FA800295C70 /* Info.plist */,
+				89C594121E1CD236003002EE /* gcm.systop.com.cn.cer */,
 				892B249E1E1C83E600DAB36C /* tomcat.cer */,
 				892B249F1E1C83E600DAB36C /* client.p12 */,
 			);
@@ -443,6 +517,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89C594081E1C99FF003002EE /* PersonalInformationTableViewCell.xib in Resources */,
+				89C594131E1CD236003002EE /* gcm.systop.com.cn.cer in Resources */,
 				89F9CCA81E120FA800295C70 /* LaunchScreen.storyboard in Resources */,
 				89F9CCA51E120FA800295C70 /* Assets.xcassets in Resources */,
 				892B24A01E1C83E600DAB36C /* tomcat.cer in Resources */,
@@ -522,6 +598,7 @@
 			files = (
 				89F82A241E123DD00070A857 /* RegularExpressions.swift in Sources */,
 				897EFE4A1E1B808E0082D6F4 /* MessageForDetailsViewController.swift in Sources */,
+				89C594071E1C99FF003002EE /* PersonalInformationTableViewCell.swift in Sources */,
 				89F9CCA01E120FA800295C70 /* ViewController.swift in Sources */,
 				897EFE391E1B42790082D6F4 /* SwiftSlideRootViewController.swift in Sources */,
 				897EFE3A1E1B42790082D6F4 /* UIView+Extension.swift in Sources */,
@@ -529,15 +606,18 @@
 				897EFE431E1B445C0082D6F4 /* PersonalInformationViewController.swift in Sources */,
 				89788F601E149EE400C5477F /* InputPasswordCollege.swift in Sources */,
 				89F9CCCD1E12103100295C70 /* File.swift in Sources */,
+				89C5940B1E1CA6D3003002EE /* PersonalViewController.swift in Sources */,
 				8922D21F1E139DBF00E93EF9 /* InputPasswordViewController.swift in Sources */,
 				8922D2211E13A61800E93EF9 /* URLaddress.swift in Sources */,
 				89F9CC9E1E120FA800295C70 /* AppDelegate.swift in Sources */,
 				89F9CCCE1E12103100295C70 /* HttpRequestTool.swift in Sources */,
+				89C594171E1CD47A003002EE /* ChangePswViewController.swift in Sources */,
 				897EFE471E1B77A90082D6F4 /* MessageModel.swift in Sources */,
 				89F82A261E123FDD0070A857 /* MessageIdentifyViewController.swift in Sources */,
 				897EFE3F1E1B44190082D6F4 /* HomePageViewController.swift in Sources */,
 				897EFE411E1B443D0082D6F4 /* MessageViewController.swift in Sources */,
 				89788F621E150D5D00C5477F /* SwiftMessageManager.swift in Sources */,
+				89C5940F1E1CBCB8003002EE /* SetUpViewController.swift in Sources */,
 				89F82A211E121D550070A857 /* BaseViewController.swift in Sources */,
 				89F82A1E1E121B720070A857 /* Registered ViewController.swift in Sources */,
 			);

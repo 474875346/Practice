@@ -21,26 +21,60 @@ class PersonalInformationViewController: BaseViewController,UITableViewDelegate,
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        if !(cell != nil) {
-            cell = UITableViewCell.init(style: .default, reuseIdentifier: "cell")
-        }
         if indexPath.section == 0 {
-            cell?.textLabel?.text = "个人信息"
-        } else if indexPath.section == 1{
+            let cell = Bundle.main.loadNibNamed("PersonalInformationTableViewCell", owner: nil, options: nil)?[0] as! PersonalInformationTableViewCell?
+            cell?.Personalimg?.backgroundColor = UIColor.red
+            LRViewBorderRadius((cell?.Personalimg)!, Radius: 30, Width: 0, Color: UIColor.clear)
+            cell?.Personaltitle.text = "sss"
+            cell?.selectionStyle = .none
+            return cell!
+        } else {
+            var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+            if !(cell != nil) {
+                cell = UITableViewCell.init(style: .default, reuseIdentifier: "cell")
+            }
             cell?.textLabel?.text = "设置"
+            cell?.selectionStyle = .none
+            return cell!
         }
-        cell?.selectionStyle = .none
-        return cell!
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 80
+        }
+        return 44
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            let personal = PersonalViewController()
+            personal.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
+            self.present(personal, animated: true, completion: nil)
+            break
+        default:
+            let Setup = SetUpViewController()
+            Setup.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
+            self.present(Setup, animated: true, completion: nil)
+            break
+        }
         self.SlideHiend()
+    }
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        }
+        return 20
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
+        header.backgroundColor = RGBA(247, g: 247, b: 247, a: 1.0)
+        return header
     }
 }
 private extension PersonalInformationViewController {
     func CreatUI() -> Void {
-        let PersonalInformationTableView = CreateUI.TableView(self as UITableViewDelegate, dataSource: self as UITableViewDataSource, frame: CGRect(x: 0, y: 0, width: 200, height: SCREEN_HEIGHT), style: .grouped)
-        PersonalInformationTableView.sectionHeaderHeight = 20;
+        let PersonalInformationTableView = CreateUI.TableView(self as UITableViewDelegate, dataSource: self as UITableViewDataSource, frame: CGRect(x: 0, y: 0, width: 200, height: SCREEN_HEIGHT), style: .plain)
+        PersonalInformationTableView.backgroundColor = RGBA(247, g: 247, b: 247, a: 1.0)
         PersonalInformationTableView.separatorStyle = .none;
         self.view.addSubview(PersonalInformationTableView)
     }

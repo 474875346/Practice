@@ -60,7 +60,7 @@ class SwiftSlideRootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = RGBA(247, g: 247, b: 247, a: 1.0)
         // 添加手势
         let pan = UIPanGestureRecognizer(target: self, action: #selector(self.panGest(_:)))
         view.addGestureRecognizer(pan)

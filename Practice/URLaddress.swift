@@ -21,3 +21,7 @@ let Student_Register = "/api/student/register"
 let Student_Login = "/api/student/login"
 //消息列表
 let Student_pageQuery = "/api/notice/pageQuery"
+//学员退出登录
+let Student_loginOut = "/api/student/loginOut"
+//修改密码
+let Student_changePass = "/api/student/changePass"
