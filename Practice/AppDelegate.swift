@@ -25,8 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func CreatTabbar() -> Void {
         let home = UINavigationController.init(rootViewController: HomePageViewController())
         home.title = "主页"
+        home.tabBarItem.image = UIImage(named: "tab_home_gray")
+        home.tabBarItem.selectedImage = UIImage(named: "tab_home_blue") 
         let Message = UINavigationController.init(rootViewController: MessageViewController())
         Message.title = "消息"
+        Message.tabBarItem.image = UIImage(named: "tab_message_gray")?.withRenderingMode(.alwaysOriginal)
+        Message.tabBarItem.selectedImage = UIImage(named: "tab_message_blue")?.withRenderingMode(.alwaysOriginal)
         tabbar.viewControllers = [home,Message]
         let TestLeft = UINavigationController.init(rootViewController: PersonalInformationViewController())
 

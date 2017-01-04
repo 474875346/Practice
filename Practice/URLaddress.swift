@@ -25,3 +25,5 @@ let Student_pageQuery = "/api/notice/pageQuery"
 let Student_loginOut = "/api/student/loginOut"
 //修改密码
 let Student_changePass = "/api/student/changePass"
+//学员信息
+let Student_info = "/api/student/info"

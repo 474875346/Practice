@@ -9,7 +9,7 @@
 import UIKit
 
 class PersonalViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
-
+    var StudentInfoModel:[PersonalModel] = [PersonalModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBackImg()
