@@ -135,7 +135,7 @@ private extension MessageIdentifyViewController {
             button.setTitle(NumString.substring(with: NSMakeRange(i, 1)), for: .normal)
         }
         if NumString.length == 6 {
-            HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: VerifyCode, type: .POST, parameters: ["phone":PhoneString,"code":hiddenTF.text!], successed: { (success) in
+            HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: VerifyCode, type: .POST, parameters: ["phone":PhoneString,"code":hiddenTF.text!],SafetyCertification: true, successed: { (success) in
                 let status = success?["status"] as! Int
                 if status == 200 {
                     let inputpsw = InputPasswordViewController()
@@ -168,7 +168,7 @@ private extension MessageIdentifyViewController {
     }
     //MARK:发送验证码
     func SendCodeData() -> Void {
-        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: SendCode, type: .POST, parameters: ["phone":PhoneString,"flag":flag], successed: { (success) in
+        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: SendCode, type: .POST, parameters: ["phone":PhoneString,"flag":flag],SafetyCertification: true, successed: { (success) in
             let status = success?["status"] as! Int
             if status == 200 {
                 self.SuccessTost(Title: "", Body: "验证码已发送")

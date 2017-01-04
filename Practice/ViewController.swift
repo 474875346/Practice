@@ -53,7 +53,7 @@ private extension ViewController {
     }
     //MARK:登录请求
     func LogInData() -> Void {
-        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_Login, type: .POST, parameters: ["client":deviceUUID!,"phone":self.phoneTF.text!,"password":pswTF.text!], successed: { (success) in
+        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_Login, type: .POST, parameters: ["client":deviceUUID!,"phone":self.phoneTF.text!,"password":pswTF.text!], SafetyCertification: true,successed: { (success) in
             let status = success?["status"] as! Int
             if status == 200 {
                 let data = success?["data"] as! NSDictionary

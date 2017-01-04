@@ -63,7 +63,7 @@ private extension Registered_ViewController {
     }
     //MARK:发送验证码
     func SendCodeData() -> Void {
-        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: SendCode, type: .POST, parameters: ["phone":phoneTF.text!,"flag":flag], successed: { (success) in
+        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: SendCode, type: .POST, parameters: ["phone":phoneTF.text!,"flag":flag],SafetyCertification: true, successed: { (success) in
             let status = success?["status"] as! Int
             if status == 200 {
                 let MessageIdentify = MessageIdentifyViewController()

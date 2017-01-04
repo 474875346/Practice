@@ -6,7 +6,7 @@ import UIKit
 import Foundation
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
-let BaseURL = "http://172.16.1.5:8080"
+let BaseURL = "https://172.16.1.5:8443"
 let deviceUUID = UIDevice.current.identifierForVendor?.uuidString
 //取数据的key
 let ZToken = "access_token"

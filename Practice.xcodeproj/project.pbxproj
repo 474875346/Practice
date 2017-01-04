@@ -10,6 +10,8 @@
 		66015722B1EE942C37B5C183 /* Pods_Practice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3A0EBDD55672EB18A279A5 /* Pods_Practice.framework */; };
 		8922D21F1E139DBF00E93EF9 /* InputPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922D21E1E139DBF00E93EF9 /* InputPasswordViewController.swift */; };
 		8922D2211E13A61800E93EF9 /* URLaddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922D2201E13A61800E93EF9 /* URLaddress.swift */; };
+		892B24A01E1C83E600DAB36C /* tomcat.cer in Resources */ = {isa = PBXBuildFile; fileRef = 892B249E1E1C83E600DAB36C /* tomcat.cer */; };
+		892B24A11E1C83E600DAB36C /* client.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 892B249F1E1C83E600DAB36C /* client.p12 */; };
 		89788F601E149EE400C5477F /* InputPasswordCollege.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89788F5F1E149EE400C5477F /* InputPasswordCollege.swift */; };
 		89788F621E150D5D00C5477F /* SwiftMessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89788F611E150D5D00C5477F /* SwiftMessageManager.swift */; };
 		897EFE391E1B42790082D6F4 /* SwiftSlideRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE371E1B42790082D6F4 /* SwiftSlideRootViewController.swift */; };
@@ -57,6 +59,8 @@
 		2D3A0EBDD55672EB18A279A5 /* Pods_Practice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Practice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8922D21E1E139DBF00E93EF9 /* InputPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputPasswordViewController.swift; sourceTree = "<group>"; };
 		8922D2201E13A61800E93EF9 /* URLaddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLaddress.swift; sourceTree = "<group>"; };
+		892B249E1E1C83E600DAB36C /* tomcat.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = tomcat.cer; sourceTree = "<group>"; };
+		892B249F1E1C83E600DAB36C /* client.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = client.p12; sourceTree = "<group>"; };
 		89788F5F1E149EE400C5477F /* InputPasswordCollege.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputPasswordCollege.swift; sourceTree = "<group>"; };
 		89788F611E150D5D00C5477F /* SwiftMessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMessageManager.swift; sourceTree = "<group>"; };
 		897EFE371E1B42790082D6F4 /* SwiftSlideRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSlideRootViewController.swift; sourceTree = "<group>"; };
@@ -302,6 +306,8 @@
 				89F9CCA61E120FA800295C70 /* LaunchScreen.storyboard */,
 				89F9CCA11E120FA800295C70 /* Main.storyboard */,
 				89F9CCA91E120FA800295C70 /* Info.plist */,
+				892B249E1E1C83E600DAB36C /* tomcat.cer */,
+				892B249F1E1C83E600DAB36C /* client.p12 */,
 			);
 			path = Practice;
 			sourceTree = "<group>";
@@ -439,7 +445,9 @@
 			files = (
 				89F9CCA81E120FA800295C70 /* LaunchScreen.storyboard in Resources */,
 				89F9CCA51E120FA800295C70 /* Assets.xcassets in Resources */,
+				892B24A01E1C83E600DAB36C /* tomcat.cer in Resources */,
 				89F9CCA31E120FA800295C70 /* Main.storyboard in Resources */,
+				892B24A11E1C83E600DAB36C /* client.p12 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

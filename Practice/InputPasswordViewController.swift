@@ -117,7 +117,7 @@ private extension InputPasswordViewController {
     }
     //MARK:学院请求
     func collegeData() -> Void {
-        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: collegelist, type: .POST, parameters: ["":""], successed: {
+        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: collegelist, type: .POST, parameters: ["":""],SafetyCertification: true, successed: {
             success in
             let array:NSArray = success?["data"] as! NSArray
             for dic in array {
@@ -176,7 +176,7 @@ private extension InputPasswordViewController {
     }
     //MARK:重置密码
     func ResetPassData() -> Void {
-        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: ResetPsw, type:.POST, parameters: ["phone":PhoneString,"verifyCode":verifyCode,"password":passwordTF.text!], successed: { (success) in
+        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: ResetPsw, type:.POST, parameters: ["phone":PhoneString,"verifyCode":verifyCode,"password":passwordTF.text!],SafetyCertification: true, successed: { (success) in
             let status = success?["status"] as! Int
             if status == 200 {
                 self.SuccessTost(Title: "", Body: "找回密码成功")
@@ -191,7 +191,7 @@ private extension InputPasswordViewController {
     }
     //MARK:注册
     func RegistrationData() -> Void {
-        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_Register, type: .POST, parameters: ["phone":PhoneString,"name":nameTF.text!,"password":passwordTF.text!,"verifyCode":verifyCode,"collegeId":collegeId], successed: { (success) in
+        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_Register, type: .POST, parameters: ["phone":PhoneString,"name":nameTF.text!,"password":passwordTF.text!,"verifyCode":verifyCode,"collegeId":collegeId],SafetyCertification: true, successed: { (success) in
             let status = success?["status"] as! Int
             if status == 200 {
                 self.SuccessTost(Title: "", Body: "注册成功")

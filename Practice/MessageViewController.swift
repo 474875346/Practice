@@ -11,7 +11,7 @@ import MJRefresh
 class MessageViewController: BaseViewController,UITableViewDataSource,UITableViewDelegate {
     var pageNum = 1
     var MessageTableView = UITableView()
-    lazy var MessageDataArray:[MessageModel] = [MessageModel]()
+    var MessageDataArray:[MessageModel] = [MessageModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBackImg()
@@ -19,13 +19,16 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
         self.CreatUI()
         self.MessageData()
     }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.MessageDataArray.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if !(cell != nil) {
-            cell = UITableViewCell.init(style:.subtitle, reuseIdentifier: "cell")
+          cell = UITableViewCell.init(style:.subtitle, reuseIdentifier: "cell")
         }
         let messagemodel = self.MessageDataArray[indexPath.row]
         cell?.detailTextLabel?.text = messagemodel.createTime
@@ -47,10 +50,9 @@ private extension MessageViewController {
         MessageTableView.separatorStyle = .none;
         MessageTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self.pageNum = 1
-            self.MessageDataArray.removeAll()
             self.MessageData()
         })
-        MessageTableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
+        MessageTableView.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: {
             self.pageNum += 1
             self.MessageData()
         })
@@ -58,20 +60,27 @@ private extension MessageViewController {
     }
     //MARK:消息请求
     func MessageData() -> Void {
-        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_pageQuery, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"pageNumber": "\(pageNum)","pageSize":"2"], successed: { (success) in
+        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_pageQuery, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"pageNumber": "\(pageNum)","pageSize":"5"],SafetyCertification: true, successed: { (success) in
             let status = success?["status"] as! Int
             if status == 200 {
                 let DataDic = success?["data"] as! NSDictionary
                 let Datadic = DataDic["data"] as! NSDictionary
+                let hasNextPage = Datadic["hasNextPage"] as! Bool
+                if hasNextPage == false {
+                    self.MessageTableView.mj_footer.endRefreshingWithNoMoreData()
+                }
                 let DataArray = Datadic["data"] as! NSArray
+                if self.pageNum == 1 {
+                    self.MessageDataArray.removeAll()
+                }
                 for dic in DataArray {
                     self.MessageDataArray.append(MessageModel(dic: dic as! [String : Any]))
                 }
+                self.MessageTableView.reloadData()
             } else {
                 let msg = success?["msg"] as! String
                 self.WaringTost(Title: "", Body: msg)
             }
-            self.MessageTableView.reloadData()
         }) { (error) in
             self.ErrorTost()
         }
