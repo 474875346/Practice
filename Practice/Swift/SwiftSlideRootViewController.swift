@@ -90,8 +90,8 @@ class SwiftSlideRootViewController: UIViewController {
                 
                 self.mainVc.view.x = self.trans
                 self.mainVc.view.alpha = (kScreenWidth - self.trans * 0.5 ) / kScreenWidth * 1.0
-                let scale: CGFloat = 1.0 - 0.1 * self.trans / CGFloat(self.slideTranlationX)
-                self.leftVc.view.transform = CGAffineTransform(scaleX: scale, y: scale)
+//                let scale: CGFloat = 1.0 - 0.1 * self.trans / CGFloat(self.slideTranlationX)
+//                self.leftVc.view.transform = CGAffineTransform(scaleX: scale, y: scale)
                 }, completion: { (_) in
                     
                     if self.trans == self.slideTranlationX {
@@ -107,8 +107,8 @@ class SwiftSlideRootViewController: UIViewController {
         } else { // 无动画
             self.mainVc.view.x = self.trans
             self.mainVc.view.alpha = (kScreenWidth - self.trans * 0.5 ) / kScreenWidth * 1.0
-            let scale: CGFloat = 1.0 - 0.1 * self.trans / CGFloat(self.slideTranlationX)
-            self.leftVc.view.transform = CGAffineTransform(scaleX: scale, y: scale)
+//            let scale: CGFloat = 1.0 - 0.1 * self.trans / CGFloat(self.slideTranlationX)
+//            self.leftVc.view.transform = CGAffineTransform(scaleX: scale, y: scale)
             
             if self.trans == self.slideTranlationX {
                 self.addCover()
@@ -128,6 +128,8 @@ class SwiftSlideRootViewController: UIViewController {
         
         let button = UIButton(type: .custom)
         button.tag = 101
+        button.backgroundColor = UIColor.black
+        button.alpha = 0.3
         mainVc.view.addSubview(button)
         button.frame = mainVc.view.bounds
         button.addTarget(self, action: #selector(self.backBtnTouch(_:)), for: .touchUpInside)

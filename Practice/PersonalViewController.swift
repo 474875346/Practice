@@ -10,12 +10,17 @@ import UIKit
 
 class PersonalViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     var StudentInfoModel:[PersonalModel] = [PersonalModel]()
+    lazy var PersonalInformationTableView:UITableView={
+        let PersonalInformationTableView = CreateUI.TableView(self as UITableViewDelegate, dataSource: self as UITableViewDataSource, frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64), style: .plain)
+        PersonalInformationTableView.separatorStyle = .none;
+        self.view.addSubview(PersonalInformationTableView)
+        return PersonalInformationTableView
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBackImg()
         self.addNavTitle(Title: "个人信息")
         self.addBackButton()
-        self.CreatUI()
     }
     //MARK:重写返回方法
     override func BackButton() {
@@ -35,11 +40,4 @@ class PersonalViewController: BaseViewController,UITableViewDelegate,UITableView
     }
 }
 private extension PersonalViewController {
-    //MARK:布局
-    func CreatUI() -> Void {
-        let PersonalInformationTableView = CreateUI.TableView(self as UITableViewDelegate, dataSource: self as UITableViewDataSource, frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64), style: .plain)
-        PersonalInformationTableView.separatorStyle = .none;
-        self.view.addSubview(PersonalInformationTableView)
-    }
-
 }

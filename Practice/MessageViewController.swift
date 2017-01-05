@@ -10,14 +10,27 @@ import UIKit
 import MJRefresh
 class MessageViewController: BaseViewController,UITableViewDataSource,UITableViewDelegate {
     var pageNum = 1
-    var MessageTableView = UITableView()
+    lazy var MessageTableView:UITableView = {
+      let  MessageTableView = CreateUI.TableView(self as UITableViewDelegate, dataSource: self as UITableViewDataSource, frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-108), style: .plain)
+        MessageTableView.separatorStyle = .none;
+        MessageTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+            self.pageNum = 1
+            self.MessageData()
+        })
+        MessageTableView.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: {
+            self.pageNum += 1
+            self.MessageData()
+        })
+        self.view.addSubview(MessageTableView)
+        return MessageTableView
+    }()
     var MessageDataArray:[MessageModel] = [MessageModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBackImg()
         self.addNavTitle(Title: "消息")
-        self.CreatUI()
         self.MessageData()
+        self.MessageTableView.mj_header.beginRefreshing()
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -44,20 +57,6 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
     }
 }
 private extension MessageViewController {
-    //MARK:表格
-    func CreatUI() -> Void {
-        MessageTableView = CreateUI.TableView(self as UITableViewDelegate, dataSource: self as UITableViewDataSource, frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-108), style: .plain)
-        MessageTableView.separatorStyle = .none;
-        MessageTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
-            self.pageNum = 1
-            self.MessageData()
-        })
-        MessageTableView.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: {
-            self.pageNum += 1
-            self.MessageData()
-        })
-        self.view.addSubview(MessageTableView)
-    }
     //MARK:消息请求
     func MessageData() -> Void {
         HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_pageQuery, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"pageNumber": "\(pageNum)","pageSize":"5"],SafetyCertification: true, successed: { (success) in
@@ -77,6 +76,7 @@ private extension MessageViewController {
                     self.MessageDataArray.append(MessageModel(dic: dic as! [String : Any]))
                 }
                 self.MessageTableView.reloadData()
+                 self.MessageTableView.mj_header.endRefreshing()
             } else {
                 let msg = success?["msg"] as! String
                 self.WaringTost(Title: "", Body: msg)
@@ -84,7 +84,6 @@ private extension MessageViewController {
         }) { (error) in
             self.ErrorTost()
         }
-        MessageTableView.mj_header.endRefreshing()
-        MessageTableView.mj_footer.endRefreshing()
+        self.MessageTableView.mj_footer.endRefreshing()
     }
 }
