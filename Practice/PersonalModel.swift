@@ -21,7 +21,7 @@ class PersonalModel: NSObject {
     
     var secret:String = ""
     
-    var sex:String = ""
+    var sex:NSString = ""
     
     var teacherName:String = ""
     

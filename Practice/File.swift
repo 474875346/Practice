@@ -48,7 +48,7 @@ func YH(_ view:UIView) -> CGFloat {
 }
 //存数据
 func UserDefaultSave(_ Key:String,Value:String?) {
-   UserDefaults().set(Value, forKey: Key)
+    UserDefaults().set(Value, forKey: Key)
 }
 //取数据
 func UserDefauTake(_ Key:String) -> String? {

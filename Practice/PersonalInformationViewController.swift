@@ -11,7 +11,7 @@ import Kingfisher
 import SDWebImage
 class PersonalInformationViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource{
     lazy var PersonalInformationTableView:UITableView = {
-        let PersonalInformationTableView = CreateUI.TableView(self as UITableViewDelegate, dataSource: self as UITableViewDataSource, frame: CGRect(x: 0, y: 0, width: 200, height: SCREEN_HEIGHT), style: .plain)
+        let PersonalInformationTableView = CreateUI.TableView(self as UITableViewDelegate, dataSource: self as UITableViewDataSource, frame: CGRect(x: 0, y: 0, width: 200, height: SCREEN_HEIGHT), style: .grouped)
         PersonalInformationTableView.backgroundColor = RGBA(255, g: 255, b: 255, a: 1.0)
         PersonalInformationTableView.separatorStyle = .none;
         return PersonalInformationTableView
@@ -54,9 +54,9 @@ class PersonalInformationViewController: BaseViewController,UITableViewDelegate,
             cell?.selectionStyle = .none
             return cell!
         } else {
-            var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+            var cell = tableView.dequeueReusableCell(withIdentifier: "cell1")
             if !(cell != nil) {
-                cell = UITableViewCell.init(style: .default, reuseIdentifier: "cell")
+                cell = UITableViewCell.init(style: .default, reuseIdentifier: "cell1")
             }
             if indexPath.row == 0 {
                 if self.StudentInfoModel.count > 0 {
@@ -82,6 +82,10 @@ class PersonalInformationViewController: BaseViewController,UITableViewDelegate,
             let personal = PersonalViewController()
             personal.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
             personal.StudentInfoModel = self.StudentInfoModel
+            personal.Personalcallback = { () in
+                self.StudentInfoModel.removeAll()
+                self.StudentInfoData()
+            }
             self.present(personal, animated: true, completion: nil)
             break
         default:
@@ -92,7 +96,7 @@ class PersonalInformationViewController: BaseViewController,UITableViewDelegate,
             case 2:
                 let ChangePsw = ChangePswViewController()
                 ChangePsw.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
-                self.present(ChangePswViewController(), animated: true, completion: nil)
+                self.present(ChangePsw, animated: true, completion: nil)
                 break
             case 3:
                 self.LogInOut()

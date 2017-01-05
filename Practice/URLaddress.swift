@@ -27,3 +27,7 @@ let Student_loginOut = "/api/student/loginOut"
 let Student_changePass = "/api/student/changePass"
 //学员信息
 let Student_info = "/api/student/info"
+//修改头像
+let Student_ChangHead = "/api/student/changeHead"
+//修改学员信息
+let Student_save = "/api/student/save"

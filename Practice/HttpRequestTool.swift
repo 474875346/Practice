@@ -151,10 +151,8 @@ extension HttpRequestTool {
         }
         return identityAndTrust;
     }
-}
-    
     /*
-     *单张上传图片请求
+     *MARK:单张上传图片请求
      *URL：请求网址
      *image：上传图片
      *Parameters：请求参数（字典类型）
@@ -162,19 +160,25 @@ extension HttpRequestTool {
      *Failed：失败请求回调
      */
     func HttpRequestUpload(url:String , parameters:[String:String] , image:UIImage , successed:@escaping(_ resposeObject:AnyObject?)->() , failed:@escaping(_ error:NSError?)->()) {
+        //请求网址
+        let URLString = "\(BaseURL)\(url)"
+        //请求网址和参数的输出
+        print("URL：\(URLString)\nparameters:\(parameters)")
         Alamofire.upload(
             multipartFormData: { multipartFormData in
-                let imageData = UIImagePNGRepresentation(image)!
-                multipartFormData.append(imageData, withName: "file", fileName: "11.png", mimeType: "image/png")
+                let imageData = UIImageJPEGRepresentation(image, 0.5)!
+                let timeInterval = NSDate().timeIntervalSince1970 * 1000
+                multipartFormData.append(imageData, withName: "file", fileName: "\(timeInterval).jpg", mimeType: "jpg")
                 for (key, value) in parameters {
                     multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
                 }
-        },to: url,encodingCompletion: { encodingResult in
+        },to: URLString,encodingCompletion: { encodingResult in
             switch encodingResult {
             case .success(let upload, _, _):
                 upload.responseJSON { response in
                     if response.result.isSuccess {
-                        successed(response.data as AnyObject?)
+                        print(response.result.value as Any)
+                        successed(response.result.value as AnyObject?)
                     }else {
                         failed(response.result.error as NSError?)
                     }
@@ -185,5 +189,4 @@ extension HttpRequestTool {
         }
         )
     }
-
-
+}

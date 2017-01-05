@@ -11,7 +11,7 @@ import MJRefresh
 class MessageViewController: BaseViewController,UITableViewDataSource,UITableViewDelegate {
     var pageNum = 1
     lazy var MessageTableView:UITableView = {
-      let  MessageTableView = CreateUI.TableView(self as UITableViewDelegate, dataSource: self as UITableViewDataSource, frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-108), style: .plain)
+        let  MessageTableView = CreateUI.TableView(self as UITableViewDelegate, dataSource: self as UITableViewDataSource, frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-108), style: .plain)
         MessageTableView.separatorStyle = .none;
         MessageTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self.pageNum = 1
@@ -41,7 +41,7 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if !(cell != nil) {
-          cell = UITableViewCell.init(style:.subtitle, reuseIdentifier: "cell")
+            cell = UITableViewCell.init(style:.subtitle, reuseIdentifier: "cell")
         }
         let messagemodel = self.MessageDataArray[indexPath.row]
         cell?.detailTextLabel?.text = messagemodel.createTime
@@ -67,6 +67,8 @@ private extension MessageViewController {
                 let hasNextPage = Datadic["hasNextPage"] as! Bool
                 if hasNextPage == false {
                     self.MessageTableView.mj_footer.endRefreshingWithNoMoreData()
+                } else {
+                    self.MessageTableView.mj_footer.endRefreshing()
                 }
                 let DataArray = Datadic["data"] as! NSArray
                 if self.pageNum == 1 {
@@ -76,14 +78,16 @@ private extension MessageViewController {
                     self.MessageDataArray.append(MessageModel(dic: dic as! [String : Any]))
                 }
                 self.MessageTableView.reloadData()
-                 self.MessageTableView.mj_header.endRefreshing()
             } else {
                 let msg = success?["msg"] as! String
                 self.WaringTost(Title: "", Body: msg)
+                self.MessageTableView.mj_footer.endRefreshingWithNoMoreData()
             }
+            self.MessageTableView.mj_header.endRefreshing()
         }) { (error) in
             self.ErrorTost()
+            self.MessageTableView.mj_header.endRefreshing()
+            self.MessageTableView.mj_footer.endRefreshing()
         }
-        self.MessageTableView.mj_footer.endRefreshing()
     }
 }

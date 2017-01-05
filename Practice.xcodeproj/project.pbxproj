@@ -28,6 +28,8 @@
 		89C594131E1CD236003002EE /* gcm.systop.com.cn.cer in Resources */ = {isa = PBXBuildFile; fileRef = 89C594121E1CD236003002EE /* gcm.systop.com.cn.cer */; };
 		89C594171E1CD47A003002EE /* ChangePswViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C594161E1CD47A003002EE /* ChangePswViewController.swift */; };
 		89C5941A1E1CE284003002EE /* PersonalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C594191E1CE284003002EE /* PersonalModel.swift */; };
+		89D538A71E1E185900CC5240 /* PersonalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D538A51E1E185900CC5240 /* PersonalTableViewCell.swift */; };
+		89D538A81E1E185900CC5240 /* PersonalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D538A61E1E185900CC5240 /* PersonalTableViewCell.xib */; };
 		89F82A1E1E121B720070A857 /* Registered ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A1D1E121B720070A857 /* Registered ViewController.swift */; };
 		89F82A211E121D550070A857 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A201E121D550070A857 /* BaseViewController.swift */; };
 		89F82A241E123DD00070A857 /* RegularExpressions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A231E123DD00070A857 /* RegularExpressions.swift */; };
@@ -84,6 +86,8 @@
 		89C594121E1CD236003002EE /* gcm.systop.com.cn.cer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gcm.systop.com.cn.cer; sourceTree = "<group>"; };
 		89C594161E1CD47A003002EE /* ChangePswViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePswViewController.swift; sourceTree = "<group>"; };
 		89C594191E1CE284003002EE /* PersonalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalModel.swift; sourceTree = "<group>"; };
+		89D538A51E1E185900CC5240 /* PersonalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalTableViewCell.swift; sourceTree = "<group>"; };
+		89D538A61E1E185900CC5240 /* PersonalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalTableViewCell.xib; sourceTree = "<group>"; };
 		89F82A1D1E121B720070A857 /* Registered ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Registered ViewController.swift"; sourceTree = "<group>"; };
 		89F82A201E121D550070A857 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		89F82A231E123DD00070A857 /* RegularExpressions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularExpressions.swift; sourceTree = "<group>"; };
@@ -253,6 +257,7 @@
 		89C594091E1CA698003002EE /* 个人信息 */ = {
 			isa = PBXGroup;
 			children = (
+				89D538A21E1E180C00CC5240 /* V */,
 				89C5940C1E1CAA32003002EE /* C */,
 			);
 			name = "个人信息";
@@ -296,6 +301,15 @@
 				89C594191E1CE284003002EE /* PersonalModel.swift */,
 			);
 			name = M;
+			sourceTree = "<group>";
+		};
+		89D538A21E1E180C00CC5240 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				89D538A51E1E185900CC5240 /* PersonalTableViewCell.swift */,
+				89D538A61E1E185900CC5240 /* PersonalTableViewCell.xib */,
+			);
+			name = V;
 			sourceTree = "<group>";
 		};
 		89F82A181E121AD60070A857 /* Tool */ = {
@@ -529,6 +543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89C594081E1C99FF003002EE /* PersonalInformationTableViewCell.xib in Resources */,
+				89D538A81E1E185900CC5240 /* PersonalTableViewCell.xib in Resources */,
 				89C594131E1CD236003002EE /* gcm.systop.com.cn.cer in Resources */,
 				89F9CCA81E120FA800295C70 /* LaunchScreen.storyboard in Resources */,
 				89F9CCA51E120FA800295C70 /* Assets.xcassets in Resources */,
@@ -610,6 +625,7 @@
 				89F82A241E123DD00070A857 /* RegularExpressions.swift in Sources */,
 				897EFE4A1E1B808E0082D6F4 /* MessageForDetailsViewController.swift in Sources */,
 				89C594071E1C99FF003002EE /* PersonalInformationTableViewCell.swift in Sources */,
+				89D538A71E1E185900CC5240 /* PersonalTableViewCell.swift in Sources */,
 				89F9CCA01E120FA800295C70 /* ViewController.swift in Sources */,
 				897EFE391E1B42790082D6F4 /* SwiftSlideRootViewController.swift in Sources */,
 				897EFE3A1E1B42790082D6F4 /* UIView+Extension.swift in Sources */,
