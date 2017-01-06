@@ -44,6 +44,30 @@ class HomePageViewController: BaseViewController,UICollectionViewDelegate,UIColl
         cell.HomeTitle.text = titleArray[indexPath.row]
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            let VC = SignInViewController()
+            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 3)!
+            self.present(VC, animated: true, completion: nil)
+            break
+        case 1:
+            let VC = SignInRecordViewController()
+            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 3)!
+            self.present(VC, animated: true, completion: nil)
+            break
+        case 2:
+            let VC = MonthlyReportViewController()
+            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 3)!
+            self.present(VC, animated: true, completion: nil)
+            break
+        default:
+            let VC = MonthlyRecordViewController()
+            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 3)!
+            self.present(VC, animated: true, completion: nil)
+            break
+        }
+    }
 }
 private extension HomePageViewController {
     func CreateUI() -> Void {
