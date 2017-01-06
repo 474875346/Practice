@@ -58,7 +58,7 @@ private extension InputPasswordViewController {
         }
         //注册或找回密码
         nextButton = UIButton(type: .custom)
-        nextButton?.frame = CGRect(x: 0.05 * SCREEN_WIDTH, y: 150, width: 0.9 * SCREEN_WIDTH, height: 40)
+        nextButton?.frame = CGRect(x: 0.05 * SCREEN_WIDTH, y: 320, width: 0.9 * SCREEN_WIDTH, height: 40)
         LRViewBorderRadius(nextButton!, Radius: 5, Width: 0, Color: UIColor.clear)
         nextButton?.alpha = 0.3
         nextButton?.isUserInteractionEnabled = false

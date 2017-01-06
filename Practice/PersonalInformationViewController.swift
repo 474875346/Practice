@@ -194,7 +194,8 @@ private extension PersonalInformationViewController {
                 self.SuccessTost(Title: "", Body: "退出登录成功")
                 UserDefaultRemove(ZToken)
                 UserDefaultRemove(ZCollegeName)
-                self.present(ViewController(), animated: true, completion: nil)
+                let nav = UINavigationController(rootViewController: ViewController())
+                self.present(nav, animated: true, completion: nil)
             } else {
                 let msg = success?["msg"] as! String
                 self.WaringTost(Title: "", Body: msg)

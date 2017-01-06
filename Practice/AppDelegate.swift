@@ -10,7 +10,7 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    var ocSlide = SwiftSlideRootViewController.init(nil)
     var window: UIWindow?
     let tabbar = UITabBarController()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -32,10 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Message.tabBarItem.image = UIImage(named: "tab_message_gray")?.withRenderingMode(.alwaysOriginal)
         Message.tabBarItem.selectedImage = UIImage(named: "tab_message_blue")?.withRenderingMode(.alwaysOriginal)
         tabbar.viewControllers = [home,Message]
-        let TestLeft = UINavigationController.init(rootViewController: PersonalInformationViewController())
+        let TestLeft =  PersonalInformationViewController()
 
-        let ocSlide = SwiftSlideRootViewController.init(leftVc: TestLeft, mainVc: tabbar, slideTranlationX: 200.0)
-        self.window?.rootViewController = ocSlide
+         ocSlide = SwiftSlideRootViewController.init(leftVc: TestLeft, mainVc: tabbar, slideTranlationX: 200.0)
+        let SlideNav = UINavigationController(rootViewController: ocSlide)
+        self.window?.rootViewController = SlideNav
     }
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

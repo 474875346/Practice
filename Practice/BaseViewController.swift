@@ -50,8 +50,8 @@ extension  BaseViewController {
     }
     //MARK:隐藏侧滑
     func SlideHiend() -> Void {
-        let swiftSlideRoot = UIApplication.shared.keyWindow?.rootViewController as! SwiftSlideRootViewController
-        swiftSlideRoot.slideBack()
+        let swiftSlideRoot = UIApplication.shared.delegate as! AppDelegate
+        swiftSlideRoot.ocSlide.slideBack()
     }
     //MARK:成功弹框
     func SuccessTost(Title:String , Body:String) -> Void {

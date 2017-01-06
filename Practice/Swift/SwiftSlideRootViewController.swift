@@ -31,7 +31,6 @@ class SwiftSlideRootViewController: UIViewController {
     init(leftVc: UIViewController, mainVc: UIViewController, slideTranlationX: CGFloat) {
         
         super.init(nibName: nil, bundle: nil)
-        
         self.slideTranlationX = 200
         if (slideTranlationX < 200 || slideTranlationX == 0) {
             self.slideTranlationX = 200
@@ -46,7 +45,13 @@ class SwiftSlideRootViewController: UIViewController {
         
         
     }
-    
+    init(_ coder: NSCoder? = nil) {
+        if let coder = coder {
+            super.init(coder: coder)!
+        } else {
+            super.init(nibName: nil, bundle:nil)
+        }
+    }
     
     override func loadView() {
         super.loadView()
@@ -60,12 +65,11 @@ class SwiftSlideRootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
         self.view.backgroundColor = RGBA(247, g: 247, b: 247, a: 1.0)
         // 添加手势
         let pan = UIPanGestureRecognizer(target: self, action: #selector(self.panGest(_:)))
-        view.addGestureRecognizer(pan)
-        
-        
+        view.addGestureRecognizer(pan)        
     }
     
     /**

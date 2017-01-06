@@ -11,6 +11,8 @@ let deviceUUID = UIDevice.current.identifierForVendor?.uuidString
 //取数据的key
 let ZToken = "access_token"
 let ZCollegeName = "CollegeName"
+let ZLogInOut = "LogInOut"
+
 //颜色
 func RGBA(_ r:Int,g:Int,b:Int,a:Float) -> UIColor {
     let R = Float(r)
