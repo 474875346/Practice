@@ -166,7 +166,7 @@ private extension PersonalInformationViewController {
             // 点击确定时开始删除
             for p in files!{
                 let pathstring = p as NSString
-                if !pathstring.isEqual(to: "Preferences") && !pathstring.isEqual(to: "Preferences/zyx.Practice.plist"){
+                if !pathstring.isEqual(to: "Preferences") && !pathstring.isEqual(to: "Preferences/com.systop.Practice.plist"){
                     // 拼接路径
                     let path = cachePath!.appendingFormat("/\(p)")
                     // 判断是否可以删除
@@ -194,6 +194,7 @@ private extension PersonalInformationViewController {
                 self.SuccessTost(Title: "", Body: "退出登录成功")
                 UserDefaultRemove(ZToken)
                 UserDefaultRemove(ZCollegeName)
+                UserDefaults().set(true, forKey: ZLogInOut)
                 let nav = UINavigationController(rootViewController: ViewController())
                 self.present(nav, animated: true, completion: nil)
             } else {

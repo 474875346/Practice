@@ -94,6 +94,11 @@ static NSInteger const kWMControllerCountUndefined = -1;
     }
 }
 
+- (void)forceLayoutSubviews {
+    _hasInited = NO;
+    [self viewDidLayoutSubviews];
+}
+
 - (void)setScrollEnable:(BOOL)scrollEnable {
     _scrollEnable = scrollEnable;
     
@@ -117,7 +122,9 @@ static NSInteger const kWMControllerCountUndefined = -1;
 
 - (void)setCachePolicy:(WMPageControllerCachePolicy)cachePolicy {
     _cachePolicy = cachePolicy;
-    self.memCache.countLimit = _cachePolicy;
+    if (cachePolicy != WMPageControllerCachePolicyDisabled) {
+        self.memCache.countLimit = _cachePolicy;
+    }
 }
 
 - (void)setSelectIndex:(int)selectIndex {
@@ -205,6 +212,20 @@ static NSInteger const kWMControllerCountUndefined = -1;
         self.itemsWidths = [mutableWidths copy];
     }
     [self.menuView updateTitle:title atIndex:index andWidth:YES];
+}
+
+- (void)setShowOnNavigationBar:(BOOL)showOnNavigationBar {
+    if (_showOnNavigationBar == showOnNavigationBar) {
+        return;
+    }
+    
+    _showOnNavigationBar = showOnNavigationBar;
+    if (self.menuView) {
+        [self.menuView removeFromSuperview];
+        [self wm_addMenuView];
+        [self forceLayoutSubviews];
+        [self.menuView slideMenuAtProgress:self.selectIndex];
+    }
 }
 
 #pragma mark - Notification
@@ -324,7 +345,8 @@ static NSInteger const kWMControllerCountUndefined = -1;
 - (void)wm_clearDatas {
     _controllerConut = kWMControllerCountUndefined;
     _hasInited = NO;
-    _selectIndex = self.selectIndex < self.childControllersCount ? self.selectIndex : (int)self.childControllersCount - 1;
+    NSUInteger maxIndex = (self.childControllersCount - 1 > 0) ? (self.childControllersCount - 1) : 0;
+    _selectIndex = self.selectIndex < self.childControllersCount ? self.selectIndex : (int)maxIndex;
     if (self.progressWidth > 0) { self.progressWidth = self.progressWidth; }
     
     NSArray *displayingViewControllers = self.displayVC.allValues;
@@ -398,7 +420,7 @@ static NSInteger const kWMControllerCountUndefined = -1;
     CGFloat navigationHeight = CGRectGetMaxY(self.navigationController.navigationBar.frame);
     UIView *tabBar = [self wm_bottomView];
     CGFloat height = (tabBar && !tabBar.hidden) ? CGRectGetHeight(tabBar.frame) : 0;
-    CGFloat tarBarHeight = (tabBar.hidden == YES) ? 0 : height;
+    CGFloat tarBarHeight = (self.hidesBottomBarWhenPushed == YES) ? 0 : height;
     // 计算相对 window 的绝对 frame (self.view.window 可能为 nil)
     UIWindow *mainWindow = [[UIApplication sharedApplication].delegate window];
     CGRect absoluteRect = [self.view convertRect:self.view.bounds toView:mainWindow];
@@ -561,10 +583,15 @@ static NSInteger const kWMControllerCountUndefined = -1;
     [self.displayVC removeObjectForKey:@(index)];
     
     // 放入缓存
+    if (self.cachePolicy == WMPageControllerCachePolicyDisabled) {
+        return;
+    }
+    
     if (![self.memCache objectForKey:@(index)]) {
         [self willCachedController:viewController atIndex:index];
         [self.memCache setObject:viewController forKey:@(index)];
     }
+
 }
 
 - (void)wm_backToPositionIfNeeded:(UIViewController *)controller atIndex:(NSInteger)index {

@@ -7,18 +7,22 @@
 //
 
 import UIKit
-
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate {
     var ocSlide = SwiftSlideRootViewController.init(nil)
     var window: UIWindow?
     let tabbar = UITabBarController()
+    var _mapManager: BMKMapManager?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if (UserDefauTake(ZToken) != nil) {
             self.CreatTabbar()
         } else {
             let nav = UINavigationController(rootViewController: ViewController())
             self.window?.rootViewController = nav
+        }
+        let ret = _mapManager?.start("Ux1AngR0ftQ8QSKmPLWcYYumBeA7uch", generalDelegate: self)
+        if ret == false {
+            NSLog("manager start failed!")
         }
         return true
     }

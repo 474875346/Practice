@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		66015722B1EE942C37B5C183 /* Pods_Practice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3A0EBDD55672EB18A279A5 /* Pods_Practice.framework */; };
+		890ECC291E1F664C00AE0F3D /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 890ECC281E1F664C00AE0F3D /* libstdc++.6.0.9.tbd */; };
+		890ECC2B1E1F665900AE0F3D /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 890ECC2A1E1F665900AE0F3D /* libsqlite3.0.tbd */; };
+		890ECC2D1E1F6A3600AE0F3D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890ECC2C1E1F6A3600AE0F3D /* CoreLocation.framework */; };
+		890ECC2F1E1F6A3F00AE0F3D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890ECC2E1E1F6A3F00AE0F3D /* QuartzCore.framework */; };
+		890ECC311E1F6A4700AE0F3D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890ECC301E1F6A4700AE0F3D /* OpenGLES.framework */; };
+		890ECC331E1F6A4F00AE0F3D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890ECC321E1F6A4F00AE0F3D /* SystemConfiguration.framework */; };
+		890ECC351E1F6A5900AE0F3D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890ECC341E1F6A5900AE0F3D /* CoreGraphics.framework */; };
+		890ECC371E1F6A6200AE0F3D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890ECC361E1F6A6200AE0F3D /* Security.framework */; };
+		890ECC391E1F6A7100AE0F3D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890ECC381E1F6A7100AE0F3D /* CoreTelephony.framework */; };
 		8922D21F1E139DBF00E93EF9 /* InputPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922D21E1E139DBF00E93EF9 /* InputPasswordViewController.swift */; };
 		8922D2211E13A61800E93EF9 /* URLaddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922D2201E13A61800E93EF9 /* URLaddress.swift */; };
 		892B24A01E1C83E600DAB36C /* tomcat.cer in Resources */ = {isa = PBXBuildFile; fileRef = 892B249E1E1C83E600DAB36C /* tomcat.cer */; };
@@ -73,6 +82,17 @@
 /* Begin PBXFileReference section */
 		13E54BCFBD4A3E540ABAB2AA /* Pods-Practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Practice/Pods-Practice.debug.xcconfig"; sourceTree = "<group>"; };
 		2D3A0EBDD55672EB18A279A5 /* Pods_Practice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Practice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		890ECC151E1F5E5C00AE0F3D /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		890ECC281E1F664C00AE0F3D /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		890ECC2A1E1F665900AE0F3D /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		890ECC2C1E1F6A3600AE0F3D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		890ECC2E1E1F6A3F00AE0F3D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		890ECC301E1F6A4700AE0F3D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		890ECC321E1F6A4F00AE0F3D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		890ECC341E1F6A5900AE0F3D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		890ECC361E1F6A6200AE0F3D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		890ECC381E1F6A7100AE0F3D /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		890ECC3A1E1F6CE200AE0F3D /* Practice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Practice.entitlements; sourceTree = "<group>"; };
 		8922D21E1E139DBF00E93EF9 /* InputPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputPasswordViewController.swift; sourceTree = "<group>"; };
 		8922D2201E13A61800E93EF9 /* URLaddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLaddress.swift; sourceTree = "<group>"; };
 		892B249E1E1C83E600DAB36C /* tomcat.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = tomcat.cer; sourceTree = "<group>"; };
@@ -130,6 +150,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				890ECC391E1F6A7100AE0F3D /* CoreTelephony.framework in Frameworks */,
+				890ECC371E1F6A6200AE0F3D /* Security.framework in Frameworks */,
+				890ECC351E1F6A5900AE0F3D /* CoreGraphics.framework in Frameworks */,
+				890ECC331E1F6A4F00AE0F3D /* SystemConfiguration.framework in Frameworks */,
+				890ECC311E1F6A4700AE0F3D /* OpenGLES.framework in Frameworks */,
+				890ECC2F1E1F6A3F00AE0F3D /* QuartzCore.framework in Frameworks */,
+				890ECC2D1E1F6A3600AE0F3D /* CoreLocation.framework in Frameworks */,
+				890ECC2B1E1F665900AE0F3D /* libsqlite3.0.tbd in Frameworks */,
+				890ECC291E1F664C00AE0F3D /* libstdc++.6.0.9.tbd in Frameworks */,
 				66015722B1EE942C37B5C183 /* Pods_Practice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,6 +192,15 @@
 		6C78D2BB9401ABED259BF585 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				890ECC381E1F6A7100AE0F3D /* CoreTelephony.framework */,
+				890ECC361E1F6A6200AE0F3D /* Security.framework */,
+				890ECC341E1F6A5900AE0F3D /* CoreGraphics.framework */,
+				890ECC321E1F6A4F00AE0F3D /* SystemConfiguration.framework */,
+				890ECC301E1F6A4700AE0F3D /* OpenGLES.framework */,
+				890ECC2E1E1F6A3F00AE0F3D /* QuartzCore.framework */,
+				890ECC2C1E1F6A3600AE0F3D /* CoreLocation.framework */,
+				890ECC2A1E1F665900AE0F3D /* libsqlite3.0.tbd */,
+				890ECC281E1F664C00AE0F3D /* libstdc++.6.0.9.tbd */,
 				2D3A0EBDD55672EB18A279A5 /* Pods_Practice.framework */,
 			);
 			name = Frameworks;
@@ -406,6 +444,7 @@
 				89F82A231E123DD00070A857 /* RegularExpressions.swift */,
 				8922D2201E13A61800E93EF9 /* URLaddress.swift */,
 				89788F611E150D5D00C5477F /* SwiftMessageManager.swift */,
+				890ECC151E1F5E5C00AE0F3D /* Header.h */,
 			);
 			name = Tool;
 			sourceTree = "<group>";
@@ -478,6 +517,7 @@
 		89F9CC9C1E120FA800295C70 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
+				890ECC3A1E1F6CE200AE0F3D /* Practice.entitlements */,
 				897EFE3D1E1B43C50082D6F4 /* 个人设置 */,
 				897EFE3C1E1B43BF0082D6F4 /* 消息 */,
 				897EFE3B1E1B43B50082D6F4 /* 主页 */,
@@ -585,8 +625,16 @@
 				TargetAttributes = {
 					89F9CC991E120FA800295C70 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = VALQ39Y9P2;
+						DevelopmentTeam = 35Y53EQ9AR;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					89F9CCAD1E120FA900295C70 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -891,13 +939,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VALQ39Y9P2;
+				CODE_SIGN_ENTITLEMENTS = Practice/Practice.entitlements;
+				DEVELOPMENT_TEAM = 35Y53EQ9AR;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Practice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zyx.Practice;
+				PRODUCT_BUNDLE_IDENTIFIER = com.systop.Practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/xinlongkeji/Desktop/Practice/Practice/Header.h;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = /Users/xinlongkeji/Desktop/Practice/Practice/Header.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -908,13 +959,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VALQ39Y9P2;
+				CODE_SIGN_ENTITLEMENTS = Practice/Practice.entitlements;
+				DEVELOPMENT_TEAM = 35Y53EQ9AR;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Practice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zyx.Practice;
+				PRODUCT_BUNDLE_IDENTIFIER = com.systop.Practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/xinlongkeji/Desktop/Practice/Practice/Header.h;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = /Users/xinlongkeji/Desktop/Practice/Practice/Header.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

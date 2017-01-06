@@ -61,8 +61,13 @@ private extension ViewController {
                 let college = data["collegeName"] as! String?
                 UserDefaultSave("access_token", Value: token)
                 UserDefaultSave("CollegeName", Value: college)
+                if (UserDefaults().object(forKey: ZLogInOut) != nil) {
+                    self.dismiss(animated: true, completion: nil)
+                    UserDefaultRemove(ZLogInOut)
+                } else {
                 let delegate = UIApplication.shared.delegate as! AppDelegate
-                delegate.CreatTabbar()
+                    delegate.CreatTabbar()
+                }
                 self.SuccessTost(Title: "", Body: "登录成功")
             } else {
                 let msg = success?["msg"] as! String

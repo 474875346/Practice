@@ -84,7 +84,7 @@ class CreateUI {
         label.backgroundColor = backgroundColor;
         label.text = title;
         label.frame = frame
-        label.font =  UIFont(name: "HelveticaNeue-Bold", size: CGFloat(font))
+        label.font =  UIFont.systemFont(ofSize: CGFloat(font))
         return label
     }
     //按钮

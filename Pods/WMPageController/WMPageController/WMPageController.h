@@ -21,11 +21,12 @@ FOUNDATION_EXTERN NSString *const _Nonnull WMControllerDidFullyDisplayedNotifica
     and continue to grow back after a while.
     If recieved too much times, the cache policy will stay at 'LowMemory' and don't grow back any more.
  */
-typedef NS_ENUM(NSUInteger, WMPageControllerCachePolicy) {
-    WMPageControllerCachePolicyNoLimit   = 0,  // No limit
-    WMPageControllerCachePolicyLowMemory = 1,  // Low Memory but may block when scroll
-    WMPageControllerCachePolicyBalanced  = 3,  // Balanced ↑ and ↓
-    WMPageControllerCachePolicyHigh      = 5   // High
+typedef NS_ENUM(NSInteger, WMPageControllerCachePolicy) {
+    WMPageControllerCachePolicyDisabled   = -1,  // Disable Cache
+    WMPageControllerCachePolicyNoLimit    = 0,   // No limit
+    WMPageControllerCachePolicyLowMemory  = 1,   // Low Memory but may block when scroll
+    WMPageControllerCachePolicyBalanced   = 3,   // Balanced ↑ and ↓
+    WMPageControllerCachePolicyHigh       = 5    // High
 };
 
 typedef NS_ENUM(NSUInteger, WMPageControllerPreloadPolicy) {
@@ -325,6 +326,8 @@ typedef NS_ENUM(NSUInteger, WMPageControllerPreloadPolicy) {
  */
 - (void)reloadData;
 
+/** 强制重新布局 */
+- (void)forceLayoutSubviews;
 /**
  *  Update designated item's title
     更新指定序号的控制器的标题
