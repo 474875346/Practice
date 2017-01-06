@@ -13,7 +13,7 @@ class SignInRecordViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBackImg()
-        self.addNavTitle(Title: "签到")
+        self.addNavTitle(Title: "签到记录")
         self.addBackButton()
     }
     override func BackButton() {

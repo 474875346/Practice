@@ -48,22 +48,22 @@ class HomePageViewController: BaseViewController,UICollectionViewDelegate,UIColl
         switch indexPath.row {
         case 0:
             let VC = SignInViewController()
-            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 3)!
+            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 1)!
             self.present(VC, animated: true, completion: nil)
             break
         case 1:
             let VC = SignInRecordViewController()
-            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 3)!
+            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 1)!
             self.present(VC, animated: true, completion: nil)
             break
         case 2:
             let VC = MonthlyReportViewController()
-            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 3)!
+            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 1)!
             self.present(VC, animated: true, completion: nil)
             break
         default:
             let VC = MonthlyRecordViewController()
-            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 3)!
+            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 1)!
             self.present(VC, animated: true, completion: nil)
             break
         }

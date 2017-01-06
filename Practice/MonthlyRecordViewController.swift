@@ -13,7 +13,7 @@ class MonthlyRecordViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBackImg()
-        self.addNavTitle(Title: "签到")
+        self.addNavTitle(Title: "月报记录")
         self.addBackButton()
     }
     override func BackButton() {

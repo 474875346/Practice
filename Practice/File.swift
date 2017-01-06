@@ -67,6 +67,14 @@ func LRViewBorderRadius(_ view:UIView,Radius:CGFloat,Width:CGFloat,Color:UIColor
     view.layer.borderWidth=Width
     view.layer.borderColor=Color.cgColor
 }
+//获取当前时间
+func CurrentDate() -> String {
+    let date = NSDate()
+    let timeFormatter = DateFormatter()
+    timeFormatter.dateFormat = "yyy-MM-dd"
+    let strNowTime = timeFormatter.string(from: date as Date) as String
+    return strNowTime
+}
 //UI工厂
 class CreateUI {
     //标签

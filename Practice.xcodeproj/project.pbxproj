@@ -25,6 +25,7 @@
 		89BB00D41E1F385B00F73CB4 /* SignInRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB00D31E1F385B00F73CB4 /* SignInRecordViewController.swift */; };
 		89BB00D61E1F386D00F73CB4 /* MonthlyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB00D51E1F386D00F73CB4 /* MonthlyReportViewController.swift */; };
 		89BB00D81E1F388000F73CB4 /* MonthlyRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB00D71E1F388000F73CB4 /* MonthlyRecordViewController.swift */; };
+		89BB00DC1E1F41FA00F73CB4 /* LineAndLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB00DB1E1F41FA00F73CB4 /* LineAndLabel.swift */; };
 		89C594071E1C99FF003002EE /* PersonalInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C594051E1C99FF003002EE /* PersonalInformationTableViewCell.swift */; };
 		89C594081E1C99FF003002EE /* PersonalInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89C594061E1C99FF003002EE /* PersonalInformationTableViewCell.xib */; };
 		89C5940B1E1CA6D3003002EE /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C5940A1E1CA6D3003002EE /* PersonalViewController.swift */; };
@@ -89,6 +90,7 @@
 		89BB00D31E1F385B00F73CB4 /* SignInRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInRecordViewController.swift; sourceTree = "<group>"; };
 		89BB00D51E1F386D00F73CB4 /* MonthlyReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyReportViewController.swift; sourceTree = "<group>"; };
 		89BB00D71E1F388000F73CB4 /* MonthlyRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyRecordViewController.swift; sourceTree = "<group>"; };
+		89BB00DB1E1F41FA00F73CB4 /* LineAndLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineAndLabel.swift; sourceTree = "<group>"; };
 		89C594051E1C99FF003002EE /* PersonalInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInformationTableViewCell.swift; sourceTree = "<group>"; };
 		89C594061E1C99FF003002EE /* PersonalInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalInformationTableViewCell.xib; sourceTree = "<group>"; };
 		89C5940A1E1CA6D3003002EE /* PersonalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
@@ -257,7 +259,8 @@
 		89BB00CD1E1F381800F73CB4 /* 签到 */ = {
 			isa = PBXGroup;
 			children = (
-				89BB00D11E1F384500F73CB4 /* SignInViewController.swift */,
+				89BB00DA1E1F412D00F73CB4 /* V */,
+				89BB00D91E1F412600F73CB4 /* C */,
 			);
 			name = "签到";
 			sourceTree = "<group>";
@@ -284,6 +287,22 @@
 				89BB00D71E1F388000F73CB4 /* MonthlyRecordViewController.swift */,
 			);
 			name = "月报记录";
+			sourceTree = "<group>";
+		};
+		89BB00D91E1F412600F73CB4 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				89BB00D11E1F384500F73CB4 /* SignInViewController.swift */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		89BB00DA1E1F412D00F73CB4 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				89BB00DB1E1F41FA00F73CB4 /* LineAndLabel.swift */,
+			);
+			name = V;
 			sourceTree = "<group>";
 		};
 		89C594031E1C99C5003002EE /* C */ = {
@@ -697,6 +716,7 @@
 				89BB00D81E1F388000F73CB4 /* MonthlyRecordViewController.swift in Sources */,
 				89F9CCA01E120FA800295C70 /* ViewController.swift in Sources */,
 				89D538AD1E1E3F4600CC5240 /* HomeCollectionViewCell.swift in Sources */,
+				89BB00DC1E1F41FA00F73CB4 /* LineAndLabel.swift in Sources */,
 				897EFE391E1B42790082D6F4 /* SwiftSlideRootViewController.swift in Sources */,
 				897EFE3A1E1B42790082D6F4 /* UIView+Extension.swift in Sources */,
 				89F9CCD01E12103A00295C70 /* LabelAndTFView.swift in Sources */,
