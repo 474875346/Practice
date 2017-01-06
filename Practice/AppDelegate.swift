@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate {
     var ocSlide = SwiftSlideRootViewController.init(nil)
     var window: UIWindow?
     let tabbar = UITabBarController()
-    var _mapManager: BMKMapManager?
+    var _mapManager = BMKMapManager()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if (UserDefauTake(ZToken) != nil) {
             self.CreatTabbar()
@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate {
             let nav = UINavigationController(rootViewController: ViewController())
             self.window?.rootViewController = nav
         }
-        let ret = _mapManager?.start("Ux1AngR0ftQ8QSKmPLWcYYumBeA7uch", generalDelegate: self)
+        let ret = _mapManager.start("UNypGZdhGwwZnUbqSYCuCD7N9DS97gAh", generalDelegate: self)
         if ret == false {
             NSLog("manager start failed!")
         }

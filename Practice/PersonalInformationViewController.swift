@@ -166,7 +166,8 @@ private extension PersonalInformationViewController {
             // 点击确定时开始删除
             for p in files!{
                 let pathstring = p as NSString
-                if !pathstring.isEqual(to: "Preferences") && !pathstring.isEqual(to: "Preferences/com.systop.Practice.plist"){
+                print(NSHomeDirectory(),p)
+                if !pathstring.isEqual(to: "Preferences") && !pathstring.isEqual(to: "Preferences/com.systop.Practice.plist") && !pathstring.isEqual(to: "Caches") {
                     // 拼接路径
                     let path = cachePath!.appendingFormat("/\(p)")
                     // 判断是否可以删除

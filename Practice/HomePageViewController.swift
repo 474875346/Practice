@@ -47,24 +47,23 @@ class HomePageViewController: BaseViewController,UICollectionViewDelegate,UIColl
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-//            let VC = SignInViewController()
-//            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 1)!
-//            self.present(VC, animated: true, completion: nil)
-            self.navigationController?.pushViewController(SignInViewController(), animated: true)
+            let VC = SignInViewController()
+            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
+            self.present(VC, animated: true, completion: nil)
             break
         case 1:
             let VC = SignInRecordViewController()
-            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 1)!
+            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
             self.present(VC, animated: true, completion: nil)
             break
         case 2:
             let VC = MonthlyReportViewController()
-            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 1)!
+            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
             self.present(VC, animated: true, completion: nil)
             break
         default:
             let VC = MonthlyRecordViewController()
-            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 1)!
+            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
             self.present(VC, animated: true, completion: nil)
             break
         }

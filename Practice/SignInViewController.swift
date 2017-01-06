@@ -20,9 +20,9 @@ class SignInViewController: BaseViewController,BMKLocationServiceDelegate,BMKGeo
     //定位
     var locService : BMKLocationService?
     //反地理编码
-    var searcher : BMKGeoCodeSearch?
+    var searcher = BMKGeoCodeSearch()
     //地图
-    var mapView : BMKMapView?
+    var mapView = BMKMapView()
     //纬度
     var latitude = ""
     //经度
@@ -41,16 +41,15 @@ class SignInViewController: BaseViewController,BMKLocationServiceDelegate,BMKGeo
     }
     //MARK:位置更新
     func didUpdate(_ userLocation: BMKUserLocation!) {
-        mapView?.updateLocationData(userLocation)
+        mapView.updateLocationData(userLocation)
         longitude = "\(userLocation.location.coordinate.longitude)"
         latitude = "\(userLocation.location.coordinate.latitude)"
-        searcher = BMKGeoCodeSearch()
-        searcher?.delegate = self
+        searcher.delegate = self
         let pt = CLLocationCoordinate2D(latitude: userLocation.location.coordinate.latitude, longitude: userLocation.location.coordinate.longitude)
         let reverseGeoCodeSearchOption = BMKReverseGeoCodeOption()
         reverseGeoCodeSearchOption.reverseGeoPoint = pt
-        let flag = searcher?.reverseGeoCode(reverseGeoCodeSearchOption)
-        if flag! {
+        let flag = searcher.reverseGeoCode(reverseGeoCodeSearchOption)
+        if flag {
             print("反geo检索发送成功")
         } else {
             print("反geo检索发送失败")
@@ -60,7 +59,7 @@ class SignInViewController: BaseViewController,BMKLocationServiceDelegate,BMKGeo
     func onGetReverseGeoCodeResult(_ searcher: BMKGeoCodeSearch!, result: BMKReverseGeoCodeResult!, errorCode error: BMKSearchErrorCode) {
         if (error == BMK_SEARCH_NO_ERROR) {
             Positioning = result.address
-            mapView?.userTrackingMode = BMKUserTrackingModeNone
+            mapView.userTrackingMode = BMKUserTrackingModeNone
             let view = self.SignInScrollView.viewWithTag(100) as! LineAndLabel
             view.label?.text = Positioning
         } else {
@@ -69,38 +68,38 @@ class SignInViewController: BaseViewController,BMKLocationServiceDelegate,BMKGeo
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        mapView?.viewWillAppear()
-        mapView?.delegate = self // 此处记得不用的时候需要置nil，否则影响内存的释放
+        mapView.viewWillAppear()
+        mapView.delegate = self // 此处记得不用的时候需要置nil，否则影响内存的释放
         locService?.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        mapView?.viewWillDisappear()
-        mapView?.delegate = nil // 不用时，置nil
+        mapView.viewWillDisappear()
+        mapView.delegate = nil // 不用时，置nil
         locService?.delegate = self
     }
 }
 private extension SignInViewController {
     func CreatUI() -> Void {
         print(CurrentDate())
-        let Timeview = LineAndLabel.init(frame: CGRect(x: 0, y: 80, width: SCREEN_WIDTH, height: 35), title:CurrentDate())
+        let Timeview = LineAndLabel.init(frame: CGRect(x: 0, y: 20, width: SCREEN_WIDTH, height: 35), title:CurrentDate())
         self.SignInScrollView.addSubview(Timeview)
         let Positioningview = LineAndLabel.init(frame: CGRect(x: 0, y: YH(Timeview)+20, width: SCREEN_WIDTH, height: 35), title:Positioning)
         Positioningview.tag = 100
         self.SignInScrollView.addSubview(Positioningview)
         //MARK:地图
-        mapView = BMKMapView(frame: CGRect(x: 20, y: YH(Positioningview)+20, width: SCREEN_WIDTH-40, height: 200))
-        mapView?.showsUserLocation = true
-        mapView?.userTrackingMode = BMKUserTrackingModeFollow
-        mapView?.zoomLevel = 18
-        mapView?.gesturesEnabled = false
-        self.SignInScrollView.addSubview(mapView!)
+        mapView.frame = CGRect(x: 20, y: YH(Positioningview)+20, width: SCREEN_WIDTH-40, height: 200)
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = BMKUserTrackingModeFollow
+        mapView.zoomLevel = 18
+        mapView.gesturesEnabled = false
+        self.SignInScrollView.addSubview(mapView)
         //备注
-        let note = CreateUI.Label(UIColor.lightGray, backgroundColor: UIColor.clear, title: "备注", frame: CGRect(x: 20, y: YH(view)+20, width: 120, height: 20), font: 17)
+        let note = CreateUI.Label(UIColor.lightGray, backgroundColor: UIColor.clear, title: "备注", frame: CGRect(x: 20, y: YH(mapView)+20, width: 120, height: 20), font: 17)
         note.tag = 200
         self.SignInScrollView.addSubview(note)
-        let noteSwitch = UISwitch(frame: CGRect(x: SCREEN_WIDTH-80, y: YH(view)+20, width: 60, height: 30))
+        let noteSwitch = UISwitch(frame: CGRect(x: SCREEN_WIDTH-80, y: YH(mapView)+20, width: 60, height: 30))
         noteSwitch.addTarget(self, action: #selector((self.noteswitch(_:))), for: .valueChanged)
         self.SignInScrollView.addSubview(noteSwitch)
         //备注文本框
@@ -108,9 +107,9 @@ private extension SignInViewController {
         self.SignInScrollView.addSubview(textview)
         SignInbutton.backgroundColor = RGBA(76, g: 171, b: 253, a: 1.0)
         SignInbutton.setTitle("签到", for: .normal)
-        SignInbutton.frame = CGRect(x: SCREEN_WIDTH/2-40, y: YH(note)+20, width: 80, height: 80)
+        SignInbutton.frame = CGRect(x: SCREEN_WIDTH/2-60, y: YH(note)+20, width: 120, height: 120)
         SignInbutton.addTarget(self, action: #selector((self.signin)), for: .touchUpInside)
-        LRViewBorderRadius(SignInbutton, Radius: 40, Width: 0, Color: UIColor.clear)
+        LRViewBorderRadius(SignInbutton, Radius: 60, Width: 0, Color: UIColor.clear)
         self.SignInScrollView.addSubview(SignInbutton)
     }
     //签到方法
@@ -123,10 +122,10 @@ private extension SignInViewController {
         if view.isOn {
             textview.frame = CGRect(x: 20, y: YH(note)+20, width: SCREEN_WIDTH-40, height: SCREEN_WIDTH/3)
             textview.isHidden = false
-            SignInbutton.frame = CGRect(x: SCREEN_WIDTH/2-40, y: YH(textview)+20, width: 80, height: 80)
+            SignInbutton.frame = CGRect(x: SCREEN_WIDTH/2-60, y: YH(textview)+20, width: 120, height: 120)
         } else {
             textview.isHidden = true
-            SignInbutton.frame = CGRect(x: SCREEN_WIDTH/2-40, y: YH(note)+20, width: 80, height: 80)
+            SignInbutton.frame = CGRect(x: SCREEN_WIDTH/2-60, y: YH(note)+20, width: 120, height: 120)
         }
         self.SignInScrollView.contentSize = CGSize(width: 0, height: YH(SignInbutton)+30)
     }

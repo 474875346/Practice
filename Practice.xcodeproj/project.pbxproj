@@ -42,6 +42,8 @@
 		89C594131E1CD236003002EE /* gcm.systop.com.cn.cer in Resources */ = {isa = PBXBuildFile; fileRef = 89C594121E1CD236003002EE /* gcm.systop.com.cn.cer */; };
 		89C594171E1CD47A003002EE /* ChangePswViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C594161E1CD47A003002EE /* ChangePswViewController.swift */; };
 		89C5941A1E1CE284003002EE /* PersonalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C594191E1CE284003002EE /* PersonalModel.swift */; };
+		89CBFF2F1E1F8461001CC389 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CBFF2E1E1F8461001CC389 /* libssl.a */; };
+		89CBFF311E1F8475001CC389 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CBFF301E1F8475001CC389 /* libcrypto.a */; };
 		89D538A71E1E185900CC5240 /* PersonalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D538A51E1E185900CC5240 /* PersonalTableViewCell.swift */; };
 		89D538A81E1E185900CC5240 /* PersonalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D538A61E1E185900CC5240 /* PersonalTableViewCell.xib */; };
 		89D538AD1E1E3F4600CC5240 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D538AB1E1E3F4600CC5240 /* HomeCollectionViewCell.swift */; };
@@ -118,6 +120,9 @@
 		89C594121E1CD236003002EE /* gcm.systop.com.cn.cer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gcm.systop.com.cn.cer; sourceTree = "<group>"; };
 		89C594161E1CD47A003002EE /* ChangePswViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePswViewController.swift; sourceTree = "<group>"; };
 		89C594191E1CE284003002EE /* PersonalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalModel.swift; sourceTree = "<group>"; };
+		89CBFF2E1E1F8461001CC389 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = Pods/BaiduMapKit/BaiduMapKit/thirdlibs/libssl.a; sourceTree = "<group>"; };
+		89CBFF301E1F8475001CC389 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = Pods/BaiduMapKit/BaiduMapKit/thirdlibs/libcrypto.a; sourceTree = "<group>"; };
+		89CBFF341E1F857E001CC389 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = "../FoodSafetyAssistant1.0/第三方工具/mapapi.bundle"; sourceTree = "<group>"; };
 		89D538A51E1E185900CC5240 /* PersonalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalTableViewCell.swift; sourceTree = "<group>"; };
 		89D538A61E1E185900CC5240 /* PersonalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalTableViewCell.xib; sourceTree = "<group>"; };
 		89D538AB1E1E3F4600CC5240 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -150,6 +155,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89CBFF311E1F8475001CC389 /* libcrypto.a in Frameworks */,
+				89CBFF2F1E1F8461001CC389 /* libssl.a in Frameworks */,
 				890ECC391E1F6A7100AE0F3D /* CoreTelephony.framework in Frameworks */,
 				890ECC371E1F6A6200AE0F3D /* Security.framework in Frameworks */,
 				890ECC351E1F6A5900AE0F3D /* CoreGraphics.framework in Frameworks */,
@@ -192,6 +199,9 @@
 		6C78D2BB9401ABED259BF585 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				89CBFF341E1F857E001CC389 /* mapapi.bundle */,
+				89CBFF301E1F8475001CC389 /* libcrypto.a */,
+				89CBFF2E1E1F8461001CC389 /* libssl.a */,
 				890ECC381E1F6A7100AE0F3D /* CoreTelephony.framework */,
 				890ECC361E1F6A6200AE0F3D /* Security.framework */,
 				890ECC341E1F6A5900AE0F3D /* CoreGraphics.framework */,
@@ -945,6 +955,10 @@
 				INFOPLIST_FILE = Practice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/BaiduMapKit/BaiduMapKit/thirdlibs",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.systop.Practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = /Users/xinlongkeji/Desktop/Practice/Practice/Header.h;
@@ -965,6 +979,10 @@
 				INFOPLIST_FILE = Practice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/BaiduMapKit/BaiduMapKit/thirdlibs",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.systop.Practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = /Users/xinlongkeji/Desktop/Practice/Practice/Header.h;
