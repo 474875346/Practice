@@ -47,9 +47,10 @@ class HomePageViewController: BaseViewController,UICollectionViewDelegate,UIColl
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            let VC = SignInViewController()
-            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 1)!
-            self.present(VC, animated: true, completion: nil)
+//            let VC = SignInViewController()
+//            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 1)!
+//            self.present(VC, animated: true, completion: nil)
+            self.navigationController?.pushViewController(SignInViewController(), animated: true)
             break
         case 1:
             let VC = SignInRecordViewController()
