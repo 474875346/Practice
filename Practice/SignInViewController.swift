@@ -27,7 +27,8 @@ class SignInViewController: BaseViewController,BMKLocationServiceDelegate,BMKGeo
     var latitude = ""
     //经度
     var longitude = ""
-    
+    //是否签到
+    var isvalidSign : Bool?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBackImg()
@@ -35,6 +36,7 @@ class SignInViewController: BaseViewController,BMKLocationServiceDelegate,BMKGeo
         self.addBackButton()
         self.CreatUI()
         self.LocService()
+        self.validSign()
     }
     override func BackButton() {
         self.dismiss(animated: true, completion: nil)
@@ -58,6 +60,7 @@ class SignInViewController: BaseViewController,BMKLocationServiceDelegate,BMKGeo
     //MARK:反地理编码
     func onGetReverseGeoCodeResult(_ searcher: BMKGeoCodeSearch!, result: BMKReverseGeoCodeResult!, errorCode error: BMKSearchErrorCode) {
         if (error == BMK_SEARCH_NO_ERROR) {
+            locService?.stopUserLocationService()
             Positioning = result.address
             mapView.userTrackingMode = BMKUserTrackingModeNone
             let view = self.SignInScrollView.viewWithTag(100) as! LineAndLabel
@@ -70,14 +73,12 @@ class SignInViewController: BaseViewController,BMKLocationServiceDelegate,BMKGeo
         super.viewWillAppear(animated)
         mapView.viewWillAppear()
         mapView.delegate = self // 此处记得不用的时候需要置nil，否则影响内存的释放
-        locService?.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         mapView.viewWillDisappear()
         mapView.delegate = nil // 不用时，置nil
-        locService?.delegate = self
     }
 }
 private extension SignInViewController {
@@ -106,15 +107,25 @@ private extension SignInViewController {
         LRViewBorderRadius(textview, Radius: 0, Width: 0.5, Color: UIColor.black)
         self.SignInScrollView.addSubview(textview)
         SignInbutton.backgroundColor = RGBA(76, g: 171, b: 253, a: 1.0)
-        SignInbutton.setTitle("签到", for: .normal)
         SignInbutton.frame = CGRect(x: SCREEN_WIDTH/2-60, y: YH(note)+20, width: 120, height: 120)
         SignInbutton.addTarget(self, action: #selector((self.signin)), for: .touchUpInside)
         LRViewBorderRadius(SignInbutton, Radius: 60, Width: 0, Color: UIColor.clear)
         self.SignInScrollView.addSubview(SignInbutton)
     }
-    //签到方法
+    //MARK:签到方法
     @objc func signin() -> Void {
-        
+        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_signIn, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"longitude":longitude,"latitude":latitude,"descn":textview.text,"positionDescn":Positioning], SafetyCertification: true, successed: { (success) in
+            let status = success?["status"] as! Int
+            if status == 200 {
+                self.SuccessTost(Title: "", Body: "签到成功")
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                let msg = success?["msg"] as! String
+                self.WaringTost(Title:"", Body: msg)
+            }
+        }) { (error) in
+            self.ErrorTost()
+        }
     }
     //MARK:选择开关方法
     @objc func noteswitch(_ view : UISwitch ) -> Void {
@@ -132,6 +143,27 @@ private extension SignInViewController {
     //MARK:定位
     func LocService() -> Void {
         locService = BMKLocationService()
+        locService?.delegate = self
         locService?.startUserLocationService()
+    }
+    //MARK:是否签过到
+    func validSign() -> Void {
+        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_validSign, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!], SafetyCertification: true, successed: { (success) in
+            let status = success?["status"] as! Int
+            if status == 200 {
+                self.isvalidSign = success?["data"] as? Bool
+                if self.isvalidSign! {
+                    self.SignInbutton.setTitle("已签到", for: .normal)
+                    self.SignInbutton.isUserInteractionEnabled = false
+                } else {
+                    self.SignInbutton.setTitle("签到", for: .normal)
+                }
+            } else {
+                let msg = success?["msg"] as! String
+                self.WaringTost(Title:"", Body: msg)
+            }
+        }) { (error) in
+            self.ErrorTost()
+        }
     }
 }

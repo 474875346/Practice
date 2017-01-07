@@ -34,6 +34,9 @@
 		89927FD51E20C2BF00BE00CD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89927FD41E20C2BF00BE00CD /* CoreFoundation.framework */; };
 		89927FD71E20C30000BE00CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89927FD61E20C30000BE00CD /* UIKit.framework */; };
 		89927FD91E20C52F00BE00CD /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89927FD01E20C13800BE00CD /* UserNotifications.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		89927FDF1E20E16500BE00CD /* SignInRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89927FDD1E20E16500BE00CD /* SignInRecordTableViewCell.swift */; };
+		89927FE01E20E16500BE00CD /* SignInRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89927FDE1E20E16500BE00CD /* SignInRecordTableViewCell.xib */; };
+		89927FE31E20E3D100BE00CD /* SignInRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89927FE21E20E3D100BE00CD /* SignInRecordModel.swift */; };
 		89BB00D21E1F384500F73CB4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB00D11E1F384500F73CB4 /* SignInViewController.swift */; };
 		89BB00D41E1F385B00F73CB4 /* SignInRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB00D31E1F385B00F73CB4 /* SignInRecordViewController.swift */; };
 		89BB00D61E1F386D00F73CB4 /* MonthlyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB00D51E1F386D00F73CB4 /* MonthlyReportViewController.swift */; };
@@ -119,6 +122,10 @@
 		89927FD21E20C2B100BE00CD /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		89927FD41E20C2BF00BE00CD /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		89927FD61E20C30000BE00CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		89927FDA1E20D9F100BE00CD /* 接口文档.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "接口文档.docx"; sourceTree = "<group>"; };
+		89927FDD1E20E16500BE00CD /* SignInRecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInRecordTableViewCell.swift; sourceTree = "<group>"; };
+		89927FDE1E20E16500BE00CD /* SignInRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInRecordTableViewCell.xib; sourceTree = "<group>"; };
+		89927FE21E20E3D100BE00CD /* SignInRecordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInRecordModel.swift; sourceTree = "<group>"; };
 		89BB00D11E1F384500F73CB4 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		89BB00D31E1F385B00F73CB4 /* SignInRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInRecordViewController.swift; sourceTree = "<group>"; };
 		89BB00D51E1F386D00F73CB4 /* MonthlyReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyReportViewController.swift; sourceTree = "<group>"; };
@@ -331,6 +338,31 @@
 			name = "消息详情";
 			sourceTree = "<group>";
 		};
+		89927FDB1E20E14000BE00CD /* C */ = {
+			isa = PBXGroup;
+			children = (
+				89BB00D31E1F385B00F73CB4 /* SignInRecordViewController.swift */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		89927FDC1E20E14600BE00CD /* V */ = {
+			isa = PBXGroup;
+			children = (
+				89927FDD1E20E16500BE00CD /* SignInRecordTableViewCell.swift */,
+				89927FDE1E20E16500BE00CD /* SignInRecordTableViewCell.xib */,
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		89927FE11E20E3BD00BE00CD /* M */ = {
+			isa = PBXGroup;
+			children = (
+				89927FE21E20E3D100BE00CD /* SignInRecordModel.swift */,
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
 		89BB00CD1E1F381800F73CB4 /* 签到 */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,7 +375,9 @@
 		89BB00CE1E1F381E00F73CB4 /* 签到记录 */ = {
 			isa = PBXGroup;
 			children = (
-				89BB00D31E1F385B00F73CB4 /* SignInRecordViewController.swift */,
+				89927FE11E20E3BD00BE00CD /* M */,
+				89927FDC1E20E14600BE00CD /* V */,
+				89927FDB1E20E14000BE00CD /* C */,
 			);
 			name = "签到记录";
 			sourceTree = "<group>";
@@ -566,6 +600,7 @@
 				89F9CCA41E120FA800295C70 /* Assets.xcassets */,
 				89F9CCA61E120FA800295C70 /* LaunchScreen.storyboard */,
 				89F9CCA11E120FA800295C70 /* Main.storyboard */,
+				89927FDA1E20D9F100BE00CD /* 接口文档.docx */,
 				89F9CCA91E120FA800295C70 /* Info.plist */,
 				89C594121E1CD236003002EE /* gcm.systop.com.cn.cer */,
 				892B249E1E1C83E600DAB36C /* tomcat.cer */,
@@ -715,6 +750,7 @@
 			files = (
 				89C594081E1C99FF003002EE /* PersonalInformationTableViewCell.xib in Resources */,
 				89D538A81E1E185900CC5240 /* PersonalTableViewCell.xib in Resources */,
+				89927FE01E20E16500BE00CD /* SignInRecordTableViewCell.xib in Resources */,
 				89C594131E1CD236003002EE /* gcm.systop.com.cn.cer in Resources */,
 				89F9CCA81E120FA800295C70 /* LaunchScreen.storyboard in Resources */,
 				89D538AE1E1E3F4600CC5240 /* HomeCollectionViewCell.xib in Resources */,
@@ -808,6 +844,7 @@
 				89F9CCD01E12103A00295C70 /* LabelAndTFView.swift in Sources */,
 				897EFE431E1B445C0082D6F4 /* PersonalInformationViewController.swift in Sources */,
 				89788F601E149EE400C5477F /* InputPasswordCollege.swift in Sources */,
+				89927FE31E20E3D100BE00CD /* SignInRecordModel.swift in Sources */,
 				89F9CCCD1E12103100295C70 /* File.swift in Sources */,
 				89C5940B1E1CA6D3003002EE /* PersonalViewController.swift in Sources */,
 				8922D21F1E139DBF00E93EF9 /* InputPasswordViewController.swift in Sources */,
@@ -826,6 +863,7 @@
 				89C5940F1E1CBCB8003002EE /* SetUpViewController.swift in Sources */,
 				89F82A211E121D550070A857 /* BaseViewController.swift in Sources */,
 				89F82A1E1E121B720070A857 /* Registered ViewController.swift in Sources */,
+				89927FDF1E20E16500BE00CD /* SignInRecordTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

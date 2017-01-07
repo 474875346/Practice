@@ -33,3 +33,9 @@ let Student_ChangHead = "/api/student/changeHead"
 let Student_save = "/api/student/save"
 //消息未读条数
 let Student_unread = "/api/notice/unread"
+//学员是否签到
+let Student_validSign = "/api/sign/validSign"
+//学员签到
+let Student_signIn = "/api/sign/signIn"
+//学员签到记录
+let Student_signRecord = "/api/sign/signRecord"

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MJRefresh
 class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
