@@ -31,3 +31,5 @@ let Student_info = "/api/student/info"
 let Student_ChangHead = "/api/student/changeHead"
 //修改学员信息
 let Student_save = "/api/student/save"
+//消息未读条数
+let Student_unread = "/api/notice/unread"

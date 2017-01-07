@@ -6,12 +6,15 @@ import UIKit
 import Foundation
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
-let BaseURL = "http://gcm.systop.com.cn"
+//let BaseURL = "http://gcm.systop.com.cn"
+let BaseURL = "http://172.16.1.5:9001"
 let deviceUUID = UIDevice.current.identifierForVendor?.uuidString
 //取数据的key
 let ZToken = "access_token"
 let ZCollegeName = "CollegeName"
 let ZLogInOut = "LogInOut"
+let ZregistID = "registID"
+let ZhaveBieMing = "haveBieMing"
 
 //颜色
 func RGBA(_ r:Int,g:Int,b:Int,a:Float) -> UIColor {

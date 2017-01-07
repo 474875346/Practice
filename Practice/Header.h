@@ -16,4 +16,6 @@
 #import <BaiduMapAPI_Utils/BMKUtilsComponent.h>//引入计算工具所有的头文件
 #import <BaiduMapAPI_Radar/BMKRadarComponent.h>//引入周边雷达功能所有的头文件
 #import <BaiduMapAPI_Map/BMKMapView.h>//只引入所需的单个头文件
+#import "JPUSHService.h"
+#import <UserNotifications/UserNotifications.h>
 #endif /* Header_h */

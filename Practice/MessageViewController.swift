@@ -30,7 +30,13 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
         self.addNavBackImg()
         self.addNavTitle(Title: "消息")
         self.MessageData()
+        self.Unread()
         self.MessageTableView.mj_header.beginRefreshing()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.MessageTableView.mj_header.beginRefreshing()
+        self.Unread()
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -57,12 +63,23 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
     }
 }
 private extension MessageViewController {
+//    //MARK:监听是否有新消息
+//    func NewMessage() -> Void {
+//        NotificationCenter.default.addObserver(self, selector: #selector((self.freshTableview)), name: NSNotification.Name(rawValue: "newMessage"), object: nil)
+//    }
+//    @objc func freshTableview() -> Void {
+//
+//    }
     //MARK:消息请求
     func MessageData() -> Void {
         HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_pageQuery, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"pageNumber": "\(pageNum)","pageSize":"5"],SafetyCertification: true, successed: { (success) in
             let status = success?["status"] as! Int
             if status == 200 {
                 let DataDic = success?["data"] as! NSDictionary
+                let rows = DataDic["rows"] as! Int
+                if rows == 0 {
+                    UIApplication.shared.applicationIconBadgeNumber = 0
+                }
                 let Datadic = DataDic["data"] as! NSDictionary
                 let hasNextPage = Datadic["hasNextPage"] as! Bool
                 if hasNextPage == false {
@@ -88,6 +105,23 @@ private extension MessageViewController {
             self.ErrorTost()
             self.MessageTableView.mj_header.endRefreshing()
             self.MessageTableView.mj_footer.endRefreshing()
+        }
+    }
+    //MARK:获取个数
+    func Unread() -> Void {
+        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_unread, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!], SafetyCertification: true, successed: { (success) in
+            let status = success?["status"] as! Int
+            if status == 200 {
+                let delegate = UIApplication.shared.delegate as! AppDelegate
+                let badgeValue = success?["data"] as! Int
+                let items = delegate.tabbar.tabBar.items?[1]
+                if badgeValue == 0 {
+                    items?.badgeValue = nil
+                } else {
+                    items?.badgeValue = "\(badgeValue)"
+                }
+            }
+        }) { (error) in
         }
     }
 }
