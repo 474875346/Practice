@@ -126,13 +126,15 @@ private extension PersonalInformationViewController {
         HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_info, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!], SafetyCertification: true, successed: { (success) in
             let status = success?["status"] as! Int
             if status == 200 {
+                SDImageCache.shared().clearDisk()
+                SDImageCache.shared().clearMemory()
                 let data = success?["data"] as! [String:Any]
                 self.StudentInfoModel.append(PersonalModel.init(dic: data))
+                self.PersonalInformationTableView.reloadData()
             } else {
                 let msg = success?["msg"] as! String
                 self.WaringTost(Title: "", Body: msg)
             }
-            self.PersonalInformationTableView.reloadData()
         }) { (error) in
             self.ErrorTost()
         }
@@ -165,7 +167,7 @@ private extension PersonalInformationViewController {
         let alertConfirm = UIAlertAction(title: "确定", style: UIAlertActionStyle.default) { (alertConfirm) -> Void in
             // 点击确定时开始删除
             for p in files!{
-//                let pathstring = p as NSString
+                //                let pathstring = p as NSString
                 if (p.range(of: "Preferences") != nil) && (p.range(of: "Caches") != nil) {
                     // 拼接路径
                     let path = cachePath!.appendingFormat("/\(p)")
@@ -192,10 +194,16 @@ private extension PersonalInformationViewController {
             let status = success?["status"] as! Int
             if status == 200 {
                 self.SuccessTost(Title: "", Body: "退出登录成功")
+                JPUSHService.setAlias("", callbackSelector: nil, object: self)
                 UserDefaultRemove(ZToken)
                 UserDefaultRemove(ZCollegeName)
                 UserDefaults().set(true, forKey: ZLogInOut)
-                let nav = UINavigationController(rootViewController: ViewController())
+                let VC = ViewController()
+                VC.backBlcok = {
+                    self.StudentInfoModel.removeAll()
+                    self.StudentInfoData()
+                }
+                let nav = UINavigationController(rootViewController: VC)
                 self.present(nav, animated: true, completion: nil)
             } else {
                 let msg = success?["msg"] as! String

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="month" rowHeight="253" id="KGk-i7-Jjw" customClass="MonthlyRecordTableViewCell" customModule="Practice" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="253"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="253"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gF-RU-27T">
+                        <rect key="frame" x="8" y="44" width="304" height="200.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSS-m5-vYn">
+                        <rect key="frame" x="8" y="18" width="304" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="tfJ-Z4-aLR"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="1gF-RU-27T" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="11h-WZ-RbX"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="1gF-RU-27T" secondAttribute="trailing" id="58w-tH-OI0"/>
+                    <constraint firstItem="vSS-m5-vYn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="5Vg-k8-Uqf"/>
+                    <constraint firstItem="vSS-m5-vYn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="82P-l2-1WX"/>
+                    <constraint firstItem="1gF-RU-27T" firstAttribute="top" secondItem="vSS-m5-vYn" secondAttribute="bottom" constant="5" id="EmP-9X-iHi"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="vSS-m5-vYn" secondAttribute="trailing" id="Ial-C0-ei1"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="1gF-RU-27T" secondAttribute="bottom" id="Igg-Uq-4XE"/>
+                    <constraint firstItem="vSS-m5-vYn" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="pLl-qs-qIW"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="1gF-RU-27T" id="adU-Ss-6Pl"/>
+                <outlet property="timeLabel" destination="vSS-m5-vYn" id="V7L-XZ-F0H"/>
+            </connections>
+            <point key="canvasLocation" x="-87" y="19.5"/>
+        </tableViewCell>
+    </objects>
+</document>

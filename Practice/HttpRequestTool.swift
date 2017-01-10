@@ -189,4 +189,50 @@ extension HttpRequestTool {
         }
         )
     }
+    /**
+     MARK:视频上传
+     
+     - parameter url:        请求网址
+     - parameter parameters: 请求参数
+     - parameter dataArray:  二进制数组
+     - parameter type:       上传类型
+     - parameter successed:  成功回调
+     - parameter failed:     失败回调
+     */
+    func HttpRequestVideoUpload(url:String , parameters:[String:String] , dataArray:NSMutableArray,type:NSMutableArray , successed:@escaping(_ resposeObject:AnyObject?)->() , failed:@escaping(_ error:NSError?)->()) {
+        //请求网址
+        let URLString = "\(BaseURL)\(url)"
+        //请求网址和参数的输出
+        print("URL：\(URLString)\nparameters:\(parameters)")
+        Alamofire.upload(
+            multipartFormData: { multipartFormData in
+               dataArray.enumerateObjects({ (obj, idx, stop) in
+                let data = obj as! Data
+                let timeInterval = NSDate().timeIntervalSince1970 * 1000
+                let mimetype = type[idx] as! String
+                let name = "\(timeInterval)\(idx)"
+                let filename = "\(name)\(idx+1).\(mimetype)"
+                multipartFormData.append(data, withName: name, fileName: filename, mimeType: mimetype)
+               })
+                for (key, value) in parameters {
+                    multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+                }
+        },to: URLString,encodingCompletion: { encodingResult in
+            switch encodingResult {
+            case .success(let upload, _, _):
+                upload.responseJSON { response in
+                    if response.result.isSuccess {
+                        print(response.result.value as Any)
+                        successed(response.result.value as AnyObject?)
+                    }else {
+                        failed(response.result.error as NSError?)
+                    }
+                }
+            case .failure(let encodingError):
+                print(encodingError)
+            }
+        }
+        )
+
+    }
 }

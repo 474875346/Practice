@@ -94,6 +94,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TZImagePickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>UITableView+FDTemplateLayoutCell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -107,6 +112,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0AA638CABDABE5EBC4B3488B7B8821A0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>0F71FC248875B67F53494C44B17B40EB</key>
 		<dict>
 			<key>primary</key>
@@ -117,17 +127,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>272AD19E4C5900C50C5A3C1465F80096</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>4DC30F0F78A3BCC1C484E4C29146A7AC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>541EA59429D295ED54174723C5EB8C09</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,17 +142,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6252ED392DAFED5E1B336CB549EF324B</key>
+		<key>7C5EBEAEDD3B3A8082A5EF951CFAE270</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6C6FCBFFC22CBF6CE38F91078ECD77D3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>732FEA2E4FD23E82B56D5C47B46ADCD9</key>
+		<key>83737B16031967143C3E6DCDA0A3A41F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -162,17 +157,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95B85943C87596085CA5C6EAE307FBFA</key>
+		<key>9921BF6044D705476DBFC7548BF7BBE0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AAAEE1B016792B1A4AB7A1EF622931BE</key>
+		<key>9E7D1803D789898FDD440569211308AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AE7A19BB56493E1A217DA645658B13D4</key>
+		<key>AF3B27A99E6CB1C416929CA94CFCB68F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B5E1A167A56262E557F7B9AABE54D08C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B69398E1832F122817C1F88D9DD96F1E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -198,6 +203,11 @@
 			<true/>
 		</dict>
 		<key>E14A62900910444707A5504D25EC98DC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF60FD914D39FBAAA9A886499C6E7DA6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

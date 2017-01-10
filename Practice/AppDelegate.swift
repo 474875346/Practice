@@ -132,7 +132,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate,JPUSHRe
     }
     //MARK:获取个数
     func Unread() -> Void {
-        if (UserDefauTake(ZToken) != nil ){
+        if (UserDefauTake(ZToken) != nil ) {
             HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_unread, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!], SafetyCertification: true, successed: { (success) in
                 let status = success?["status"] as! Int
                 if status == 200 {
@@ -142,10 +142,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate,JPUSHRe
                         items?.badgeValue = nil
                     } else {
                         items?.badgeValue = "\(badgeValue)"
+                        UIApplication.shared.applicationIconBadgeNumber = badgeValue
                     }
                 }
             }) { (error) in
             }
+        } else {
+            UIApplication.shared.applicationIconBadgeNumber = 0
         }
     }
 }

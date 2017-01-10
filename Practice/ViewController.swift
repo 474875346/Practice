@@ -11,6 +11,8 @@ import UIKit
 class ViewController: BaseViewController {
     var phoneTF = UITextField()
     var pswTF = UITextField()
+    var backBlcok:(()->Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.CreatUI()
@@ -63,6 +65,7 @@ private extension ViewController {
                 UserDefaultSave("CollegeName", Value: college)
                 if (UserDefaults().object(forKey: ZLogInOut) != nil) {
                     self.dismiss(animated: true, completion: nil)
+                    self.backBlcok!()
                     UserDefaultRemove(ZLogInOut)
                 } else {
                 let delegate = UIApplication.shared.delegate as! AppDelegate

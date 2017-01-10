@@ -12,11 +12,13 @@ class MessageModel: NSObject {
     var createTime:String = ""
     var id:String = ""
     var notice = [String:String]()
+    var status = NSString()
     
     init(dic:[String:Any]) {
         super.init()
         createTime = dic["createTime"] as! String
         id = dic["id"] as! String
         notice = dic["notice"] as! [String : String]
+        status = dic["status"] as! NSString
     }
 }

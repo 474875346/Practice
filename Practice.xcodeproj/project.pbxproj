@@ -21,6 +21,20 @@
 		8922D2211E13A61800E93EF9 /* URLaddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922D2201E13A61800E93EF9 /* URLaddress.swift */; };
 		892B24A01E1C83E600DAB36C /* tomcat.cer in Resources */ = {isa = PBXBuildFile; fileRef = 892B249E1E1C83E600DAB36C /* tomcat.cer */; };
 		892B24A11E1C83E600DAB36C /* client.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 892B249F1E1C83E600DAB36C /* client.p12 */; };
+		892DBF191E2323180059F59C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 892DBF181E2323180059F59C /* AVFoundation.framework */; };
+		892DBF1B1E2323240059F59C /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 892DBF1A1E2323240059F59C /* Photos.framework */; };
+		892DBF1E1E2323D00059F59C /* VideoRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892DBF1D1E2323D00059F59C /* VideoRecordingViewController.swift */; };
+		892DBF221E2332770059F59C /* TextViewAndLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892DBF211E2332770059F59C /* TextViewAndLine.swift */; };
+		892DBF251E2358B20059F59C /* ImageScrollview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892DBF241E2358B20059F59C /* ImageScrollview.swift */; };
+		892DBF2A1E237F410059F59C /* MonthlyRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892DBF281E237F410059F59C /* MonthlyRecordTableViewCell.swift */; };
+		892DBF2B1E237F410059F59C /* MonthlyRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 892DBF291E237F410059F59C /* MonthlyRecordTableViewCell.xib */; };
+		892DBF2E1E2380910059F59C /* MonthlyRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892DBF2D1E2380910059F59C /* MonthlyRecordModel.swift */; };
+		895212291E246BAC0053B8A1 /* jcore-ios-1.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 895212271E246BAC0053B8A1 /* jcore-ios-1.0.0.a */; };
+		8952122A1E246BAC0053B8A1 /* jpush-ios-3.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 895212281E246BAC0053B8A1 /* jpush-ios-3.0.0.a */; };
+		895212B71E24AFA80053B8A1 /* MonthlyReportDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895212B61E24AFA80053B8A1 /* MonthlyReportDetailsViewController.swift */; };
+		895212BB1E24B0090053B8A1 /* MonthlyReportDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895212BA1E24B0090053B8A1 /* MonthlyReportDetailsView.swift */; };
+		895212BD1E24BCC50053B8A1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895212BC1E24BCC50053B8A1 /* MobileCoreServices.framework */; };
+		895212C01E24C90F0053B8A1 /* PlayTheVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895212BF1E24C90F0053B8A1 /* PlayTheVideo.swift */; };
 		89788F601E149EE400C5477F /* InputPasswordCollege.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89788F5F1E149EE400C5477F /* InputPasswordCollege.swift */; };
 		89788F621E150D5D00C5477F /* SwiftMessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89788F611E150D5D00C5477F /* SwiftMessageManager.swift */; };
 		897EFE391E1B42790082D6F4 /* SwiftSlideRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE371E1B42790082D6F4 /* SwiftSlideRootViewController.swift */; };
@@ -59,8 +73,6 @@
 		89F82A211E121D550070A857 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A201E121D550070A857 /* BaseViewController.swift */; };
 		89F82A241E123DD00070A857 /* RegularExpressions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A231E123DD00070A857 /* RegularExpressions.swift */; };
 		89F82A261E123FDD0070A857 /* MessageIdentifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A251E123FDD0070A857 /* MessageIdentifyViewController.swift */; };
-		89F976BF1E2081F100AD0516 /* jcore-ios-1.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F976BD1E2081F100AD0516 /* jcore-ios-1.0.0.a */; };
-		89F976C01E2081F100AD0516 /* jpush-ios-3.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F976BE1E2081F100AD0516 /* jpush-ios-3.0.0.a */; };
 		89F976C31E208B8300AD0516 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F976C21E208B8300AD0516 /* libresolv.tbd */; };
 		89F9CC9E1E120FA800295C70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9CC9D1E120FA800295C70 /* AppDelegate.swift */; };
 		89F9CCA01E120FA800295C70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9CC9F1E120FA800295C70 /* ViewController.swift */; };
@@ -109,6 +121,20 @@
 		8922D2201E13A61800E93EF9 /* URLaddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLaddress.swift; sourceTree = "<group>"; };
 		892B249E1E1C83E600DAB36C /* tomcat.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = tomcat.cer; sourceTree = "<group>"; };
 		892B249F1E1C83E600DAB36C /* client.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = client.p12; sourceTree = "<group>"; };
+		892DBF181E2323180059F59C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		892DBF1A1E2323240059F59C /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		892DBF1D1E2323D00059F59C /* VideoRecordingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoRecordingViewController.swift; sourceTree = "<group>"; };
+		892DBF211E2332770059F59C /* TextViewAndLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewAndLine.swift; sourceTree = "<group>"; };
+		892DBF241E2358B20059F59C /* ImageScrollview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageScrollview.swift; sourceTree = "<group>"; };
+		892DBF281E237F410059F59C /* MonthlyRecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyRecordTableViewCell.swift; sourceTree = "<group>"; };
+		892DBF291E237F410059F59C /* MonthlyRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthlyRecordTableViewCell.xib; sourceTree = "<group>"; };
+		892DBF2D1E2380910059F59C /* MonthlyRecordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyRecordModel.swift; sourceTree = "<group>"; };
+		895212271E246BAC0053B8A1 /* jcore-ios-1.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jcore-ios-1.0.0.a"; sourceTree = "<group>"; };
+		895212281E246BAC0053B8A1 /* jpush-ios-3.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.0.a"; sourceTree = "<group>"; };
+		895212B61E24AFA80053B8A1 /* MonthlyReportDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyReportDetailsViewController.swift; sourceTree = "<group>"; };
+		895212BA1E24B0090053B8A1 /* MonthlyReportDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyReportDetailsView.swift; sourceTree = "<group>"; };
+		895212BC1E24BCC50053B8A1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		895212BF1E24C90F0053B8A1 /* PlayTheVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayTheVideo.swift; sourceTree = "<group>"; };
 		89788F5F1E149EE400C5477F /* InputPasswordCollege.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputPasswordCollege.swift; sourceTree = "<group>"; };
 		89788F611E150D5D00C5477F /* SwiftMessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMessageManager.swift; sourceTree = "<group>"; };
 		897EFE371E1B42790082D6F4 /* SwiftSlideRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSlideRootViewController.swift; sourceTree = "<group>"; };
@@ -176,13 +202,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				895212BD1E24BCC50053B8A1 /* MobileCoreServices.framework in Frameworks */,
+				892DBF1B1E2323240059F59C /* Photos.framework in Frameworks */,
+				892DBF191E2323180059F59C /* AVFoundation.framework in Frameworks */,
 				89927FD91E20C52F00BE00CD /* UserNotifications.framework in Frameworks */,
 				89927FD71E20C30000BE00CD /* UIKit.framework in Frameworks */,
 				89927FD51E20C2BF00BE00CD /* CoreFoundation.framework in Frameworks */,
+				895212291E246BAC0053B8A1 /* jcore-ios-1.0.0.a in Frameworks */,
+				8952122A1E246BAC0053B8A1 /* jpush-ios-3.0.0.a in Frameworks */,
 				89927FD31E20C2B100BE00CD /* CFNetwork.framework in Frameworks */,
 				89F976C31E208B8300AD0516 /* libresolv.tbd in Frameworks */,
-				89F976BF1E2081F100AD0516 /* jcore-ios-1.0.0.a in Frameworks */,
-				89F976C01E2081F100AD0516 /* jpush-ios-3.0.0.a in Frameworks */,
 				89CBFF311E1F8475001CC389 /* libcrypto.a in Frameworks */,
 				89CBFF2F1E1F8461001CC389 /* libssl.a in Frameworks */,
 				890ECC391E1F6A7100AE0F3D /* CoreTelephony.framework in Frameworks */,
@@ -227,6 +256,9 @@
 		6C78D2BB9401ABED259BF585 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				895212BC1E24BCC50053B8A1 /* MobileCoreServices.framework */,
+				892DBF1A1E2323240059F59C /* Photos.framework */,
+				892DBF181E2323180059F59C /* AVFoundation.framework */,
 				89927FD61E20C30000BE00CD /* UIKit.framework */,
 				89927FD41E20C2BF00BE00CD /* CoreFoundation.framework */,
 				89927FD21E20C2B100BE00CD /* CFNetwork.framework */,
@@ -248,6 +280,107 @@
 				2D3A0EBDD55672EB18A279A5 /* Pods_Practice.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		892DBF171E23230D0059F59C /* C */ = {
+			isa = PBXGroup;
+			children = (
+				89BB00D51E1F386D00F73CB4 /* MonthlyReportViewController.swift */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		892DBF1C1E2323300059F59C /* 录像 */ = {
+			isa = PBXGroup;
+			children = (
+				892DBF1D1E2323D00059F59C /* VideoRecordingViewController.swift */,
+			);
+			name = "录像";
+			sourceTree = "<group>";
+		};
+		892DBF1F1E23323E0059F59C /* V */ = {
+			isa = PBXGroup;
+			children = (
+				892DBF231E2354D20059F59C /* 点击图片放大 */,
+				892DBF201E2332440059F59C /* 文本框布局 */,
+				892DBF1C1E2323300059F59C /* 录像 */,
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		892DBF201E2332440059F59C /* 文本框布局 */ = {
+			isa = PBXGroup;
+			children = (
+				892DBF211E2332770059F59C /* TextViewAndLine.swift */,
+			);
+			name = "文本框布局";
+			sourceTree = "<group>";
+		};
+		892DBF231E2354D20059F59C /* 点击图片放大 */ = {
+			isa = PBXGroup;
+			children = (
+				892DBF241E2358B20059F59C /* ImageScrollview.swift */,
+			);
+			name = "点击图片放大";
+			sourceTree = "<group>";
+		};
+		892DBF261E237D1E0059F59C /* C */ = {
+			isa = PBXGroup;
+			children = (
+				89BB00D71E1F388000F73CB4 /* MonthlyRecordViewController.swift */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		892DBF271E237D260059F59C /* V */ = {
+			isa = PBXGroup;
+			children = (
+				892DBF281E237F410059F59C /* MonthlyRecordTableViewCell.swift */,
+				892DBF291E237F410059F59C /* MonthlyRecordTableViewCell.xib */,
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		892DBF2C1E2380100059F59C /* M */ = {
+			isa = PBXGroup;
+			children = (
+				892DBF2D1E2380910059F59C /* MonthlyRecordModel.swift */,
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
+		895212B51E24AF7D0053B8A1 /* 详情 */ = {
+			isa = PBXGroup;
+			children = (
+				895212BE1E24C8D80053B8A1 /* 播放视频 */,
+				895212B91E24AFF10053B8A1 /* V */,
+				895212B81E24AFEB0053B8A1 /* C */,
+			);
+			name = "详情";
+			sourceTree = "<group>";
+		};
+		895212B81E24AFEB0053B8A1 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				895212B61E24AFA80053B8A1 /* MonthlyReportDetailsViewController.swift */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		895212B91E24AFF10053B8A1 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				895212BA1E24B0090053B8A1 /* MonthlyReportDetailsView.swift */,
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		895212BE1E24C8D80053B8A1 /* 播放视频 */ = {
+			isa = PBXGroup;
+			children = (
+				895212BF1E24C90F0053B8A1 /* PlayTheVideo.swift */,
+			);
+			name = "播放视频";
 			sourceTree = "<group>";
 		};
 		89788F5D1E149E4000C5477F /* C */ = {
@@ -385,7 +518,8 @@
 		89BB00CF1E1F382400F73CB4 /* 月报 */ = {
 			isa = PBXGroup;
 			children = (
-				89BB00D51E1F386D00F73CB4 /* MonthlyReportViewController.swift */,
+				892DBF1F1E23323E0059F59C /* V */,
+				892DBF171E23230D0059F59C /* C */,
 			);
 			name = "月报";
 			sourceTree = "<group>";
@@ -393,7 +527,10 @@
 		89BB00D01E1F382900F73CB4 /* 月报记录 */ = {
 			isa = PBXGroup;
 			children = (
-				89BB00D71E1F388000F73CB4 /* MonthlyRecordViewController.swift */,
+				895212B51E24AF7D0053B8A1 /* 详情 */,
+				892DBF2C1E2380100059F59C /* M */,
+				892DBF271E237D260059F59C /* V */,
+				892DBF261E237D1E0059F59C /* C */,
 			);
 			name = "月报记录";
 			sourceTree = "<group>";
@@ -589,6 +726,8 @@
 		89F9CC9C1E120FA800295C70 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
+				895212271E246BAC0053B8A1 /* jcore-ios-1.0.0.a */,
+				895212281E246BAC0053B8A1 /* jpush-ios-3.0.0.a */,
 				890ECC3A1E1F6CE200AE0F3D /* Practice.entitlements */,
 				897EFE3D1E1B43C50082D6F4 /* 个人设置 */,
 				897EFE3C1E1B43BF0082D6F4 /* 消息 */,
@@ -748,6 +887,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				892DBF2B1E237F410059F59C /* MonthlyRecordTableViewCell.xib in Resources */,
 				89C594081E1C99FF003002EE /* PersonalInformationTableViewCell.xib in Resources */,
 				89D538A81E1E185900CC5240 /* PersonalTableViewCell.xib in Resources */,
 				89927FE01E20E16500BE00CD /* SignInRecordTableViewCell.xib in Resources */,
@@ -832,18 +972,22 @@
 			files = (
 				89BB00D21E1F384500F73CB4 /* SignInViewController.swift in Sources */,
 				89F82A241E123DD00070A857 /* RegularExpressions.swift in Sources */,
+				895212BB1E24B0090053B8A1 /* MonthlyReportDetailsView.swift in Sources */,
 				897EFE4A1E1B808E0082D6F4 /* MessageForDetailsViewController.swift in Sources */,
 				89C594071E1C99FF003002EE /* PersonalInformationTableViewCell.swift in Sources */,
 				89D538A71E1E185900CC5240 /* PersonalTableViewCell.swift in Sources */,
 				89BB00D81E1F388000F73CB4 /* MonthlyRecordViewController.swift in Sources */,
 				89F9CCA01E120FA800295C70 /* ViewController.swift in Sources */,
+				895212B71E24AFA80053B8A1 /* MonthlyReportDetailsViewController.swift in Sources */,
 				89D538AD1E1E3F4600CC5240 /* HomeCollectionViewCell.swift in Sources */,
 				89BB00DC1E1F41FA00F73CB4 /* LineAndLabel.swift in Sources */,
 				897EFE391E1B42790082D6F4 /* SwiftSlideRootViewController.swift in Sources */,
 				897EFE3A1E1B42790082D6F4 /* UIView+Extension.swift in Sources */,
+				892DBF2E1E2380910059F59C /* MonthlyRecordModel.swift in Sources */,
 				89F9CCD01E12103A00295C70 /* LabelAndTFView.swift in Sources */,
 				897EFE431E1B445C0082D6F4 /* PersonalInformationViewController.swift in Sources */,
 				89788F601E149EE400C5477F /* InputPasswordCollege.swift in Sources */,
+				892DBF2A1E237F410059F59C /* MonthlyRecordTableViewCell.swift in Sources */,
 				89927FE31E20E3D100BE00CD /* SignInRecordModel.swift in Sources */,
 				89F9CCCD1E12103100295C70 /* File.swift in Sources */,
 				89C5940B1E1CA6D3003002EE /* PersonalViewController.swift in Sources */,
@@ -861,9 +1005,13 @@
 				897EFE411E1B443D0082D6F4 /* MessageViewController.swift in Sources */,
 				89788F621E150D5D00C5477F /* SwiftMessageManager.swift in Sources */,
 				89C5940F1E1CBCB8003002EE /* SetUpViewController.swift in Sources */,
+				892DBF221E2332770059F59C /* TextViewAndLine.swift in Sources */,
 				89F82A211E121D550070A857 /* BaseViewController.swift in Sources */,
+				895212C01E24C90F0053B8A1 /* PlayTheVideo.swift in Sources */,
 				89F82A1E1E121B720070A857 /* Registered ViewController.swift in Sources */,
 				89927FDF1E20E16500BE00CD /* SignInRecordTableViewCell.swift in Sources */,
+				892DBF251E2358B20059F59C /* ImageScrollview.swift in Sources */,
+				892DBF1E1E2323D00059F59C /* VideoRecordingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1024,6 +1172,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/BaiduMapKit/BaiduMapKit/thirdlibs",
+					"$(PROJECT_DIR)/Practice",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.systop.Practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1048,6 +1197,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/BaiduMapKit/BaiduMapKit/thirdlibs",
+					"$(PROJECT_DIR)/Practice",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.systop.Practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -12,7 +12,7 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
     var pageNum = 1
     lazy var MessageTableView:UITableView = {
         let  MessageTableView = CreateUI.TableView(self as UITableViewDelegate, dataSource: self as UITableViewDataSource, frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-108), style: .plain)
-        MessageTableView.separatorStyle = .none;
+        MessageTableView.separatorStyle = .singleLine
         MessageTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self.pageNum = 1
             self.MessageData()
@@ -48,8 +48,20 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if !(cell != nil) {
             cell = UITableViewCell.init(style:.subtitle, reuseIdentifier: "cell")
+            let label = CreateUI.Label(UIColor.clear, backgroundColor: UIColor.red, title: "", frame: CGRect(x: SCREEN_WIDTH-20, y: 22, width: 10, height: 10), font: 0)
+            LRViewBorderRadius(label, Radius: 5, Width: 0, Color: UIColor.clear)
+            label.isHidden = true
+            label.tag = indexPath.row+1
+            cell?.addSubview(label)
         }
         let messagemodel = self.MessageDataArray[indexPath.row]
+        if messagemodel.status.isEqual(to: "N") {
+            let label = cell?.viewWithTag(indexPath.row+1)
+            label?.isHidden = false
+        } else if messagemodel.status.isEqual(to: "Y") {
+            let label = cell?.viewWithTag(indexPath.row+1)
+            label?.isHidden = true
+        }
         cell?.detailTextLabel?.text = messagemodel.createTime
         cell?.textLabel?.text = messagemodel.notice["title"]
         cell?.textLabel?.font = UIFont.systemFont(ofSize: 15)
@@ -63,13 +75,6 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
     }
 }
 private extension MessageViewController {
-//    //MARK:监听是否有新消息
-//    func NewMessage() -> Void {
-//        NotificationCenter.default.addObserver(self, selector: #selector((self.freshTableview)), name: NSNotification.Name(rawValue: "newMessage"), object: nil)
-//    }
-//    @objc func freshTableview() -> Void {
-//
-//    }
     //MARK:消息请求
     func MessageData() -> Void {
         HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_pageQuery, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"pageNumber": "\(pageNum)","pageSize":"5"],SafetyCertification: true, successed: { (success) in
@@ -119,6 +124,7 @@ private extension MessageViewController {
                     items?.badgeValue = nil
                 } else {
                     items?.badgeValue = "\(badgeValue)"
+                    UIApplication.shared.applicationIconBadgeNumber = badgeValue
                 }
             }
         }) { (error) in

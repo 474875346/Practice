@@ -15,6 +15,7 @@ let ZCollegeName = "CollegeName"
 let ZLogInOut = "LogInOut"
 let ZregistID = "registID"
 let ZhaveBieMing = "haveBieMing"
+let CompressionVideoPaht = "\(NSHomeDirectory())/Library/Viedo"
 
 //颜色
 func RGBA(_ r:Int,g:Int,b:Int,a:Float) -> UIColor {
@@ -77,6 +78,11 @@ func CurrentDate() -> String {
     timeFormatter.dateFormat = "yyy-MM-dd"
     let strNowTime = timeFormatter.string(from: date as Date) as String
     return strNowTime
+}
+//MARK:计算文字高度
+func getAttributeSize(text : NSString ,fontSize:Int) -> CGSize {
+    let size = text.boundingRect(with: CGSize(width: SCREEN_WIDTH, height: CGFloat(MAXFLOAT)), options: NSStringDrawingOptions.init(rawValue: 1), attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: CGFloat(fontSize))], context: nil).size
+    return size
 }
 //UI工厂
 class CreateUI {

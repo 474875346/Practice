@@ -39,3 +39,7 @@ let Student_validSign = "/api/sign/validSign"
 let Student_signIn = "/api/sign/signIn"
 //学员签到记录
 let Student_signRecord = "/api/sign/signRecord"
+//月报上传
+let  Student_reported = "/api/report/reported/ios"
+//月报记录
+let Student_reportquery = "/api/report/query"
