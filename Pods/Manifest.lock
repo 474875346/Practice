@@ -24,6 +24,7 @@ PODS:
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
+  - Hero (0.1.0)
   - IQKeyboardManager (4.0.8)
   - Kingfisher (3.2.4)
   - MJExtension (3.0.13)
@@ -50,6 +51,7 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - FDFullscreenPopGesture
   - FMDB
+  - Hero
   - IQKeyboardManager
   - Kingfisher
   - MJExtension
@@ -74,6 +76,7 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  Hero: 14038043c41ea53ba1aa43b4d3655f377d78bea6
   IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
   Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
@@ -88,6 +91,6 @@ SPEC CHECKSUMS:
   UMengSocialCOM: 074c135ce349aa4c8848d3fb8458757bcb6ffb67
   WMPageController: 181bcc9b1fb7c9c3466bff66012552953a547d28
 
-PODFILE CHECKSUM: f76355164d4c60ac7c60c4f6875bad226e4533fd
+PODFILE CHECKSUM: 5a9874b2faad3c7b535b760fae93c78b4c05b80b
 
 COCOAPODS: 1.1.1

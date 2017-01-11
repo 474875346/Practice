@@ -27,6 +27,7 @@ private extension Registered_ViewController {
     func CreatUI() -> Void {
         //手机号
         let view = LabelAndTFView(frame: CGRect(x: 0.05*SCREEN_WIDTH, y: 160, width: 0.9*SCREEN_WIDTH, height: 40), titlyArray: ["手机号:"], PlaceholderArray: ["请输入手机号"])
+        view.heroID = "res"
         phoneTF = view.TFArray[0] as! UITextField
         phoneTF.becomeFirstResponder()
         phoneTF.addTarget(self, action: #selector((PhoneTF)), for: .editingChanged)
@@ -35,6 +36,7 @@ private extension Registered_ViewController {
         nextBtn = CreateUI.Button("下一步", action: #selector((NextBtn(_:))), sender: self, frame: CGRect(x: 0.05*SCREEN_WIDTH, y: YH(view)+30, width: 0.9*SCREEN_WIDTH, height: 40), backgroundColor: RGBA(76, g: 171, b: 253, a: 1.0), textColor: UIColor.white)
         nextBtn.alpha = 0.3
         nextBtn.isUserInteractionEnabled = false
+        nextBtn.heroID = "resbtn"
         self.view.addSubview(nextBtn)
         
         if titleCode.isEqual(to: "注册") {

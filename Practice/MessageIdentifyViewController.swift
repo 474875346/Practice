@@ -53,6 +53,7 @@ private extension MessageIdentifyViewController {
             button.setTitleColor(UIColor.black, for: .normal)
             button.setBackgroundImage(UIImage(named: "border_gray"), for: .normal)
             button.setBackgroundImage(UIImage(named: "border_blue"), for: .selected)
+            button.heroID = "res"
             if i == 0 {
                 button.isSelected = true
                 inputButton = button

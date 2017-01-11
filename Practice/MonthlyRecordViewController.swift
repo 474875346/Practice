@@ -11,6 +11,7 @@ import MJRefresh
 class MonthlyRecordViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource{
     var pageNumber = 1
     var reportqueryArray = [MonthlyRecordModel]()
+    var Lastcell = MonthlyRecordTableViewCell()
     
     lazy var MonthlyRecordtableView:UITableView = {
         let tableview = UITableView(frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64), style: .plain)

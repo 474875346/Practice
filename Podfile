@@ -24,4 +24,5 @@ pod 'WMPageController'                      #左右滑动（oc)
 pod 'DZNEmptyDataSet'                       #UITableview UICollectionView 空值时视图
 pod 'BaiduMapKit' #百度地图API
 pod 'TZImagePickerController' #多选照片
+pod 'Hero' #转场动画
 end

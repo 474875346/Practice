@@ -33,6 +33,7 @@ private extension MessageForDetailsViewController {
         web.scrollView.bounces = false
         let urlString = "\(MessageURL)?app_token=\(UserDefauTake(ZToken)!)"
         web.loadRequest(URLRequest(url: NSURL(string: urlString) as! URL))
+        web.heroID = "message"
         self.view.addSubview(web)
     }
 }

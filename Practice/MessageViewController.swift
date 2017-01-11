@@ -13,6 +13,7 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
     lazy var MessageTableView:UITableView = {
         let  MessageTableView = CreateUI.TableView(self as UITableViewDelegate, dataSource: self as UITableViewDataSource, frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-108), style: .plain)
         MessageTableView.separatorStyle = .none
+        MessageTableView.heroID = "message"
         MessageTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self.pageNum = 1
             self.MessageData()
@@ -30,8 +31,6 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
         self.addNavBackImg()
         self.addNavTitle(Title: "消息")
         self.MessageData()
-        self.Unread()
-        self.MessageTableView.mj_header.beginRefreshing()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -79,7 +78,7 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
 private extension MessageViewController {
     //MARK:消息请求
     func MessageData() -> Void {
-        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_pageQuery, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"pageNumber": "\(pageNum)","pageSize":"2"],SafetyCertification: true, successed: { (success) in
+        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_pageQuery, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"pageNumber": "\(pageNum)"],SafetyCertification: true, successed: { (success) in
             let status = success?["status"] as! Int
             if status == 200 {
                 let DataDic = success?["data"] as! NSDictionary
