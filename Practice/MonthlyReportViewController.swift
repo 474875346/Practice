@@ -72,8 +72,8 @@ private extension MonthlyReportViewController {
     //MARK:提交数据
     @objc func submit() ->Void {
         print(VideoDataArray.count)
+        if isVideoCompression == true {
         if VideoDataArray.count == 0 {
-            if isVideoCompression == false {
                 self.WaringTost(Title: "", Body: "视频还没压缩完成")
                 return
             }
@@ -183,6 +183,9 @@ private extension MonthlyReportViewController {
                 options.deliveryMode =   PHVideoRequestOptionsDeliveryMode(rawValue: 0)!
                 let manager = PHImageManager()
                 manager.requestAVAsset(forVideo: phAsset, options: options, resultHandler: { (asset, audioMix, info) in
+                    self.isVideoCompression = true
+                    self.VideoDataArray.removeAll()
+                    self.VideoTypeArray.removeAll()
                     let urlAsset = asset as! AVURLAsset
                     let url = urlAsset.url
                     self.compressedVideoOtherMethod(URL: url, compressionType: "AVAssetExportPresetLowQuality")
@@ -201,7 +204,8 @@ private extension MonthlyReportViewController {
         // 所支持的压缩格式中是否有 所选的压缩格式
         if compatiblePresets.contains(compressionType) {
             let exportSession = AVAssetExportSession.init(asset: avAsset, presetName: compressionType)
-            let formater = DateFormatter.init()//用时间给文件全名，以免重复，在测试的时候其实可以判断文件是否存在若存在，则删除，重新生成文件即可
+            let formater = DateFormatter.init()
+            //用时间给文件全名，以免重复，在测试的时候其实可以判断文件是否存在若存在，则删除，重新生成文件即可
             formater.dateFormat = "yyyy-MM-dd-HH:mm:ss"
             let manager = FileManager.default
             let isExists = manager.fileExists(atPath: CompressionVideoPaht)
@@ -221,7 +225,7 @@ private extension MonthlyReportViewController {
                     print("视频压缩后大小 \(memorySize)MB")
                     self.VideoDataArray.append(data as Any)
                     self.VideoTypeArray.append("mp4")
-                    self.isVideoCompression = true
+                    self.SuccessTost(Title: "", Body: "视频压缩完成")
                 } else {
                     print("压缩失败")
                 }

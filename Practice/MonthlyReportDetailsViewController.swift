@@ -11,8 +11,12 @@ import AVFoundation
 class MonthlyReportDetailsViewController: BaseViewController {
     var modelArray = [MonthlyRecordModel]()
     var imgArray = [String]()
+    var img = UIImageView()
     var URLString = ""
-    
+    enum MyError: Error {
+        case NotExist
+        case OutOfRange
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBackImg()
@@ -25,8 +29,9 @@ class MonthlyReportDetailsViewController: BaseViewController {
     }
 }
 private extension MonthlyReportDetailsViewController {
-    func CreatUI() -> Void {
+    func CreatUI()  {
         let model = modelArray[0]
+        print(model)
         let myscrollview = UIScrollView(frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64))
         myscrollview.bounces = false
         self.view.addSubview(myscrollview)
@@ -44,21 +49,26 @@ private extension MonthlyReportDetailsViewController {
                 URLString = obj.path
                 let videoURL = NSURL(string: URLString)!
                 let avAsset = AVURLAsset(url: videoURL as URL)
-                //生成视频截图
-                let generator = AVAssetImageGenerator(asset: avAsset)
-                generator.appliesPreferredTrackTransform = true
-                let time = CMTimeMakeWithSeconds(0.0,600)
-                var actualTime:CMTime = CMTimeMake(0,0)
-                let imageRef:CGImage = try! generator.copyCGImage(at: time, actualTime: &actualTime)
-                let frameImg = UIImage(cgImage: imageRef)
-                let img = UIImageView(frame: CGRect(x: 0, y: YH(MonthlyReport)+0.2*SCREEN_WIDTH, width: SCREEN_WIDTH, height: SCREEN_WIDTH/2))
-                img.image = frameImg
+                img = UIImageView(frame: CGRect(x: 0, y: YH(MonthlyReport)+0.2*SCREEN_WIDTH, width: SCREEN_WIDTH, height: SCREEN_WIDTH/2))
                 img.contentMode = UIViewContentMode(rawValue: 1)!
                 img.isUserInteractionEnabled = true
+                img.image = UIImage(named: "tab_home_blue")
                 myscrollview.addSubview(img)
                 let singleTap = UITapGestureRecognizer.init(target: self, action: #selector(self.clickImage))
                 img.addGestureRecognizer(singleTap)
                 myscrollview.contentSize = CGSize(width: 0, height: YH(img)+20)
+                DispatchQueue.global().async {
+                    //生成视频截图
+                    let generator = AVAssetImageGenerator(asset: avAsset)
+                    generator.appliesPreferredTrackTransform = true
+                    let time = CMTimeMakeWithSeconds(0.0,600)
+                    var actualTime:CMTime = CMTimeMake(0,0)
+                    let imageRef:CGImage = try! generator.copyCGImage(at: time, actualTime: &actualTime)
+                    let frameImg = UIImage(cgImage: imageRef)
+                    self.img.image = frameImg
+                    Thread.sleep(forTimeInterval: 2)
+                    print("异步任务执行完毕")
+                }
             } else {
                 let imgBtn = CreateUI.Button("", action: #selector((self.imgClick(btn:))), sender: self, frame: CGRect(x: picSpace+(0.15 * SCREEN_WIDTH + picSpace)*ConversionCGFloat(idx), y: YH(MonthlyReport)+5, width: 0.15 * SCREEN_WIDTH, height: 0.15 * SCREEN_WIDTH), backgroundColor: UIColor.clear, textColor: UIColor.clear)
                 imgBtn.sd_setBackgroundImage(with: URL(string: obj.path), for: .normal, placeholderImage: UIImage(named: "tab_home_blue"))

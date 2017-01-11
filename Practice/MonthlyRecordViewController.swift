@@ -17,6 +17,7 @@ class MonthlyRecordViewController: BaseViewController,UITableViewDelegate,UITabl
         tableview.delegate = self
         tableview.dataSource = self
         tableview.rowHeight = 60
+        tableview.separatorStyle = .none
         tableview.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self.pageNumber = 1
             self.reportquery()
@@ -85,6 +86,7 @@ private extension MonthlyRecordViewController {
             } else {
                 let msg = success?["msg"] as! String
                 self.WaringTost(Title:"", Body: msg)
+                self.MonthlyRecordtableView.mj_footer.endRefreshingWithNoMoreData()
             }
             self.MonthlyRecordtableView.reloadData()
             self.MonthlyRecordtableView.mj_header.endRefreshing()

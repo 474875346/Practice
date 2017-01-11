@@ -12,7 +12,7 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
     var pageNum = 1
     lazy var MessageTableView:UITableView = {
         let  MessageTableView = CreateUI.TableView(self as UITableViewDelegate, dataSource: self as UITableViewDataSource, frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-108), style: .plain)
-        MessageTableView.separatorStyle = .singleLine
+        MessageTableView.separatorStyle = .none
         MessageTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self.pageNum = 1
             self.MessageData()
@@ -53,6 +53,8 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
             label.isHidden = true
             label.tag = indexPath.row+1
             cell?.addSubview(label)
+            let line = CreateUI.Label(UIColor.clear, backgroundColor: UIColor.lightGray, title: "", frame: CGRect(x: 0, y: 43, width: SCREEN_WIDTH, height: 1), font: 0)
+            cell?.addSubview(line)
         }
         let messagemodel = self.MessageDataArray[indexPath.row]
         if messagemodel.status.isEqual(to: "N") {
@@ -77,7 +79,7 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
 private extension MessageViewController {
     //MARK:消息请求
     func MessageData() -> Void {
-        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_pageQuery, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"pageNumber": "\(pageNum)","pageSize":"5"],SafetyCertification: true, successed: { (success) in
+        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_pageQuery, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"pageNumber": "\(pageNum)","pageSize":"2"],SafetyCertification: true, successed: { (success) in
             let status = success?["status"] as! Int
             if status == 200 {
                 let DataDic = success?["data"] as! NSDictionary

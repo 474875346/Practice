@@ -17,6 +17,7 @@ class SignInRecordViewController: BaseViewController,UITableViewDelegate,UITable
         tableview.delegate = self
         tableview.dataSource = self
         tableview.rowHeight = 60
+        tableview.separatorStyle = .none
         tableview.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self.pageNumber = 1
             self.signRecordData()

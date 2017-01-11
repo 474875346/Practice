@@ -1,7 +1,4 @@
-/*
- *Swift 常用声明
- *等待氵爱
- */
+/*Swift 常用声明*/
 import UIKit
 import Foundation
 import AVFoundation
@@ -9,7 +6,7 @@ import Photos
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 //let BaseURL = "http://gcm.systop.com.cn"
-let BaseURL = "http://172.16.1.5:9001"
+let BaseURL = "http://172.16.1.120:9001"
 let deviceUUID = UIDevice.current.identifierForVendor?.uuidString
 //取数据的key
 let ZToken = "access_token"
@@ -18,7 +15,6 @@ let ZLogInOut = "LogInOut"
 let ZregistID = "registID"
 let ZhaveBieMing = "haveBieMing"
 let CompressionVideoPaht = "\(NSHomeDirectory())/Library/Viedo"
-
 //颜色
 func RGBA(_ r:Int,g:Int,b:Int,a:Float) -> UIColor {
     let R = Float(r)
@@ -81,7 +77,7 @@ func CurrentDate() -> String {
     let strNowTime = timeFormatter.string(from: date as Date) as String
     return strNowTime
 }
-//MARK:计算文字高度
+//计算文字高度
 func getAttributeSize(text : NSString ,fontSize:Int) -> CGSize {
     let size = text.boundingRect(with: CGSize(width: SCREEN_WIDTH, height: CGFloat(MAXFLOAT)), options: NSStringDrawingOptions.init(rawValue: 1), attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: CGFloat(fontSize))], context: nil).size
     return size
@@ -93,7 +89,6 @@ func getAttributeSize(text : NSString ,fontSize:Int) -> CGSize {
 func cameraPermissions() -> Bool{
     
     let authStatus:AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
-    
     if(authStatus == AVAuthorizationStatus.denied || authStatus == AVAuthorizationStatus.restricted) {
         return false
     }else {
@@ -104,7 +99,6 @@ func cameraPermissions() -> Bool{
  判断相册权限
  - returns: 有权限返回ture， 没权限返回false
  */
-
 func PhotoLibraryPermissions() -> Bool {
     let library:PHAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
     if(library == PHAuthorizationStatus.denied || library == PHAuthorizationStatus.restricted){
