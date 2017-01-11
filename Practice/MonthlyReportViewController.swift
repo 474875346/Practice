@@ -151,7 +151,16 @@ private extension MonthlyReportViewController {
         let chooseViedo = UIAlertController(title: "", message: "选择视频方式!", preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         let Recordvideo = UIAlertAction(title: "录制视频", style: .default) { (UIAlertAction) in
-            self.present(VideoRecordingViewController(), animated: true, completion: nil)
+            if cameraPermissions() {
+                if UIImagePickerController.isSourceTypeAvailable(.camera){
+                    self.present(VideoRecordingViewController(), animated: true, completion: nil)
+                }else{
+                    debugPrint("找不到相机")
+                }
+            } else {
+                self.WaringTost(Title: "", Body: "请去打开相机权限")
+            }
+            
         }
         let Choosethevideo = UIAlertAction(title: "选择视频", style: .default) { (UIAlertAction) in
             self.Choosethevideo()

@@ -4,6 +4,8 @@
  */
 import UIKit
 import Foundation
+import AVFoundation
+import Photos
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 //let BaseURL = "http://gcm.systop.com.cn"
@@ -83,6 +85,33 @@ func CurrentDate() -> String {
 func getAttributeSize(text : NSString ,fontSize:Int) -> CGSize {
     let size = text.boundingRect(with: CGSize(width: SCREEN_WIDTH, height: CGFloat(MAXFLOAT)), options: NSStringDrawingOptions.init(rawValue: 1), attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: CGFloat(fontSize))], context: nil).size
     return size
+}
+/**
+ 判断相机权限
+ - returns: 有权限返回true，没权限返回false
+ */
+func cameraPermissions() -> Bool{
+    
+    let authStatus:AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+    
+    if(authStatus == AVAuthorizationStatus.denied || authStatus == AVAuthorizationStatus.restricted) {
+        return false
+    }else {
+        return true
+    }
+}
+/**
+ 判断相册权限
+ - returns: 有权限返回ture， 没权限返回false
+ */
+
+func PhotoLibraryPermissions() -> Bool {
+    let library:PHAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
+    if(library == PHAuthorizationStatus.denied || library == PHAuthorizationStatus.restricted){
+        return false
+    }else {
+        return true
+    }
 }
 //UI工厂
 class CreateUI {

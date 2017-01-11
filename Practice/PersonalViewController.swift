@@ -217,42 +217,50 @@ private extension PersonalViewController {
     }
     //MARK:打开相册
     func openAlbum(){
-        //判断设置是否支持图片库
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-            //初始化图片控制器
-            let picker = UIImagePickerController()
-            //设置代理
-            picker.delegate = self
-            //指定图片控制器类型
-            picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-            //设置是否允许编辑
-            //            picker.allowsEditing = editSwitch.on
-            //弹出控制器，显示界面
-            self.present(picker, animated: true, completion: {
-                () -> Void in
-            })
-        }else{
-            print("读取相册错误")
+        if PhotoLibraryPermissions() {
+            //判断设置是否支持图片库
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+                //初始化图片控制器
+                let picker = UIImagePickerController()
+                //设置代理
+                picker.delegate = self
+                //指定图片控制器类型
+                picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+                //设置是否允许编辑
+                //            picker.allowsEditing = editSwitch.on
+                //弹出控制器，显示界面
+                self.present(picker, animated: true, completion: {
+                    () -> Void in
+                })
+            }else{
+                print("读取相册错误")
+            }
+        } else {
+            self.WaringTost(Title: "", Body: "请去打开相册权限")
         }
     }
     //MARK:打开相机
     func openCamera(){
-        if UIImagePickerController.isSourceTypeAvailable(.camera){
-            
-            //创建图片控制器
-            let picker = UIImagePickerController()
-            //设置代理
-            picker.delegate = self
-            //设置来源
-            picker.sourceType = UIImagePickerControllerSourceType.camera
-            //允许编辑
-            picker.allowsEditing = true
-            //打开相机
-            self.present(picker, animated: true, completion: { () -> Void in
+        if cameraPermissions() {
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
                 
-            })
-        }else{
-            debugPrint("找不到相机")
+                //创建图片控制器
+                let picker = UIImagePickerController()
+                //设置代理
+                picker.delegate = self
+                //设置来源
+                picker.sourceType = UIImagePickerControllerSourceType.camera
+                //允许编辑
+                picker.allowsEditing = true
+                //打开相机
+                self.present(picker, animated: true, completion: { () -> Void in
+                    
+                })
+            }else{
+                debugPrint("找不到相机")
+            }
+        } else {
+            self.WaringTost(Title: "", Body: "请去打开相机权限")
         }
     }
     //MARK:上传头像
@@ -272,7 +280,7 @@ private extension PersonalViewController {
     //MARK:修改学员信息
     func StudentSaveData() -> Void {
         name = contentArray[0]
-       let Sex = contentArray[1] as NSString
+        let Sex = contentArray[1] as NSString
         if Sex.isEqual(to: "男") {
             sex = "M"
         } else {
