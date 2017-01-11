@@ -47,7 +47,7 @@ class MonthlyRecordViewController: BaseViewController,UITableViewDelegate,UITabl
         let model = reportqueryArray[indexPath.row]
         cell?.timeLabel.text = model.createTime
         cell?.contentLabel.text = model.plan
-        print(model.Files)
+        cell?.selectionStyle = .none
         return cell!
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
