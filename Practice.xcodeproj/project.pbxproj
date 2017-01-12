@@ -116,7 +116,7 @@
 		890ECC341E1F6A5900AE0F3D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		890ECC361E1F6A6200AE0F3D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		890ECC381E1F6A7100AE0F3D /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		890ECC3A1E1F6CE200AE0F3D /* Practice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Practice.entitlements; sourceTree = "<group>"; };
+		890ECC3A1E1F6CE200AE0F3D /* Practice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Practice.entitlements; path = Practice/Practice.entitlements; sourceTree = "<group>"; };
 		8922D21E1E139DBF00E93EF9 /* InputPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputPasswordViewController.swift; sourceTree = "<group>"; };
 		8922D2201E13A61800E93EF9 /* URLaddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLaddress.swift; sourceTree = "<group>"; };
 		892B249E1E1C83E600DAB36C /* tomcat.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = tomcat.cer; sourceTree = "<group>"; };
@@ -129,8 +129,8 @@
 		892DBF281E237F410059F59C /* MonthlyRecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyRecordTableViewCell.swift; sourceTree = "<group>"; };
 		892DBF291E237F410059F59C /* MonthlyRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthlyRecordTableViewCell.xib; sourceTree = "<group>"; };
 		892DBF2D1E2380910059F59C /* MonthlyRecordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyRecordModel.swift; sourceTree = "<group>"; };
-		895212271E246BAC0053B8A1 /* jcore-ios-1.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jcore-ios-1.0.0.a"; sourceTree = "<group>"; };
-		895212281E246BAC0053B8A1 /* jpush-ios-3.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.0.a"; sourceTree = "<group>"; };
+		895212271E246BAC0053B8A1 /* jcore-ios-1.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "jcore-ios-1.0.0.a"; path = "Practice/jcore-ios-1.0.0.a"; sourceTree = "<group>"; };
+		895212281E246BAC0053B8A1 /* jpush-ios-3.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "jpush-ios-3.0.0.a"; path = "Practice/jpush-ios-3.0.0.a"; sourceTree = "<group>"; };
 		895212B61E24AFA80053B8A1 /* MonthlyReportDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyReportDetailsViewController.swift; sourceTree = "<group>"; };
 		895212BA1E24B0090053B8A1 /* MonthlyReportDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyReportDetailsView.swift; sourceTree = "<group>"; };
 		895212BC1E24BCC50053B8A1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -254,6 +254,9 @@
 		6C78D2BB9401ABED259BF585 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				895212271E246BAC0053B8A1 /* jcore-ios-1.0.0.a */,
+				895212281E246BAC0053B8A1 /* jpush-ios-3.0.0.a */,
+				890ECC3A1E1F6CE200AE0F3D /* Practice.entitlements */,
 				895212BC1E24BCC50053B8A1 /* MobileCoreServices.framework */,
 				892DBF1A1E2323240059F59C /* Photos.framework */,
 				892DBF181E2323180059F59C /* AVFoundation.framework */,
@@ -722,9 +725,6 @@
 		89F9CC9C1E120FA800295C70 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
-				895212271E246BAC0053B8A1 /* jcore-ios-1.0.0.a */,
-				895212281E246BAC0053B8A1 /* jpush-ios-3.0.0.a */,
-				890ECC3A1E1F6CE200AE0F3D /* Practice.entitlements */,
 				897EFE3D1E1B43C50082D6F4 /* 个人设置 */,
 				897EFE3C1E1B43BF0082D6F4 /* 消息 */,
 				897EFE3B1E1B43B50082D6F4 /* 主页 */,
@@ -1172,8 +1172,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.systop.Practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/xinlongkeji/Desktop/Practice/Practice/Header.h;
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = /Users/xinlongkeji/Desktop/Practice/Practice/Header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Practice/Header.h;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1197,8 +1197,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.systop.Practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/xinlongkeji/Desktop/Practice/Practice/Header.h;
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = /Users/xinlongkeji/Desktop/Practice/Practice/Header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Practice/Header.h;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

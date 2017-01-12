@@ -61,16 +61,21 @@ private extension MonthlyReportDetailsViewController {
                     var actualTime:CMTime = CMTimeMake(0,0)
                     do {
                         let imageRef:CGImage = try generator.copyCGImage(at: time, actualTime: &actualTime)
-                        let frameImg = UIImage(cgImage: imageRef)
-                        self.img.image = frameImg
+                        Thread.sleep(forTimeInterval: 2)
+                        print("异步任务执行完毕")
+                        //在主线程中显示截图
+                        DispatchQueue.main.async {
+                            let frameImg = UIImage(cgImage: imageRef)
+                            self.img.image = frameImg
+                        }
                     } catch  {
                         print("视频截图异常")
                     }
-                    Thread.sleep(forTimeInterval: 2)
-                    print("异步任务执行完毕")
+                    
                 }
             } else {
                 let imgBtn = CreateUI.Button("", action: #selector((self.imgClick(btn:))), sender: self, frame: CGRect(x: picSpace+(0.15 * SCREEN_WIDTH + picSpace)*ConversionCGFloat(idx), y: YH(MonthlyReport)+5, width: 0.15 * SCREEN_WIDTH, height: 0.15 * SCREEN_WIDTH), backgroundColor: UIColor.clear, textColor: UIColor.clear)
+                imgBtn.tag = idx
                 imgBtn.sd_setBackgroundImage(with: URL(string: obj.path), for: .normal, placeholderImage: UIImage(named: "tab_home_blue"))
                 myscrollview.addSubview(imgBtn)
                 imgArray.append(obj.path)
@@ -80,7 +85,7 @@ private extension MonthlyReportDetailsViewController {
     @objc func clickImage() -> Void {
         let PlayVideo = PlayTheVideo()
         PlayVideo.URLString =  URLString
-        PlayVideo.modalTransitionStyle = UIModalTransitionStyle(rawValue: 3)!
+        PlayVideo.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
         self.present(PlayVideo, animated: true, completion: nil)
     }
     @objc func imgClick(btn:UIButton) -> Void {

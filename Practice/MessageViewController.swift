@@ -34,7 +34,8 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.MessageTableView.mj_header.beginRefreshing()
+        //        self.MessageTableView.mj_header.beginRefreshing()
+        self.MessageData()
         self.Unread()
     }
     func numberOfSections(in tableView: UITableView) -> Int {
