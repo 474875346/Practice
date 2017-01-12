@@ -174,8 +174,6 @@
 		89F82A201E121D550070A857 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		89F82A231E123DD00070A857 /* RegularExpressions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularExpressions.swift; sourceTree = "<group>"; };
 		89F82A251E123FDD0070A857 /* MessageIdentifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageIdentifyViewController.swift; sourceTree = "<group>"; };
-		89F976BD1E2081F100AD0516 /* jcore-ios-1.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "jcore-ios-1.0.0.a"; path = "../../Downloads/JPush-iOS-SDK-3/Lib/jcore-ios-1.0.0.a"; sourceTree = "<group>"; };
-		89F976BE1E2081F100AD0516 /* jpush-ios-3.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "jpush-ios-3.0.0.a"; path = "../../Downloads/JPush-iOS-SDK-3/Lib/jpush-ios-3.0.0.a"; sourceTree = "<group>"; };
 		89F976C11E2081FB00AD0516 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		89F976C21E208B8300AD0516 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		89F9CC9A1E120FA800295C70 /* Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,8 +262,6 @@
 				89927FD21E20C2B100BE00CD /* CFNetwork.framework */,
 				89927FD01E20C13800BE00CD /* UserNotifications.framework */,
 				89F976C21E208B8300AD0516 /* libresolv.tbd */,
-				89F976BD1E2081F100AD0516 /* jcore-ios-1.0.0.a */,
-				89F976BE1E2081F100AD0516 /* jpush-ios-3.0.0.a */,
 				89CBFF301E1F8475001CC389 /* libcrypto.a */,
 				89CBFF2E1E1F8461001CC389 /* libssl.a */,
 				890ECC381E1F6A7100AE0F3D /* CoreTelephony.framework */,

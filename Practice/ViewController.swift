@@ -53,7 +53,6 @@ private extension ViewController {
     }
     //MARK:登录点击方法
     @objc func LogInBtn(_ btn : UIButton) -> Void {
-//        activityIndi​​catorView.startAnimating()
         self.LogInData()
     }
     //MARK:登录请求

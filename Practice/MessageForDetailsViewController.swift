@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MessageForDetailsViewController: BaseViewController {
+class MessageForDetailsViewController: BaseViewController,UIWebViewDelegate {
     var MessageURL = String()
     
     override func viewDidLoad() {
@@ -22,15 +22,16 @@ class MessageForDetailsViewController: BaseViewController {
         super.viewWillAppear(animated)
         self.tabBarHidden()
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.tabBarShow()
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        activityIndi​​catorView?.stopAnimating()
     }
 }
 private extension MessageForDetailsViewController {
     func CreatUI() -> Void {
+        activityIndi​​catorView?.startAnimating()
         let web = UIWebView(frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64))
         web.scrollView.bounces = false
+        web.delegate = self
         let urlString = "\(MessageURL)?app_token=\(UserDefauTake(ZToken)!)"
         web.loadRequest(URLRequest(url: NSURL(string: urlString) as! URL))
         web.heroID = "message"

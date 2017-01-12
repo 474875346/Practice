@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import NVActivityIndicatorView
 class BaseViewController: UIViewController {
-    let activityIndi​​catorView = NVActivityIndicatorView(frame: CGRect(x: SCREEN_WIDTH/2-25, y: SCREEN_HEIGHT/2-25, width: 50, height: 50), type: .ballRotateChase, color: RGBA(76, g: 171, b: 253, a: 1.0), padding: 1.0)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,12 +16,21 @@ class BaseViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         self.navigationController?.isHeroEnabled = true
         self.navigationController?.navigationBar.isHidden = true
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        delegate.window?.addSubview(activityIndi​​catorView)
+        self.activityView()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarShow()
+        activityIndi​​catorView?.stopAnimating()
     }
 }
 //MARK:- 共有方法
 extension  BaseViewController {
+    //MARK:指示器
+    func activityView() -> Void {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.window?.addSubview(activityIndi​​catorView!)
+    }
     //MARK:导航栏背景
     func addNavBackImg() -> Void {
         let NavImg = UIImageView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 64))

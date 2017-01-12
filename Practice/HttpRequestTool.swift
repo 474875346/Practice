@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import NVActivityIndicatorView
 //创建请求类枚举
 enum RequestType: Int {
     case GET
@@ -16,7 +17,7 @@ enum RequestType: Int {
 //创建一个闭包(注:oc中block)
 typealias sendVlesClosure = (AnyObject?, NSError?)->Void
 typealias uploadClosure = (AnyObject?, NSError?,Int64?,Int64?,Int64?)->Void
-
+let activityIndi​​catorView:NVActivityIndicatorView? = NVActivityIndicatorView(frame: CGRect(x: SCREEN_WIDTH/2-25, y: SCREEN_HEIGHT/2, width: 50, height: 50), type: .ballRotateChase, color: UIColor.red, padding: 1.0)
 
 class HttpRequestTool: NSObject {
     /*
@@ -47,6 +48,7 @@ extension HttpRequestTool {
         if SafetyCertification {
             self.SafetyCertification()
         }
+        activityIndi​​catorView?.startAnimating()
         //请求类型
         let HTTPType:HTTPMethod = type == .GET ? .get : .post
         //请求网址
@@ -62,6 +64,7 @@ extension HttpRequestTool {
                 print(DataResponse.result.error as Any)
                 failed(DataResponse.result.error as NSError?)
             }
+            activityIndi​​catorView?.stopAnimating()
         })
     }
     func SafetyCertification() -> Void {
@@ -160,6 +163,7 @@ extension HttpRequestTool {
      *Failed：失败请求回调
      */
     func HttpRequestUpload(url:String , parameters:[String:String] , image:UIImage , successed:@escaping(_ resposeObject:AnyObject?)->() , failed:@escaping(_ error:NSError?)->()) {
+        activityIndi​​catorView?.startAnimating()
         //请求网址
         let URLString = "\(BaseURL)\(url)"
         //请求网址和参数的输出
@@ -182,6 +186,7 @@ extension HttpRequestTool {
                     }else {
                         failed(response.result.error as NSError?)
                     }
+                    activityIndi​​catorView?.stopAnimating()
                 }
             case .failure(let encodingError):
                 print(encodingError)
@@ -191,7 +196,6 @@ extension HttpRequestTool {
     }
     /**
      MARK:视频上传
-     
      - parameter url:        请求网址
      - parameter parameters: 请求参数
      - parameter dataArray:  二进制数组
@@ -200,20 +204,21 @@ extension HttpRequestTool {
      - parameter failed:     失败回调
      */
     func HttpRequestVideoUpload(url:String , parameters:[String:String] , dataArray:NSMutableArray,type:NSMutableArray , successed:@escaping(_ resposeObject:AnyObject?)->() , failed:@escaping(_ error:NSError?)->()) {
+        activityIndi​​catorView?.startAnimating()
         //请求网址
         let URLString = "\(BaseURL)\(url)"
         //请求网址和参数的输出
         print("URL：\(URLString)\nparameters:\(parameters)")
         Alamofire.upload(
             multipartFormData: { multipartFormData in
-               dataArray.enumerateObjects({ (obj, idx, stop) in
-                let data = obj as! Data
-                let timeInterval = NSDate().timeIntervalSince1970 * 1000
-                let mimetype = type[idx] as! String
-                let name = "\(timeInterval)\(idx)"
-                let filename = "\(name)\(idx+1).\(mimetype)"
-                multipartFormData.append(data, withName: name, fileName: filename, mimeType: mimetype)
-               })
+                dataArray.enumerateObjects({ (obj, idx, stop) in
+                    let data = obj as! Data
+                    let timeInterval = NSDate().timeIntervalSince1970 * 1000
+                    let mimetype = type[idx] as! String
+                    let name = "\(timeInterval)\(idx)"
+                    let filename = "\(name)\(idx+1).\(mimetype)"
+                    multipartFormData.append(data, withName: name, fileName: filename, mimeType: mimetype)
+                })
                 for (key, value) in parameters {
                     multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
                 }
@@ -227,12 +232,13 @@ extension HttpRequestTool {
                     }else {
                         failed(response.result.error as NSError?)
                     }
+                    activityIndi​​catorView?.stopAnimating()
                 }
             case .failure(let encodingError):
                 print(encodingError)
             }
         }
         )
-
+        
     }
 }
