@@ -53,10 +53,19 @@ private extension ViewController {
     }
     //MARK:登录点击方法
     @objc func LogInBtn(_ btn : UIButton) -> Void {
+//        activityIndi​​catorView.startAnimating()
         self.LogInData()
     }
     //MARK:登录请求
     func LogInData() -> Void {
+        if (self.phoneTF.text?.isEmpty)! {
+            self.WaringTost(Title: "", Body: "手机号不能为空")
+            return
+        }
+        if (self.pswTF.text?.isEmpty)! {
+            self.WaringTost(Title: "", Body: "密码不能为空")
+            return
+        }
         HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_Login, type: .POST, parameters: ["client":deviceUUID!,"phone":self.phoneTF.text!,"password":pswTF.text!], SafetyCertification: true,successed: { (success) in
             let status = success?["status"] as! Int
             if status == 200 {

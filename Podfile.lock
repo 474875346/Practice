@@ -29,6 +29,7 @@ PODS:
   - Kingfisher (3.2.4)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
+  - NVActivityIndicatorView (3.1)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -56,6 +57,7 @@ DEPENDENCIES:
   - Kingfisher
   - MJExtension
   - MJRefresh
+  - NVActivityIndicatorView
   - SDWebImage
   - SwiftMessages
   - SwiftyJSON
@@ -81,6 +83,7 @@ SPEC CHECKSUMS:
   Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  NVActivityIndicatorView: 9f47e8a4affb860ef729aeec99b1550219e6c233
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftMessages: 9d03bb95d394ac60f9c20335e2305dfea9cac70a
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
@@ -91,6 +94,6 @@ SPEC CHECKSUMS:
   UMengSocialCOM: 074c135ce349aa4c8848d3fb8458757bcb6ffb67
   WMPageController: 181bcc9b1fb7c9c3466bff66012552953a547d28
 
-PODFILE CHECKSUM: 5a9874b2faad3c7b535b760fae93c78b4c05b80b
+PODFILE CHECKSUM: 13b3939dc841191abff472c69feb15b0250e8974
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0.beta.3

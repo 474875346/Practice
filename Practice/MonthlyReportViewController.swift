@@ -73,7 +73,7 @@ private extension MonthlyReportViewController {
     @objc func submit() ->Void {
         print(VideoDataArray.count)
         if isVideoCompression == true {
-        if VideoDataArray.count == 0 {
+            if VideoDataArray.count == 0 {
                 self.WaringTost(Title: "", Body: "视频还没压缩完成")
                 return
             }
@@ -152,10 +152,18 @@ private extension MonthlyReportViewController {
         let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         let Recordvideo = UIAlertAction(title: "录制视频", style: .default) { (UIAlertAction) in
             if cameraPermissions() {
-                if UIImagePickerController.isSourceTypeAvailable(.camera){
-                    self.present(VideoRecordingViewController(), animated: true, completion: nil)
-                }else{
-                    debugPrint("找不到相机")
+                if PhotoLibraryPermissions() {
+                    if audioSession() {
+                        if UIImagePickerController.isSourceTypeAvailable(.camera){
+                            self.present(VideoRecordingViewController(), animated: true, completion: nil)
+                        }else{
+                            debugPrint("找不到相机")
+                        }
+                    } else {
+                        self.WaringTost(Title: "", Body: "请去打开录音权限")
+                    }
+                } else {
+                    self.WaringTost(Title: "", Body: "请去打开相册权限")
                 }
             } else {
                 self.WaringTost(Title: "", Body: "请去打开相机权限")

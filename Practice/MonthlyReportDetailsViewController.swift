@@ -13,10 +13,6 @@ class MonthlyReportDetailsViewController: BaseViewController {
     var imgArray = [String]()
     var img = UIImageView()
     var URLString = ""
-    enum MyError: Error {
-        case NotExist
-        case OutOfRange
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBackImg()
@@ -63,9 +59,13 @@ private extension MonthlyReportDetailsViewController {
                     generator.appliesPreferredTrackTransform = true
                     let time = CMTimeMakeWithSeconds(0.0,600)
                     var actualTime:CMTime = CMTimeMake(0,0)
-                    let imageRef:CGImage = try! generator.copyCGImage(at: time, actualTime: &actualTime)
-                    let frameImg = UIImage(cgImage: imageRef)
-                    self.img.image = frameImg
+                    do {
+                        let imageRef:CGImage = try generator.copyCGImage(at: time, actualTime: &actualTime)
+                        let frameImg = UIImage(cgImage: imageRef)
+                        self.img.image = frameImg
+                    } catch  {
+                        print("视频截图异常")
+                    }
                     Thread.sleep(forTimeInterval: 2)
                     print("异步任务执行完毕")
                 }

@@ -114,6 +114,10 @@ private extension SignInViewController {
     }
     //MARK:签到方法
     @objc func signin() -> Void {
+        if longitude.isEmpty || latitude.isEmpty {
+            self.WaringTost(Title: "", Body: "请打开定位")
+            return
+        }
         HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_signIn, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"longitude":longitude,"latitude":latitude,"descn":textview.text,"positionDescn":Positioning], SafetyCertification: true, successed: { (success) in
             let status = success?["status"] as! Int
             if status == 200 {

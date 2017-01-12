@@ -25,4 +25,5 @@ pod 'DZNEmptyDataSet'                       #UITableview UICollectionView 空值
 pod 'BaiduMapKit' #百度地图API
 pod 'TZImagePickerController' #多选照片
 pod 'Hero' #转场动画
+pod 'NVActivityIndicatorView' #加载指示器
 end

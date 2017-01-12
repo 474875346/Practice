@@ -95,6 +95,18 @@ func cameraPermissions() -> Bool{
         return true
     }
 }
+func audioSession() -> Bool {
+    let audioSession = AVAudioSession.sharedInstance()
+    var isaudio : Bool?
+    audioSession.requestRecordPermission { (allowed) in
+        if !allowed{
+            isaudio = false
+        } else {
+            isaudio = true
+        }
+    }
+    return isaudio!
+}
 /**
  判断相册权限
  - returns: 有权限返回ture， 没权限返回false

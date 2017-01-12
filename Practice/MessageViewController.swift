@@ -110,7 +110,7 @@ private extension MessageViewController {
         }) { (error) in
             self.ErrorTost()
             self.MessageTableView.mj_header.endRefreshing()
-            self.MessageTableView.mj_footer.endRefreshing()
+            self.MessageTableView.mj_footer.endRefreshingWithNoMoreData()
         }
     }
     //MARK:获取个数

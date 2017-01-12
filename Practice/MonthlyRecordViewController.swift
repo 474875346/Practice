@@ -17,7 +17,6 @@ class MonthlyRecordViewController: BaseViewController,UITableViewDelegate,UITabl
         let tableview = UITableView(frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64), style: .plain)
         tableview.delegate = self
         tableview.dataSource = self
-        tableview.rowHeight = 60
         tableview.separatorStyle = .none
         tableview.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self.pageNumber = 1

@@ -12,11 +12,9 @@ import Hero
 class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate,JPUSHRegisterDelegate {
     @available(iOS 10.0, *)
     public func jpushNotificationCenter(_ center: UNUserNotificationCenter!, didReceive response: UNNotificationResponse!, withCompletionHandler completionHandler: (() -> Void)!) {
-        
     }
     @available(iOS 10.0, *)
     func jpushNotificationCenter(_ center: UNUserNotificationCenter!, willPresent notification: UNNotification!, withCompletionHandler completionHandler: ((Int) -> Void)!) {
-        
     }
     var ocSlide = SwiftSlideRootViewController.init(nil)
     var window: UIWindow?
@@ -35,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate,JPUSHRe
         //MARK:-极光推送
         let entity = JPUSHRegisterEntity()
         entity.types = Int(JPAuthorizationOptions.alert.rawValue) | Int(JPAuthorizationOptions.badge.rawValue) | Int(JPAuthorizationOptions.sound.rawValue);
-        JPUSHService.register(forRemoteNotificationConfig: entity, delegate: nil)
+        JPUSHService.register(forRemoteNotificationConfig: entity, delegate: self)
         JPUSHService.setup(withOption: launchOptions, appKey: "023b08c13c84e501e0165ac2", channel: channel, apsForProduction: isProduction, advertisingIdentifier: nil)
         self.AuroraPushSuccess()
         self.Unread()
@@ -121,6 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate,JPUSHRe
         JPUSHService.registerDeviceToken(deviceToken)
     }
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("iOS7及以上系统，收到通知:\(userInfo)")
         JPUSHService.handleRemoteNotification(userInfo)
         completionHandler(UIBackgroundFetchResult.newData)
         if UIApplication.shared.applicationState == UIApplicationState.active {

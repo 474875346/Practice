@@ -23,11 +23,14 @@ private extension PlayTheVideo {
         web.mediaPlaybackRequiresUserAction = false
         self.view.addSubview(web)
         let BackBtn = UIButton(type: .custom)
-        BackBtn.frame = CGRect(x: 10, y: 20, width: 54, height: 44)
-        let Backimg = UIImage(named: "back")
-        BackBtn.setImage(Backimg, for: .normal)
+        BackBtn.frame = CGRect(x: 10, y: 20, width: 30, height: 30)
+//        let Backimg = UIImage(named: "back")
+//        BackBtn.setImage(Backimg, for: .normal)
+        BackBtn.setTitle("<", for: .normal)
+        BackBtn.backgroundColor = RGBA(76, g: 171, b: 253, a: 1.0)
         BackBtn.imageEdgeInsets = UIEdgeInsets(top: 12, left: 10, bottom: 12, right: 35)
         BackBtn.addTarget(self, action: #selector(self.Back), for: .touchUpInside)
+        LRViewBorderRadius(BackBtn, Radius: 15, Width: 0, Color: UIColor.clear)
        web.addSubview(BackBtn)
     }
     @objc func Back() -> Void {

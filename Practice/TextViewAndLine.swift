@@ -11,6 +11,10 @@ import UIKit
 class TextViewAndLine: UIView,UITextViewDelegate {
     var contTextView : UITextView?
     var placeHolderLabel : UILabel?
+    convenience init(title: String){
+        self.init()!
+        print(title)
+    }
     init(frame:CGRect,title:NSString,planceholder:NSString) {
         super.init(frame: frame)
         let titleLabel = CreateUI.Label(UIColor.black, backgroundColor: UIColor.clear, title: title as String, frame: CGRect(x: 10, y: 0, width: 80, height: 30), font: 17)
