@@ -39,6 +39,7 @@ private extension PlayTheVideo {
         web.mediaPlaybackRequiresUserAction = false
         web.scrollView.bounces = false
         web.delegate = self
+        web.heroID = "PlayVideo"
         self.view.addSubview(web)
         web.addSubview(View)
     }

@@ -29,11 +29,11 @@ extension MonthlyReportDetailsViewController {
 private extension MonthlyReportDetailsViewController {
     func CreatUI()  {
         let model = modelArray[0]
-        print(model)
         let myscrollview = UIScrollView(frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64))
         myscrollview.bounces = false
         self.view.addSubview(myscrollview)
         let plan =  MonthlyReportDetailsView.init(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 10), title: "工作计划:", content: model.plan)
+        plan.heroID = model.id
         myscrollview.addSubview(plan)
         let summary = MonthlyReportDetailsView.init(frame: CGRect(x: 0, y: YH(plan), width: SCREEN_WIDTH, height: 10), title: "工作总结:", content: model.summary)
         myscrollview.addSubview(summary)
@@ -51,6 +51,7 @@ private extension MonthlyReportDetailsViewController {
                 img.contentMode = UIViewContentMode(rawValue: 1)!
                 img.isUserInteractionEnabled = true
                 img.image = UIImage(named: "tab_home_blue")
+                img.heroID = "PlayVideo"
                 myscrollview.addSubview(img)
                 let singleTap = UITapGestureRecognizer.init(target: self, action: #selector(self.clickImage))
                 img.addGestureRecognizer(singleTap)

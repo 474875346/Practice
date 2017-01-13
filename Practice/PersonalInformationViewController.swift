@@ -17,7 +17,7 @@ class PersonalInformationViewController: BaseViewController,UITableViewDelegate,
         return PersonalInformationTableView
     }()
     var StudentInfoModel:[PersonalModel] = [PersonalModel]()
-    let titleArray = ["15732157899","清除缓存","修改密码","退出登录"]
+    let titleArray = ["\(UserDefauTake(ZCollegeName)!)","清除缓存","修改密码","退出登录"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,14 +63,14 @@ extension PersonalInformationViewController {
             if !(cell != nil) {
                 cell = UITableViewCell.init(style: .default, reuseIdentifier: "cell1")
             }
-            if indexPath.row == 0 {
-                if self.StudentInfoModel.count > 0 {
-                    let infoModel = self.StudentInfoModel[0]
-                    cell?.textLabel?.text = infoModel.phone
-                }
-            } else {
+//            if indexPath.row == 0 {
+//                if self.StudentInfoModel.count > 0 {
+//                    let infoModel = self.StudentInfoModel[0]
+//                    cell?.textLabel?.text = infoModel.phone
+//                }
+//            } else {
                 cell?.textLabel?.text = titleArray[indexPath.row]
-            }
+//            }
             cell?.selectionStyle = .none
             return cell!
         }

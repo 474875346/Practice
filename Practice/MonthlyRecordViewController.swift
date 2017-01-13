@@ -63,7 +63,9 @@ extension MonthlyRecordViewController {
     }
     //MARK:表格点击方法
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! MonthlyRecordTableViewCell?
         let model = reportqueryArray[indexPath.row]
+        cell?.heroID = model.id
         let  MonthlyReportDetails =  MonthlyReportDetailsViewController()
         MonthlyReportDetails.modelArray = [model]
         self.present( MonthlyReportDetails, animated: true, completion: nil)

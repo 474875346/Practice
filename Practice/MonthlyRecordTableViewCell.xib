@@ -34,7 +34,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8X-zF-dzR">
-                        <rect key="frame" x="8" y="243" width="304" height="1"/>
+                        <rect key="frame" x="-2" y="243" width="324" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="urq-5f-Nhf"/>
@@ -49,12 +49,12 @@
                     <constraint firstAttribute="trailingMargin" secondItem="1gF-RU-27T" secondAttribute="trailing" id="58w-tH-OI0"/>
                     <constraint firstItem="vSS-m5-vYn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="5Vg-k8-Uqf"/>
                     <constraint firstItem="vSS-m5-vYn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="82P-l2-1WX"/>
-                    <constraint firstItem="C8X-zF-dzR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="B05-bJ-PIh"/>
+                    <constraint firstItem="C8X-zF-dzR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-10" id="B05-bJ-PIh"/>
                     <constraint firstItem="1gF-RU-27T" firstAttribute="top" secondItem="vSS-m5-vYn" secondAttribute="bottom" constant="5" id="EmP-9X-iHi"/>
                     <constraint firstAttribute="trailingMargin" secondItem="vSS-m5-vYn" secondAttribute="trailing" id="Ial-C0-ei1"/>
                     <constraint firstAttribute="bottomMargin" secondItem="1gF-RU-27T" secondAttribute="bottom" constant="10" id="Igg-Uq-4XE"/>
                     <constraint firstItem="C8X-zF-dzR" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="cRr-Sb-Maz"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="C8X-zF-dzR" secondAttribute="trailing" id="heq-Dc-y7j"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="C8X-zF-dzR" secondAttribute="trailing" constant="-10" id="heq-Dc-y7j"/>
                     <constraint firstItem="vSS-m5-vYn" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="pLl-qs-qIW"/>
                 </constraints>
             </tableViewCellContentView>
@@ -62,7 +62,7 @@
                 <outlet property="contentLabel" destination="1gF-RU-27T" id="adU-Ss-6Pl"/>
                 <outlet property="timeLabel" destination="vSS-m5-vYn" id="V7L-XZ-F0H"/>
             </connections>
-            <point key="canvasLocation" x="-582" y="-103"/>
+            <point key="canvasLocation" x="-428" y="-269"/>
         </tableViewCell>
     </objects>
 </document>
