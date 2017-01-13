@@ -9,9 +9,9 @@
 import UIKit
 
 class SignInViewController: BaseViewController,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,BMKMapViewDelegate,UITextViewDelegate {
-    var Positioning = "正在定位中..."
+    var Positioning = "     正在定位中..."
     lazy var SignInScrollView:UIScrollView = {
-        let scrollview = UIScrollView(frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64))
+        let scrollview = UIScrollView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64))
         scrollview.bounces = false
         scrollview.showsVerticalScrollIndicator = false
         self.view.addSubview(scrollview)
@@ -40,9 +40,6 @@ class SignInViewController: BaseViewController,BMKLocationServiceDelegate,BMKGeo
     var isvalidSign : Bool?
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavBackImg()
-        self.addNavTitle(Title: "签到")
-        self.addBackButton()
         self.CreatUI()
         self.LocService()
         self.validSign()
@@ -50,10 +47,6 @@ class SignInViewController: BaseViewController,BMKLocationServiceDelegate,BMKGeo
 }
 //MARK:地图代理
 extension SignInViewController {
-    //MARK:重写返回方法
-    override func BackButton() {
-        self.dismiss(animated: true, completion: nil)
-    }
     //MARK:位置更新
     func didUpdate(_ userLocation: BMKUserLocation!) {
         mapView.updateLocationData(userLocation)
@@ -76,8 +69,8 @@ extension SignInViewController {
             locService?.stopUserLocationService()
             Positioning = result.address
             mapView.userTrackingMode = BMKUserTrackingModeNone
-            let view = self.SignInScrollView.viewWithTag(100) as! LineAndLabel
-            view.label?.text = Positioning
+            let label = self.SignInScrollView.viewWithTag(100) as! UILabel
+            label.text = "     \(Positioning)"
         } else {
             print("抱歉，未找到结果")
         }
@@ -122,13 +115,14 @@ extension SignInViewController {
 private extension SignInViewController {
     //MARK:布局
     func CreatUI() -> Void {
-        let Timeview = LineAndLabel.init(frame: CGRect(x: 0, y: 20, width: SCREEN_WIDTH, height: 35), title:CurrentDate())
+        let Timeview = LineAndLabel.init(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 35), title:CurrentDate())
         self.SignInScrollView.addSubview(Timeview)
-        let Positioningview = LineAndLabel.init(frame: CGRect(x: 0, y: YH(Timeview)+20, width: SCREEN_WIDTH, height: 35), title:Positioning)
-        Positioningview.tag = 100
-        self.SignInScrollView.addSubview(Positioningview)
+        let Positioninglabel = UILabel(frame: CGRect(x: 0, y: YH(Timeview)+5, width: SCREEN_WIDTH, height: 35))
+        Positioninglabel.text = Positioning
+        Positioninglabel.tag = 100
+        self.SignInScrollView.addSubview(Positioninglabel)
         //MARK:地图
-        mapView.frame = CGRect(x: 20, y: YH(Positioningview)+20, width: SCREEN_WIDTH-40, height: 200)
+        mapView.frame = CGRect(x: 20, y: YH(Positioninglabel)+5, width: SCREEN_WIDTH-40, height: 200)
         mapView.showsUserLocation = true
         mapView.userTrackingMode = BMKUserTrackingModeFollow
         mapView.zoomLevel = 18
@@ -183,7 +177,7 @@ private extension SignInViewController {
             textview.isHidden = true
             SignInbutton.frame = CGRect(x: SCREEN_WIDTH/2-60, y: YH(note)+20, width: 120, height: 120)
         }
-        self.SignInScrollView.contentSize = CGSize(width: 0, height: YH(SignInbutton)+30)
+        self.SignInScrollView.contentSize = CGSize(width: 0, height: YH(SignInbutton)+50)
     }
     //MARK:定位
     func LocService() -> Void {

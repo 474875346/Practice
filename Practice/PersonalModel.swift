@@ -13,6 +13,8 @@ class PersonalModel: NSObject {
     
     var emergencyContact:String = ""
     
+    var college:college?
+    
     var unit:String = ""
     
     var phone:String = ""
@@ -46,6 +48,11 @@ class PersonalModel: NSObject {
         super.init()
         setValuesForKeys(dic)
     }
+}
+class college: NSObject {
+    var collegeId:String = ""
+    var id:String = ""
+    var name:String = ""
 }
 class PersonalHeader: NSObject {
     var large:String = ""

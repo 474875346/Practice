@@ -9,8 +9,8 @@
 import UIKit
 
 class HomePageViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource {
-    let imgArray = ["qiandao","qiandaojilu","yuebao","yuebaojilu"]
-    let titleArray = ["签到","签到记录","月报","月报记录"]
+    let imgArray = ["qiandao","yuebao","yuebaojilu"]
+    let titleArray = ["签到","月报","月报记录"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,16 +49,11 @@ extension HomePageViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            let VC = SignInViewController()
+            let VC = SignWithFootprintViewController()
             VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
             self.present(VC, animated: true, completion: nil)
             break
         case 1:
-            let VC = SignInRecordViewController()
-            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
-            self.present(VC, animated: true, completion: nil)
-            break
-        case 2:
             let VC = MonthlyReportViewController()
             VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
             self.present(VC, animated: true, completion: nil)

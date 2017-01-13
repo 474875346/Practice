@@ -22,7 +22,6 @@ class ChangePswViewController: BaseViewController {
     }
 }
 extension ChangePswViewController {
-    //MARK:重写返回方法
     override func BackButton() {
         self.dismiss(animated: true, completion: nil)
     }

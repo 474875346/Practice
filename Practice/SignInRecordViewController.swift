@@ -13,11 +13,12 @@ class SignInRecordViewController: BaseViewController,UITableViewDelegate,UITable
     var SignInRecordArray:[SignInRecordModel] = [SignInRecordModel]()
     
     lazy var SignInRecordtableView:UITableView = {
-        let tableview = UITableView(frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64), style: .plain)
+        let tableview = UITableView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-108), style: .plain)
         tableview.delegate = self
         tableview.dataSource = self
         tableview.rowHeight = 60
         tableview.separatorStyle = .none
+        tableview.backgroundColor = UIColor.lightGray
         tableview.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self.pageNumber = 1
             self.signRecordData()
@@ -31,17 +32,10 @@ class SignInRecordViewController: BaseViewController,UITableViewDelegate,UITable
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNavBackImg()
-        self.addNavTitle(Title: "签到记录")
-        self.addBackButton()
         self.signRecordData()
     }
 }
 extension SignInRecordViewController {
-    //MARK:重写返回方法
-    override func BackButton() {
-        self.dismiss(animated: true, completion: nil)
-    }
     //MARK:返回行数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SignInRecordArray.count

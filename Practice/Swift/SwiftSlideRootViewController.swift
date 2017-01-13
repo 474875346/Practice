@@ -8,8 +8,7 @@
 
 import UIKit
 
-let kScreenWidth: CGFloat = UIScreen.main.bounds.size.width
-let kScreenHeight: CGFloat = UIScreen.main.bounds.size.height
+
 let kAnimationDuration: CGFloat = 0.3
 let kMainViewOriginTransX: CGFloat = 0.0
 
@@ -93,7 +92,7 @@ class SwiftSlideRootViewController: UIViewController {
             UIView.animate(withDuration: TimeInterval(kAnimationDuration), animations: {
                 
                 self.mainVc.view.x = self.trans
-                self.mainVc.view.alpha = (kScreenWidth - self.trans * 0.5 ) / kScreenWidth * 1.0
+                self.mainVc.view.alpha = (SCREEN_WIDTH - self.trans * 0.5 ) / SCREEN_WIDTH * 1.0
 //                let scale: CGFloat = 1.0 - 0.1 * self.trans / CGFloat(self.slideTranlationX)
 //                self.leftVc.view.transform = CGAffineTransform(scaleX: scale, y: scale)
                 }, completion: { (_) in
@@ -110,7 +109,7 @@ class SwiftSlideRootViewController: UIViewController {
             
         } else { // 无动画
             self.mainVc.view.x = self.trans
-            self.mainVc.view.alpha = (kScreenWidth - self.trans * 0.5 ) / kScreenWidth * 1.0
+            self.mainVc.view.alpha = (SCREEN_WIDTH - self.trans * 0.5 ) / SCREEN_WIDTH * 1.0
 //            let scale: CGFloat = 1.0 - 0.1 * self.trans / CGFloat(self.slideTranlationX)
 //            self.leftVc.view.transform = CGAffineTransform(scaleX: scale, y: scale)
             
@@ -155,7 +154,7 @@ class SwiftSlideRootViewController: UIViewController {
     func panGest(_ gest: UIPanGestureRecognizer) {
         if self.mainVc.view.x == self.slideTranlationX {
             let point = gest.location(in: view)
-            if CGRect(x: 0, y: 0, width: self.slideTranlationX, height: kScreenHeight).contains(point) {
+            if CGRect(x: 0, y: 0, width: self.slideTranlationX, height: SCREEN_HEIGHT).contains(point) {
                 return ;
             }
         }

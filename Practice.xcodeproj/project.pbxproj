@@ -69,6 +69,7 @@
 		89D538A81E1E185900CC5240 /* PersonalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D538A61E1E185900CC5240 /* PersonalTableViewCell.xib */; };
 		89D538AD1E1E3F4600CC5240 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D538AB1E1E3F4600CC5240 /* HomeCollectionViewCell.swift */; };
 		89D538AE1E1E3F4600CC5240 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D538AC1E1E3F4600CC5240 /* HomeCollectionViewCell.xib */; };
+		89DDE5731E28BD0800C2FF77 /* SignWithFootprintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DDE5721E28BD0800C2FF77 /* SignWithFootprintViewController.swift */; };
 		89F82A1E1E121B720070A857 /* Registered ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A1D1E121B720070A857 /* Registered ViewController.swift */; };
 		89F82A211E121D550070A857 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A201E121D550070A857 /* BaseViewController.swift */; };
 		89F82A241E123DD00070A857 /* RegularExpressions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F82A231E123DD00070A857 /* RegularExpressions.swift */; };
@@ -170,6 +171,7 @@
 		89D538A61E1E185900CC5240 /* PersonalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalTableViewCell.xib; sourceTree = "<group>"; };
 		89D538AB1E1E3F4600CC5240 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		89D538AC1E1E3F4600CC5240 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		89DDE5721E28BD0800C2FF77 /* SignWithFootprintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignWithFootprintViewController.swift; sourceTree = "<group>"; };
 		89F82A1D1E121B720070A857 /* Registered ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Registered ViewController.swift"; sourceTree = "<group>"; };
 		89F82A201E121D550070A857 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		89F82A231E123DD00070A857 /* RegularExpressions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularExpressions.swift; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 		897EFE3B1E1B43B50082D6F4 /* 主页 */ = {
 			isa = PBXGroup;
 			children = (
+				89DDE5711E28BCA500C2FF77 /* 签到与足迹 */,
 				89BB00D01E1F382900F73CB4 /* 月报记录 */,
 				89BB00CF1E1F382400F73CB4 /* 月报 */,
 				89BB00CE1E1F381E00F73CB4 /* 签到记录 */,
@@ -640,6 +643,14 @@
 				89D538AC1E1E3F4600CC5240 /* HomeCollectionViewCell.xib */,
 			);
 			name = V;
+			sourceTree = "<group>";
+		};
+		89DDE5711E28BCA500C2FF77 /* 签到与足迹 */ = {
+			isa = PBXGroup;
+			children = (
+				89DDE5721E28BD0800C2FF77 /* SignWithFootprintViewController.swift */,
+			);
+			name = "签到与足迹";
 			sourceTree = "<group>";
 		};
 		89F82A181E121AD60070A857 /* Tool */ = {
@@ -977,6 +988,7 @@
 				895212B71E24AFA80053B8A1 /* MonthlyReportDetailsViewController.swift in Sources */,
 				89D538AD1E1E3F4600CC5240 /* HomeCollectionViewCell.swift in Sources */,
 				89BB00DC1E1F41FA00F73CB4 /* LineAndLabel.swift in Sources */,
+				89DDE5731E28BD0800C2FF77 /* SignWithFootprintViewController.swift in Sources */,
 				897EFE391E1B42790082D6F4 /* SwiftSlideRootViewController.swift in Sources */,
 				897EFE3A1E1B42790082D6F4 /* UIView+Extension.swift in Sources */,
 				892DBF2E1E2380910059F59C /* MonthlyRecordModel.swift in Sources */,
@@ -1159,6 +1171,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Practice/Practice.entitlements;
 				DEVELOPMENT_TEAM = 35Y53EQ9AR;
 				ENABLE_BITCODE = NO;
@@ -1184,6 +1197,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Practice/Practice.entitlements;
 				DEVELOPMENT_TEAM = 35Y53EQ9AR;
 				ENABLE_BITCODE = NO;
