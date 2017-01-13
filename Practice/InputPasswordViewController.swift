@@ -23,10 +23,11 @@ class InputPasswordViewController: BaseViewController,UIPickerViewDelegate,UIPic
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBackImg()
-        
         self.addBackButton()
         self.CreatUI()
     }
+}
+extension InputPasswordViewController {
     //MARK:Picker行数
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return self.collegeArray.count

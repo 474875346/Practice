@@ -8,13 +8,22 @@
 
 import UIKit
 
-class SignInViewController: BaseViewController,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,BMKMapViewDelegate {
+class SignInViewController: BaseViewController,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,BMKMapViewDelegate,UITextViewDelegate {
     var Positioning = "正在定位中..."
     lazy var SignInScrollView:UIScrollView = {
         let scrollview = UIScrollView(frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64))
+        scrollview.bounces = false
+        scrollview.showsVerticalScrollIndicator = false
         self.view.addSubview(scrollview)
         return scrollview
     }()
+    lazy var placeHolderLabel:UILabel? = {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH-40, height: 30))
+        label.text = " 请输入备注信息"
+        label.textColor = UIColor.lightGray
+        return label
+    }()
+    
     let textview = UITextView()
     let SignInbutton = UIButton(type: .custom)
     //定位
@@ -38,6 +47,10 @@ class SignInViewController: BaseViewController,BMKLocationServiceDelegate,BMKGeo
         self.LocService()
         self.validSign()
     }
+}
+//MARK:地图代理
+extension SignInViewController {
+    //MARK:重写返回方法
     override func BackButton() {
         self.dismiss(animated: true, completion: nil)
     }
@@ -81,9 +94,34 @@ class SignInViewController: BaseViewController,BMKLocationServiceDelegate,BMKGeo
         mapView.delegate = nil // 不用时，置nil
     }
 }
+//MARK:文本的代理
+extension SignInViewController {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let Text = text as NSString
+        if !Text.isEqual(to: "") {
+            if textView.isEqual(textview) {
+                self.placeHolderLabel?.isHidden = true
+            }
+        }
+        if Text.isEqual(to: "") && range.length == 1 && range.location == 0 {
+            if textView.isEqual(textview) {
+                self.placeHolderLabel?.isHidden = false
+            }
+        }
+        return true
+    }
+    func textViewDidChange(_ textView: UITextView) {
+        let text  = textView.text as NSString
+        if !text.isEqual(to: "") {
+            if textView.isEqual(textview) {
+                self.placeHolderLabel?.isHidden = true
+            }
+        }
+    }
+}
 private extension SignInViewController {
+    //MARK:布局
     func CreatUI() -> Void {
-        print(CurrentDate())
         let Timeview = LineAndLabel.init(frame: CGRect(x: 0, y: 20, width: SCREEN_WIDTH, height: 35), title:CurrentDate())
         self.SignInScrollView.addSubview(Timeview)
         let Positioningview = LineAndLabel.init(frame: CGRect(x: 0, y: YH(Timeview)+20, width: SCREEN_WIDTH, height: 35), title:Positioning)
@@ -104,10 +142,13 @@ private extension SignInViewController {
         noteSwitch.addTarget(self, action: #selector((self.noteswitch(_:))), for: .valueChanged)
         self.SignInScrollView.addSubview(noteSwitch)
         //备注文本框
-        LRViewBorderRadius(textview, Radius: 0, Width: 0.5, Color: UIColor.black)
+        textview.delegate = self
+        textview.addSubview(self.placeHolderLabel!)
+        LRViewBorderRadius(textview, Radius: 10, Width: 0.5, Color: UIColor.lightGray)
         self.SignInScrollView.addSubview(textview)
         SignInbutton.backgroundColor = RGBA(76, g: 171, b: 253, a: 1.0)
         SignInbutton.frame = CGRect(x: SCREEN_WIDTH/2-60, y: YH(note)+20, width: 120, height: 120)
+        SignInbutton.setTitle("签到", for: .normal)
         SignInbutton.addTarget(self, action: #selector((self.signin)), for: .touchUpInside)
         LRViewBorderRadius(SignInbutton, Radius: 60, Width: 0, Color: UIColor.clear)
         self.SignInScrollView.addSubview(SignInbutton)

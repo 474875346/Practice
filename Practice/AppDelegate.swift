@@ -37,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate,JPUSHRe
         JPUSHService.setup(withOption: launchOptions, appKey: "023b08c13c84e501e0165ac2", channel: channel, apsForProduction: isProduction, advertisingIdentifier: nil)
         self.AuroraPushSuccess()
         self.Unread()
+
         return true
     }
     //MARK:监听极光登录成功

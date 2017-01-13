@@ -36,12 +36,17 @@ class SignInRecordViewController: BaseViewController,UITableViewDelegate,UITable
         self.addBackButton()
         self.signRecordData()
     }
+}
+extension SignInRecordViewController {
+    //MARK:重写返回方法
     override func BackButton() {
         self.dismiss(animated: true, completion: nil)
     }
+    //MARK:返回行数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SignInRecordArray.count
     }
+    //MARK:表格布局
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("SignInRecordTableViewCell", owner: nil, options: nil)?.first as! SignInRecordTableViewCell?
         let model = SignInRecordArray[indexPath.row]

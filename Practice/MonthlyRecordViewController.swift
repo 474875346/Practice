@@ -36,12 +36,17 @@ class MonthlyRecordViewController: BaseViewController,UITableViewDelegate,UITabl
         self.addBackButton()
         self.reportquery()
     }
+}
+extension MonthlyRecordViewController {
+    //MARK:重写返回方法
     override func BackButton() {
         self.dismiss(animated: true, completion: nil)
     }
+    //MARK:返回行数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reportqueryArray.count
     }
+    //MARK:表格布局
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("MonthlyRecordTableViewCell", owner: nil, options: nil)?.first as! MonthlyRecordTableViewCell?
         let model = reportqueryArray[indexPath.row]
@@ -50,11 +55,13 @@ class MonthlyRecordViewController: BaseViewController,UITableViewDelegate,UITabl
         cell?.selectionStyle = .none
         return cell!
     }
+    //MARK:返回行高
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let model = reportqueryArray[indexPath.row]
         let size = getAttributeSize(text: model.plan as NSString, fontSize: 21)
         return size.height+50
     }
+    //MARK:表格点击方法
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = reportqueryArray[indexPath.row]
         let  MonthlyReportDetails =  MonthlyReportDetailsViewController()

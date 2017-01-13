@@ -20,6 +20,8 @@ class MonthlyReportDetailsViewController: BaseViewController {
         self.addBackButton()
         self.CreatUI()
     }
+}
+extension MonthlyReportDetailsViewController {
     override func BackButton() {
         self.dismiss(animated: true, completion: nil)
     }

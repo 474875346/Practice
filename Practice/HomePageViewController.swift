@@ -18,6 +18,8 @@ class HomePageViewController: BaseViewController,UICollectionViewDelegate,UIColl
         self.addNavTitle(Title: "主页")
         self.CreateUI()
     }
+}
+extension HomePageViewController {
     // #MARK: --UICollectionViewDataSource的代理方法
     /**
      - 该方法是可选方法，默认为1

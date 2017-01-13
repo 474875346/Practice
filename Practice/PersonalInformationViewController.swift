@@ -24,9 +24,13 @@ class PersonalInformationViewController: BaseViewController,UITableViewDelegate,
         self.StudentInfoData()
         self.view.addSubview(self.PersonalInformationTableView)
     }
+}
+extension PersonalInformationViewController {
+    //MARK:返回区数
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
+    //MARK:返回行数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
@@ -34,6 +38,7 @@ class PersonalInformationViewController: BaseViewController,UITableViewDelegate,
             return titleArray.count
         }
     }
+    //MARK:表格布局
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = Bundle.main.loadNibNamed("PersonalInformationTableViewCell", owner: nil, options: nil)?[0] as! PersonalInformationTableViewCell?
@@ -70,12 +75,14 @@ class PersonalInformationViewController: BaseViewController,UITableViewDelegate,
             return cell!
         }
     }
+    //MARK:表格行高
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 80
         }
         return 44
     }
+    //MARK:表格点击
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
@@ -108,12 +115,14 @@ class PersonalInformationViewController: BaseViewController,UITableViewDelegate,
         }
         self.SlideHiend()
     }
+    //MARK:区头行高
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 0
         }
         return 20
     }
+    //MARK:区头
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
         header.backgroundColor = RGBA(247, g: 247, b: 247, a: 1.0)

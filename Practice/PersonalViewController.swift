@@ -52,6 +52,8 @@ class PersonalViewController: BaseViewController,UITableViewDelegate,UITableView
         self.TheAssignment()
         self.CreatUI()
     }
+}
+extension PersonalViewController {
     //MARK:重写返回方法
     override func BackButton() {
         self.dismiss(animated: true, completion: nil)
