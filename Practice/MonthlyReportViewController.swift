@@ -23,12 +23,12 @@ class MonthlyReportViewController: BaseViewController,TZImagePickerControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.heroID = "1"
         self.addNavBackImg()
         self.addNavTitle(Title: "月报")
         self.addBackButton()
         self.CreatUI()
     }
-
 }
 extension MonthlyReportViewController {
     override func viewWillAppear(_ animated: Bool) {
@@ -92,8 +92,8 @@ private extension MonthlyReportViewController {
             let status = success?["status"] as! Int
             if status == 200 {
                 self.SuccessTost(Title: "", Body: "月报提交成功")
-//                self.dismiss(animated: true, completion: nil)
-               _ = self.navigationController?.popViewController(animated: true)
+                //                self.dismiss(animated: true, completion: nil)
+                _ = self.navigationController?.popViewController(animated: true)
             } else {
                 let msg = success?["msg"] as! String
                 self.WaringTost(Title:"", Body: msg)

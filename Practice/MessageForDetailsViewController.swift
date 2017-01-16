@@ -34,7 +34,7 @@ private extension MessageForDetailsViewController {
         web.delegate = self
         let urlString = "\(MessageURL)?app_token=\(UserDefauTake(ZToken)!)"
         web.loadRequest(URLRequest(url: NSURL(string: urlString) as! URL))
-        web.heroID = "message"
+        web.heroID = MessageURL
         self.view.addSubview(web)
     }
 }

@@ -13,7 +13,6 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
     lazy var MessageTableView:UITableView = {
         let  MessageTableView = CreateUI.TableView(self as UITableViewDelegate, dataSource: self as UITableViewDataSource, frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-108), style: .plain)
         MessageTableView.separatorStyle = .none
-        MessageTableView.heroID = "message"
         MessageTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self.pageNum = 1
             self.MessageData()
@@ -34,7 +33,6 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //        self.MessageTableView.mj_header.beginRefreshing()
         self.MessageData()
         self.Unread()
     }
@@ -70,8 +68,10 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
         return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell  = tableView.cellForRow(at: indexPath)
         let messagemodel = self.MessageDataArray[indexPath.row]
         let Details = MessageForDetailsViewController()
+        cell?.heroID = messagemodel.notice["url"]!
         Details.MessageURL = messagemodel.notice["url"]!
         self.navigationController?.pushViewController(Details, animated: true)
     }

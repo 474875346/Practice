@@ -26,6 +26,7 @@ class SignWithFootprintViewController: BaseViewController,UITabBarDelegate,UIScr
     let signinrec = SignInRecordViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.heroID = "0"
         self.addNavBackImg()
         self.addBackButton()
         self.CreatUI()
@@ -58,7 +59,7 @@ private extension SignWithFootprintViewController {
     func CreatUI() -> Void {
         self.label?.text = "签到"
         //在底部创建Tab Bar
-        tabBar = UITabBar(frame: CGRect(x: 0, y: SCREEN_HEIGHT-45, width: SCREEN_WIDTH, height: 44))
+        tabBar = UITabBar(frame: CGRect(x: 0, y: SCREEN_HEIGHT-48, width: SCREEN_WIDTH, height: 44))
         for (idx,obj) in self.tabs.enumerated() {
             let tabItem = UITabBarItem.init(title: obj, image:UIImage(named: obj) , tag: idx)
             items.append(tabItem)

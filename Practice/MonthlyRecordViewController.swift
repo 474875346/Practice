@@ -31,6 +31,7 @@ class MonthlyRecordViewController: BaseViewController,UITableViewDelegate,UITabl
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.heroID = "2"
         self.addNavBackImg()
         self.addNavTitle(Title: "月报记录")
         self.addBackButton()
