@@ -17,12 +17,10 @@ class PlayTheVideo: BaseViewController,UIWebViewDelegate {
         self.addNavTitle(Title: "播放视频")
         self.addBackButton()
         self.CreatUI()
+        self.tabBarHidden()
     }
 }
 extension PlayTheVideo {
-    override func BackButton() {
-        self.dismiss(animated: true, completion: nil)
-    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         View.stopAnimating()

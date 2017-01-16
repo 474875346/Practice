@@ -36,11 +36,12 @@ class MonthlyRecordViewController: BaseViewController,UITableViewDelegate,UITabl
         self.addBackButton()
         self.reportquery()
     }
+
 }
 extension MonthlyRecordViewController {
-    //MARK:重写返回方法
-    override func BackButton() {
-        self.dismiss(animated: true, completion: nil)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarHidden()
     }
     //MARK:返回行数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,7 +69,8 @@ extension MonthlyRecordViewController {
         cell?.heroID = model.id
         let  MonthlyReportDetails =  MonthlyReportDetailsViewController()
         MonthlyReportDetails.modelArray = [model]
-        self.present( MonthlyReportDetails, animated: true, completion: nil)
+//        self.present( MonthlyReportDetails, animated: true, completion: nil)
+        self.navigationController?.pushViewController(MonthlyReportDetails, animated: true)
     }
 }
 private extension MonthlyRecordViewController {

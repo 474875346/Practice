@@ -18,7 +18,7 @@ class SignInRecordViewController: BaseViewController,UITableViewDelegate,UITable
         tableview.dataSource = self
         tableview.rowHeight = 60
         tableview.separatorStyle = .none
-        tableview.backgroundColor = UIColor.lightGray
+        tableview.backgroundColor = RGBA(247, g: 247, b: 247, a: 1.0)
         tableview.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self.pageNumber = 1
             self.signRecordData()
@@ -32,7 +32,6 @@ class SignInRecordViewController: BaseViewController,UITableViewDelegate,UITable
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.signRecordData()
     }
 }
 extension SignInRecordViewController {
@@ -49,7 +48,7 @@ extension SignInRecordViewController {
         return cell!
     }
 }
-private extension SignInRecordViewController {
+extension SignInRecordViewController {
     //MARK:签到记录
     func signRecordData() -> Void {
         HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_signRecord, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"pageNumber":"\(pageNumber)"], SafetyCertification: true, successed: { (success) in

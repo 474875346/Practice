@@ -28,11 +28,12 @@ class MonthlyReportViewController: BaseViewController,TZImagePickerControllerDel
         self.addBackButton()
         self.CreatUI()
     }
+
 }
 extension MonthlyReportViewController {
-    //MARK:重写返回方法
-    override func BackButton() {
-        self.dismiss(animated: true, completion: nil)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarHidden()
     }
 }
 private extension MonthlyReportViewController {
@@ -91,7 +92,8 @@ private extension MonthlyReportViewController {
             let status = success?["status"] as! Int
             if status == 200 {
                 self.SuccessTost(Title: "", Body: "月报提交成功")
-                self.dismiss(animated: true, completion: nil)
+//                self.dismiss(animated: true, completion: nil)
+               _ = self.navigationController?.popViewController(animated: true)
             } else {
                 let msg = success?["msg"] as! String
                 self.WaringTost(Title:"", Body: msg)

@@ -23,21 +23,21 @@ class SignWithFootprintViewController: BaseViewController,UITabBarDelegate,UIScr
         self.view.addSubview(NavTitle)
         return NavTitle
     }()
+    let signinrec = SignInRecordViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBackImg()
         self.addBackButton()
         self.CreatUI()
+        self.tabBarHidden()
     }
 }
 extension SignWithFootprintViewController {
-    override func BackButton() {
-        self.dismiss(animated: true, completion: nil)
-    }
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         scrollview.contentOffset = CGPoint(x: SCREEN_WIDTH*ConversionCGFloat(item.tag), y: 0)
         if item.tag == 0 {
             self.label?.text = "签到"
+            activityIndi​​catorView?.stopAnimating()
         } else {
             self.label?.text = "足迹"
         }
@@ -47,8 +47,10 @@ extension SignWithFootprintViewController {
         tabBar.selectedItem = items[idx]
         if idx == 0 {
             self.label?.text = "签到"
+            activityIndi​​catorView?.stopAnimating()
         } else {
             self.label?.text = "足迹"
+            signinrec.signRecordData()
         }
     }
 }
@@ -71,13 +73,14 @@ private extension SignWithFootprintViewController {
         scrollview.delegate = self
         scrollview.contentSize = CGSize(width: SCREEN_WIDTH*2, height: 0)
         scrollview.showsHorizontalScrollIndicator = false
+        scrollview.bounces = false
         scrollview.isPagingEnabled = true
         self.view.addSubview(scrollview)
         let signin = SignInViewController()
         signin.view.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: H(scrollview))
         addChildViewController(signin)
         scrollview.addSubview(signin.view)
-        let signinrec = SignInRecordViewController()
+        
         signinrec.view.frame = CGRect(x: SCREEN_WIDTH, y: 0, width: SCREEN_WIDTH, height: H(scrollview))
         addChildViewController(signinrec)
         scrollview.addSubview(signinrec.view)

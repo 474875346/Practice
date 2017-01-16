@@ -20,10 +20,12 @@ class MonthlyReportDetailsViewController: BaseViewController {
         self.addBackButton()
         self.CreatUI()
     }
+
 }
 extension MonthlyReportDetailsViewController {
-    override func BackButton() {
-        self.dismiss(animated: true, completion: nil)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarHidden()
     }
 }
 private extension MonthlyReportDetailsViewController {
@@ -85,11 +87,11 @@ private extension MonthlyReportDetailsViewController {
             }
         }
     }
+    
     @objc func clickImage() -> Void {
         let PlayVideo = PlayTheVideo()
         PlayVideo.URLString =  URLString
-        PlayVideo.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
-        self.present(PlayVideo, animated: true, completion: nil)
+        self.navigationController?.pushViewController(PlayVideo, animated: true)
     }
     @objc func imgClick(btn:UIButton) -> Void {
         let img = ImageScrollview.init(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT), imgarray: imgArray as NSArray, idx: btn.tag, isURL: true)

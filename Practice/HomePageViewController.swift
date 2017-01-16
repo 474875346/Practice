@@ -49,19 +49,13 @@ extension HomePageViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            let VC = SignWithFootprintViewController()
-            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
-            self.present(VC, animated: true, completion: nil)
+            self.navigationController?.pushViewController(SignWithFootprintViewController(), animated: true)
             break
         case 1:
-            let VC = MonthlyReportViewController()
-            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
-            self.present(VC, animated: true, completion: nil)
+            self.navigationController?.pushViewController(MonthlyReportViewController(), animated: true)
             break
         default:
-            let VC = MonthlyRecordViewController()
-            VC.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
-            self.present(VC, animated: true, completion: nil)
+            self.navigationController?.pushViewController(MonthlyRecordViewController(), animated: true)
             break
         }
     }
