@@ -15,6 +15,9 @@ let ZLogInOut = "LogInOut"
 let ZregistID = "registID"
 let ZhaveBieMing = "haveBieMing"
 let CompressionVideoPaht = "\(NSHomeDirectory())/Library/Viedo"
+let Zlatitude = "latitude"
+let Zlongitude = "longitude"
+
 //颜色
 func RGBA(_ r:Int,g:Int,b:Int,a:Float) -> UIColor {
     let R = Float(r)

@@ -30,7 +30,10 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
         self.addNavBackImg()
         self.addNavTitle(Title: "消息")
         self.MessageData()
+        self.addSlide()
     }
+}
+extension MessageViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.MessageData()
@@ -75,6 +78,7 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
         Details.MessageURL = messagemodel.notice["url"]!
         self.navigationController?.pushViewController(Details, animated: true)
     }
+    
 }
 private extension MessageViewController {
     //MARK:消息请求

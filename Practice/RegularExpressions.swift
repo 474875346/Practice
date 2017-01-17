@@ -25,7 +25,6 @@ class RegularExpressions: NSObject {
             } else {
                 pattern = "^[0-9]"
             }
-            
             let regex: NSRegularExpression = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
             let matches = regex.matches(in: validateString, options: NSRegularExpression.MatchingOptions.reportProgress, range: NSMakeRange(0, validateString.characters.count))
             return matches.count > 0
@@ -33,11 +32,5 @@ class RegularExpressions: NSObject {
         catch {
             return false
         }
-    }
-    func EmailIsValidated(vStr: String) -> Bool {
-        return ValidateText(validatedType: ValidatedType.Email, validateString: vStr)
-    }
-    func PhoneNumberIsValidated(vStr: String) -> Bool {
-        return ValidateText(validatedType: ValidatedType.PhoneNumber, validateString: vStr)
     }
 }

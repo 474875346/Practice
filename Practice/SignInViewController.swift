@@ -122,23 +122,28 @@ private extension SignInViewController {
         Positioninglabel.tag = 100
         self.SignInScrollView.addSubview(Positioninglabel)
         //MARK:地图
-        mapView.frame = CGRect(x: 20, y: YH(Positioninglabel)+5, width: SCREEN_WIDTH-40, height: 200)
+        mapView.frame = CGRect(x: 20, y: YH(Positioninglabel)+5, width: SCREEN_WIDTH-40, height: 100)
         mapView.showsUserLocation = true
         mapView.userTrackingMode = BMKUserTrackingModeFollow
         mapView.zoomLevel = 18
         mapView.gesturesEnabled = false
+        mapView.isUserInteractionEnabled = false
         self.SignInScrollView.addSubview(mapView)
+        let mapline = CreateUI.Label(UIColor.clear, backgroundColor: UIColor.black, title: "", frame: CGRect(x: 0, y: YH(mapView)+10, width: SCREEN_WIDTH, height: 0.5), font: 0)
+        self.SignInScrollView.addSubview(mapline)
         //备注
-        let note = CreateUI.Label(UIColor.lightGray, backgroundColor: UIColor.clear, title: "备注", frame: CGRect(x: 20, y: YH(mapView)+20, width: 120, height: 20), font: 17)
+        let note = CreateUI.Label(UIColor.lightGray, backgroundColor: UIColor.clear, title: "备注", frame: CGRect(x: 20, y: YH(mapView)+20, width: 120, height: 30), font: 17)
         note.tag = 200
         self.SignInScrollView.addSubview(note)
-        let noteSwitch = UISwitch(frame: CGRect(x: SCREEN_WIDTH-80, y: YH(mapView)+20, width: 60, height: 30))
+        let noteSwitch = UISwitch(frame: CGRect(x: SCREEN_WIDTH-80, y: YH(mapView)+20, width: 60, height: 0))
         noteSwitch.addTarget(self, action: #selector((self.noteswitch(_:))), for: .valueChanged)
         self.SignInScrollView.addSubview(noteSwitch)
+        let line = CreateUI.Label(UIColor.clear, backgroundColor: UIColor.lightGray, title: "", frame: CGRect(x: 0, y: YH(noteSwitch)+5, width: SCREEN_WIDTH, height: 1), font: 0)
+        self.SignInScrollView.addSubview(line)
         //备注文本框
         textview.delegate = self
+        textview.backgroundColor = RGBA(250, g: 210, b: 72, a: 0.5)
         textview.addSubview(self.placeHolderLabel!)
-        LRViewBorderRadius(textview, Radius: 10, Width: 0.5, Color: UIColor.lightGray)
         self.SignInScrollView.addSubview(textview)
         SignInbutton.backgroundColor = RGBA(76, g: 171, b: 253, a: 1.0)
         SignInbutton.frame = CGRect(x: SCREEN_WIDTH/2-60, y: YH(note)+20, width: 120, height: 120)

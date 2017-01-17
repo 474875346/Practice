@@ -43,3 +43,5 @@ let Student_signRecord = "/api/sign/signRecord"
 let  Student_reported = "/api/report/reported/ios"
 //月报记录
 let Student_reportquery = "/api/report/query"
+//保存设备信息
+let Student_positionsave = "/api/position/save"

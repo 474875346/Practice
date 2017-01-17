@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: BaseViewController {
+class ViewController: BaseViewController,CAAnimationDelegate {
     var phoneTF = UITextField()
     var pswTF = UITextField()
     var backBlcok:(()->Void)?
@@ -30,6 +30,7 @@ private extension ViewController {
         self.view.addSubview(view)
         //MARK:登录
         let LoginButton = CreateUI.Button("登录", action: #selector((LogInBtn(_:))), sender: self, frame: CGRect(x: 0.05*SCREEN_WIDTH, y: YH(view)+30, width: 0.9*SCREEN_WIDTH, height: 40), backgroundColor:RGBA(76, g: 171, b: 253, a: 1.0) , textColor: UIColor.white)
+        LoginButton.tag = 100
         LoginButton.heroID = "resbtn"
         self.view.addSubview(LoginButton)
         //MARK:忘记密码
@@ -55,14 +56,36 @@ private extension ViewController {
     @objc func LogInBtn(_ btn : UIButton) -> Void {
         self.LogInData()
     }
+    //MARK:按钮动画
+    func btnAnimate() -> Void {
+        let btn = view.viewWithTag(100)
+        //1.选定角色
+        let layer = btn?.layer
+        layer?.cornerRadius = 5.0
+        //2.写剧本
+        let keyAnimate = CAKeyframeAnimation(keyPath: "position")
+        //3.设定关键帧
+        let value0 = NSValue(cgPoint: (layer?.position)!)
+        let value1 = NSValue(cgPoint: CGPoint(x: (layer?.position.x)!+10, y:  (layer?.position.y)! ))
+        let value2 = NSValue(cgPoint: CGPoint(x: (layer?.position.x)!-10, y:  (layer?.position.y)!))
+        let value3 = NSValue(cgPoint: CGPoint(x: (layer?.position.x)!+10, y:  (layer?.position.y)!))
+        let value4 = NSValue(cgPoint: (layer?.position)!)
+        keyAnimate.values = [value0, value1, value2, value3, value4]
+        keyAnimate.autoreverses = false
+        keyAnimate.repeatCount = 1
+        keyAnimate.duration = 0.2
+        layer?.add(keyAnimate, forKey: "keyAnimate")
+    }
     //MARK:登录请求
     func LogInData() -> Void {
         if (self.phoneTF.text?.isEmpty)! {
             self.WaringTost(Title: "", Body: "手机号不能为空")
+            self.btnAnimate()
             return
         }
         if (self.pswTF.text?.isEmpty)! {
             self.WaringTost(Title: "", Body: "密码不能为空")
+            self.btnAnimate()
             return
         }
         HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_Login, type: .POST, parameters: ["client":deviceUUID!,"phone":self.phoneTF.text!,"password":pswTF.text!], SafetyCertification: true,successed: { (success) in
@@ -75,16 +98,17 @@ private extension ViewController {
                 UserDefaultSave("CollegeName", Value: college)
                 if (UserDefaults().objectIsForced(forKey: ZLogInOut) == true ) {
                     self.dismiss(animated: true, completion: nil)
-                   UserDefaults().set(false, forKey: ZLogInOut)
+                    UserDefaults().set(false, forKey: ZLogInOut)
                     self.backBlcok!()
                 } else {
-                let delegate = UIApplication.shared.delegate as! AppDelegate
+                    let delegate = UIApplication.shared.delegate as! AppDelegate
                     delegate.CreatTabbar()
                 }
                 self.SuccessTost(Title: "", Body: "登录成功")
             } else {
                 let msg = success?["msg"] as! String
                 self.WaringTost(Title: "", Body: msg)
+                self.btnAnimate()
             }
         }) { (error) in
             self.ErrorTost()

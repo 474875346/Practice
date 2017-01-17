@@ -17,6 +17,7 @@ class HomePageViewController: BaseViewController,UICollectionViewDelegate,UIColl
         self.addNavBackImg()
         self.addNavTitle(Title: "主页")
         self.CreateUI()
+        self.addSlide()
     }
 }
 extension HomePageViewController {

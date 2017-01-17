@@ -17,10 +17,7 @@ class MessageForDetailsViewController: BaseViewController,UIWebViewDelegate {
         self.addNavTitle(Title: "消息详情")
         self.addBackButton()
         self.CreatUI()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarHidden()
+         self.tabBarHidden()
     }
     func webViewDidFinishLoad(_ webView: UIWebView) {
         activityIndi​​catorView?.stopAnimating()

@@ -21,10 +21,6 @@ class PlayTheVideo: BaseViewController,UIWebViewDelegate {
     }
 }
 extension PlayTheVideo {
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        View.stopAnimating()
-    }
     func webViewDidFinishLoad(_ webView: UIWebView) {
         View.stopAnimating()
     }

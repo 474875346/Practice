@@ -9,13 +9,20 @@
 import UIKit
 import Hero
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate,JPUSHRegisterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate,JPUSHRegisterDelegate,BMKLocationServiceDelegate {
     @available(iOS 10.0, *)
     public func jpushNotificationCenter(_ center: UNUserNotificationCenter!, didReceive response: UNNotificationResponse!, withCompletionHandler completionHandler: (() -> Void)!) {
     }
     @available(iOS 10.0, *)
     func jpushNotificationCenter(_ center: UNUserNotificationCenter!, willPresent notification: UNNotification!, withCompletionHandler completionHandler: ((Int) -> Void)!) {
     }
+    //定位
+    var locService : BMKLocationService?
+    //纬度
+    var latitude = ""
+    //经度
+    var longitude = ""
+    
     var ocSlide = SwiftSlideRootViewController.init(nil)
     var window: UIWindow?
     let tabbar = UITabBarController()
@@ -37,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate,JPUSHRe
         JPUSHService.setup(withOption: launchOptions, appKey: "023b08c13c84e501e0165ac2", channel: channel, apsForProduction: isProduction, advertisingIdentifier: nil)
         self.AuroraPushSuccess()
         self.Unread()
-
+        self.LocService()
         return true
     }
     //MARK:监听极光登录成功
@@ -153,4 +160,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate,JPUSHRe
         }
     }
 }
-
+extension AppDelegate {
+    
+    //MARK:定位
+    func LocService() -> Void {
+        locService = BMKLocationService()
+        locService?.delegate = self
+        locService?.startUserLocationService()
+    }
+    //MARK:位置更新
+    func didUpdate(_ userLocation: BMKUserLocation!) {
+        if  UserDefaults().object(forKey: Zlatitude) == nil {
+            UserDefaults().set(userLocation.location.coordinate.latitude, forKey: Zlatitude)
+        }
+        if UserDefaults().object(forKey: Zlongitude) == nil {
+            UserDefaults().set(userLocation.location.coordinate.latitude, forKey: Zlongitude)
+        }
+        let point1 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake(UserDefaults().object(forKey: Zlatitude)! as! CLLocationDegrees,UserDefaults().object(forKey: Zlongitude)! as! CLLocationDegrees));
+        let point2 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake(userLocation.location.coordinate.latitude,userLocation.location.coordinate.latitude));
+        let distance = BMKMetersBetweenMapPoints(point1,point2);
+        print(distance)
+        if distance > 2000 {
+            UserDefaults().set(userLocation.location.coordinate.latitude, forKey: Zlatitude)
+            UserDefaults().set(userLocation.location.coordinate.latitude, forKey: Zlongitude)
+            longitude = "\(userLocation.location.coordinate.longitude)"
+            latitude = "\(userLocation.location.coordinate.latitude)"
+            self.save()
+        }
+    }
+    func save() -> Void {
+        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_positionsave, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"longitude":longitude,"latitude":latitude,"registerId":UserDefauTake(ZregistID)!], SafetyCertification: true, successed: { (success) in
+        }) { (error) in
+        }
+    }
+}

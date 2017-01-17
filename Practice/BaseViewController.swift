@@ -59,10 +59,27 @@ extension  BaseViewController {
     func BackButton() -> Void {
         _ = self.navigationController?.popViewController(animated: true)
     }
+    //MARK:导航栏返回按钮
+    func addSlide() -> Void {
+        let BackBtn = UIButton(type: .custom)
+        BackBtn.frame = CGRect(x: 10, y: 20, width: 54, height: 44)
+        let Backimg = UIImage(named: "drawer")
+        BackBtn.setImage(Backimg, for: .normal)
+        BackBtn.addTarget(self, action: #selector(Slide), for: .touchUpInside)
+        self.view.addSubview(BackBtn)
+    }
+    func Slide() -> Void {
+        self.SlideShow()
+    }
     //MARK:隐藏侧滑
     func SlideHiend() -> Void {
         let swiftSlideRoot = UIApplication.shared.delegate as! AppDelegate
         swiftSlideRoot.ocSlide.slideBack()
+    }
+    //MARK:侧滑显示
+    func SlideShow() -> Void {
+        let swiftSlideRoot = UIApplication.shared.delegate as! AppDelegate
+        swiftSlideRoot.ocSlide.slideToLeft()
     }
     //MARK:成功弹框
     func SuccessTost(Title:String , Body:String) -> Void {
