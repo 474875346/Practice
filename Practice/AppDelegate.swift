@@ -37,6 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate,JPUSHRe
             self.window?.rootViewController = nav
         }
         self.BaiDuAPI()
+        /// 极光自定义信息
+        let defaultCenter = NotificationCenter.default
+        defaultCenter.addObserver(self, selector: #selector((self.networkDidReceiveMessage(notification:))), name: NSNotification.Name.jpfNetworkDidReceiveMessage, object: nil)
         //MARK:-极光推送
         let entity = JPUSHRegisterEntity()
         entity.types = Int(JPAuthorizationOptions.alert.rawValue) | Int(JPAuthorizationOptions.badge.rawValue) | Int(JPAuthorizationOptions.sound.rawValue);
@@ -46,6 +49,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate,JPUSHRe
         self.Unread()
         self.LocService()
         return true
+    }
+    func networkDidReceiveMessage(notification:NSNotification) ->Void  {
+        let userInfo = notification.userInfo
+        print(userInfo as Any)
     }
     //MARK:监听极光登录成功
     func AuroraPushSuccess() -> Void {

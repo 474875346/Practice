@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 import SDWebImage
 class PersonalInformationViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource{
     lazy var PersonalInformationTableView:UITableView = {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftMessages
 class BaseViewController: UIViewController {
     
     
@@ -104,6 +105,18 @@ extension  BaseViewController {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         delegate.tabbar.tabBar.isHidden = false
         delegate.tabbar.tabBar.isTranslucent = false
+    }
+    func message() -> Void {
+        let warning = MessageView.viewFromNib(layout: .CardView)
+        warning.configureTheme(.warning)
+        warning.configureDropShadow()
+        warning.configureContent(title: "Warning", body: "Consider yourself warned.", iconText: "🤔")
+        warning.button?.setTitle("进入", for: .normal)
+        warning.buttonTapHandler = {
+            (btn) in
+            self.present(ViewController(), animated: true, completion: nil)
+        }
+        SwiftMessages.show(view: warning)
     }
     
 }
