@@ -71,10 +71,10 @@ extension MessageViewController {
         return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell  = tableView.cellForRow(at: indexPath)
+//        let cell  = tableView.cellForRow(at: indexPath)
         let messagemodel = self.MessageDataArray[indexPath.row]
         let Details = MessageForDetailsViewController()
-        cell?.heroID = messagemodel.notice["url"]!
+//        cell?.heroID = messagemodel.notice["url"]!
         Details.MessageURL = messagemodel.notice["url"]!
         self.navigationController?.pushViewController(Details, animated: true)
     }

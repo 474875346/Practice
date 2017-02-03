@@ -13,9 +13,9 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        isHeroEnabled = true
+        //        isHeroEnabled = true
         self.view.backgroundColor = UIColor.white
-        self.navigationController?.isHeroEnabled = true
+        //        self.navigationController?.isHeroEnabled = true
         self.navigationController?.navigationBar.isHidden = true
         self.activityView()
     }
@@ -23,6 +23,26 @@ class BaseViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.tabBarShow()
         activityIndi​​catorView?.stopAnimating()
+    }
+}
+extension BaseViewController {
+    //MARK:一键呼救
+    func help() -> Void {
+        if(CLLocationManager.authorizationStatus() != .denied) {
+            HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_help, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"longitude":"\(UserDefaults().object(forKey: Zlongitude)!)","latitude":"\(UserDefaults().object(forKey: Zlatitude)!)"], SafetyCertification: true, successed: { (success) in
+                let status = success?["status"] as! Int
+                if status == 200 {
+                    self.SuccessTost(Title: "", Body: "呼救成功")
+                } else {
+                    let msg = success?["msg"] as! String
+                    self.WaringTost(Title: "", Body: msg)
+                }
+            }) { (error) in
+                self.ErrorTost()
+            }
+        } else {
+            self.WaringTost(Title: "", Body: "请去打开定位权限")
+        }
     }
 }
 //MARK:- 共有方法
@@ -118,5 +138,4 @@ extension  BaseViewController {
         }
         SwiftMessages.show(view: warning)
     }
-    
 }

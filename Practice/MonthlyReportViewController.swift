@@ -23,7 +23,7 @@ class MonthlyReportViewController: BaseViewController,TZImagePickerControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.heroID = "1"
+//        self.view.heroID = "1"
         self.addNavBackImg()
         self.addNavTitle(Title: "月报")
         self.addBackButton()
@@ -34,6 +34,9 @@ extension MonthlyReportViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarHidden()
+    }
+    override func BackButton() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 private extension MonthlyReportViewController {

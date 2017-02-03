@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Hero
+//import Hero
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate,JPUSHRegisterDelegate,BMKLocationServiceDelegate {
     @available(iOS 10.0, *)
@@ -168,7 +168,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate,JPUSHRe
     }
 }
 extension AppDelegate {
-    
     //MARK:定位
     func LocService() -> Void {
         locService = BMKLocationService()
@@ -181,23 +180,26 @@ extension AppDelegate {
             UserDefaults().set(userLocation.location.coordinate.latitude, forKey: Zlatitude)
         }
         if UserDefaults().object(forKey: Zlongitude) == nil {
-            UserDefaults().set(userLocation.location.coordinate.latitude, forKey: Zlongitude)
+            UserDefaults().set(userLocation.location.coordinate.longitude, forKey: Zlongitude)
         }
         let point1 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake(UserDefaults().object(forKey: Zlatitude)! as! CLLocationDegrees,UserDefaults().object(forKey: Zlongitude)! as! CLLocationDegrees));
-        let point2 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake(userLocation.location.coordinate.latitude,userLocation.location.coordinate.latitude));
+        let point2 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake(userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude));
         let distance = BMKMetersBetweenMapPoints(point1,point2);
         print(distance)
         if distance > 2000 {
             UserDefaults().set(userLocation.location.coordinate.latitude, forKey: Zlatitude)
-            UserDefaults().set(userLocation.location.coordinate.latitude, forKey: Zlongitude)
+            UserDefaults().set(userLocation.location.coordinate.longitude, forKey: Zlongitude)
             longitude = "\(userLocation.location.coordinate.longitude)"
             latitude = "\(userLocation.location.coordinate.latitude)"
             self.save()
         }
     }
+    //MARK:存储坐标
     func save() -> Void {
-        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_positionsave, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"longitude":longitude,"latitude":latitude,"registerId":UserDefauTake(ZregistID)!], SafetyCertification: true, successed: { (success) in
-        }) { (error) in
+        if (UserDefauTake(ZToken) != nil) && (UserDefauTake(ZregistID) != nil) {
+            HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_positionsave, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"longitude":longitude,"latitude":latitude,"registerId":UserDefauTake(ZregistID)!], SafetyCertification: true, successed: { (success) in
+            }) { (error) in
+            }
         }
     }
 }

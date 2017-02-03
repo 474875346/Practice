@@ -45,3 +45,5 @@ let  Student_reported = "/api/report/reported/ios"
 let Student_reportquery = "/api/report/query"
 //保存设备信息
 let Student_positionsave = "/api/position/save"
+//一键呼救
+let Student_help = "/api/sos/help"

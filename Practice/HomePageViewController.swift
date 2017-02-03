@@ -18,6 +18,7 @@ class HomePageViewController: BaseViewController,UICollectionViewDelegate,UIColl
         self.addNavTitle(Title: "主页")
         self.CreateUI()
         self.addSlide()
+        self.HelpButton()
     }
 }
 extension HomePageViewController {
@@ -50,18 +51,27 @@ extension HomePageViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            self.navigationController?.pushViewController(SignWithFootprintViewController(), animated: true)
+            self.present(SignWithFootprintViewController(), animated: true, completion: nil)
             break
         case 1:
-            self.navigationController?.pushViewController(MonthlyReportViewController(), animated: true)
+            let nav = UINavigationController(rootViewController: MonthlyReportViewController())
+            self.present(nav, animated: true, completion: nil)
             break
         default:
-            self.navigationController?.pushViewController(MonthlyRecordViewController(), animated: true)
+            let nav = UINavigationController(rootViewController: MonthlyRecordViewController())
+            self.present(nav, animated: true, completion: nil)
             break
         }
     }
 }
 private extension HomePageViewController {
+    func HelpButton() -> Void {
+        let btn = UIButton(type:.custom)
+        btn.frame = CGRect(x: SCREEN_WIDTH-100, y: 20, width: 80, height: 44)
+        btn.setTitle("一键呼救", for: .normal)
+        btn.addTarget(self, action: #selector((self.help)), for: .touchUpInside)
+        self.view.addSubview(btn)
+    }
     func CreateUI() -> Void {
         //定义collectionView的布局类型，流布局
         let layout = UICollectionViewFlowLayout()

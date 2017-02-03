@@ -61,7 +61,7 @@ private extension InputPasswordViewController {
         nextButton = UIButton(type: .custom)
         nextButton?.frame = CGRect(x: 0.05 * SCREEN_WIDTH, y: 320, width: 0.9 * SCREEN_WIDTH, height: 40)
         LRViewBorderRadius(nextButton!, Radius: 5, Width: 0, Color: UIColor.clear)
-        nextButton?.heroID = "resbtn"
+//        nextButton?.heroID = "resbtn"
         nextButton?.alpha = 0.3
         nextButton?.isUserInteractionEnabled = false
         nextButton?.backgroundColor = RGBA(76, g: 171, b: 253, a: 1)
@@ -84,7 +84,7 @@ private extension InputPasswordViewController {
         collegeTF = view.TFArray[2] as! UITextField
         nameTF.addTarget(self, action: #selector(self.textFieldDidChange), for: .editingChanged)
         passwordTF.addTarget(self, action: #selector(self.textFieldDidChange), for: .editingChanged)
-        view.heroID = "res"
+//        view.heroID = "res"
         self.view.addSubview(view)
         //学院文本框取消交互
         collegeTF.isUserInteractionEnabled = false
@@ -105,7 +105,7 @@ private extension InputPasswordViewController {
     func RetrievePassword() -> Void {
         //MARK:昵称、密码、学院
         let view = LabelAndTFView(frame: CGRect(x: 0.05*SCREEN_WIDTH, y: 160, width: 0.9*SCREEN_WIDTH, height: 40), titlyArray: ["密码："], PlaceholderArray: ["输入密码(最大长度32)"])
-        view.heroID = "res"
+//        view.heroID = "res"
         passwordTF = view.TFArray[0] as! UITextField
         passwordTF.addTarget(self, action: #selector(self.textFieldDidChange), for: .editingChanged)
         self.view.addSubview(view)

@@ -35,7 +35,7 @@ private extension MonthlyReportDetailsViewController {
         myscrollview.bounces = false
         self.view.addSubview(myscrollview)
         let plan =  MonthlyReportDetailsView.init(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 10), title: "工作计划:", content: model.plan)
-        plan.heroID = model.id
+//        plan.heroID = model.id
         myscrollview.addSubview(plan)
         let summary = MonthlyReportDetailsView.init(frame: CGRect(x: 0, y: YH(plan), width: SCREEN_WIDTH, height: 10), title: "工作总结:", content: model.summary)
         myscrollview.addSubview(summary)
@@ -53,7 +53,7 @@ private extension MonthlyReportDetailsViewController {
                 img.contentMode = UIViewContentMode(rawValue: 1)!
                 img.isUserInteractionEnabled = true
                 img.image = UIImage(named: "tab_home_blue")
-                img.heroID = "PlayVideo"
+//                img.heroID = "PlayVideo"
                 myscrollview.addSubview(img)
                 let singleTap = UITapGestureRecognizer.init(target: self, action: #selector(self.clickImage))
                 img.addGestureRecognizer(singleTap)

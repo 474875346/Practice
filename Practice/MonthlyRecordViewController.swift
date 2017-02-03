@@ -31,7 +31,7 @@ class MonthlyRecordViewController: BaseViewController,UITableViewDelegate,UITabl
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.heroID = "2"
+//        self.view.heroID = "2"
         self.addNavBackImg()
         self.addNavTitle(Title: "月报记录")
         self.addBackButton()
@@ -43,6 +43,9 @@ extension MonthlyRecordViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarHidden()
+    }
+    override func BackButton() {
+        self.dismiss(animated: true, completion: nil)
     }
     //MARK:返回行数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,9 +68,9 @@ extension MonthlyRecordViewController {
     }
     //MARK:表格点击方法
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! MonthlyRecordTableViewCell?
+//        let cell = tableView.cellForRow(at: indexPath) as! MonthlyRecordTableViewCell?
         let model = reportqueryArray[indexPath.row]
-        cell?.heroID = model.id
+//        cell?.heroID = model.id
         let  MonthlyReportDetails =  MonthlyReportDetailsViewController()
         MonthlyReportDetails.modelArray = [model]
 //        self.present( MonthlyReportDetails, animated: true, completion: nil)
