@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 class PersonalInformationViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource{
     lazy var PersonalInformationTableView:UITableView = {
-        let PersonalInformationTableView = CreateUI.TableView(self as UITableViewDelegate, dataSource: self as UITableViewDataSource, frame: CGRect(x: 0, y: 0, width: 200, height: SCREEN_HEIGHT), style: .grouped)
+        let PersonalInformationTableView = CreateUI.TableView(self as UITableViewDelegate, dataSource: self as UITableViewDataSource, frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH/4*3, height: SCREEN_HEIGHT), style: .grouped)
         PersonalInformationTableView.backgroundColor = RGBA(255, g: 255, b: 255, a: 1.0)
         PersonalInformationTableView.separatorStyle = .none;
         return PersonalInformationTableView

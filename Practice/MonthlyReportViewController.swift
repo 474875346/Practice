@@ -23,7 +23,7 @@ class MonthlyReportViewController: BaseViewController,TZImagePickerControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.view.heroID = "1"
+        //        self.view.heroID = "1"
         self.addNavBackImg()
         self.addNavTitle(Title: "月报")
         self.addBackButton()
@@ -159,24 +159,7 @@ private extension MonthlyReportViewController {
         let chooseViedo = UIAlertController(title: "", message: "选择视频方式!", preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         let Recordvideo = UIAlertAction(title: "录制视频", style: .default) { (UIAlertAction) in
-            if cameraPermissions() {
-                if PhotoLibraryPermissions() {
-                    if audioSession() {
-                        if UIImagePickerController.isSourceTypeAvailable(.camera){
-                            self.present(VideoRecordingViewController(), animated: true, completion: nil)
-                        }else{
-                            debugPrint("找不到相机")
-                        }
-                    } else {
-                        self.WaringTost(Title: "", Body: "请去打开录音权限")
-                    }
-                } else {
-                    self.WaringTost(Title: "", Body: "请去打开相册权限")
-                }
-            } else {
-                self.WaringTost(Title: "", Body: "请去打开相机权限")
-            }
-            
+            self.present(VideoRecordingViewController(), animated: true, completion: nil)
         }
         let Choosethevideo = UIAlertAction(title: "选择视频", style: .default) { (UIAlertAction) in
             self.Choosethevideo()

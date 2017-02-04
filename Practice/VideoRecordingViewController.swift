@@ -26,12 +26,24 @@ class VideoRecordingViewController: BaseViewController, AVCaptureFileOutputRecor
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //创建按钮
+        self.setupButton()
         //添加视频、音频输入设备
-        let videoInput = try? AVCaptureDeviceInput(device: self.videoDevice)
-        self.captureSession.addInput(videoInput)
-        let audioInput = try? AVCaptureDeviceInput(device: self.audioDevice)
-        self.captureSession.addInput(audioInput);
-        
+        do {
+            let videoInput = try AVCaptureDeviceInput(device: self.videoDevice)
+            self.captureSession.addInput(videoInput)
+        } catch {
+            startButton.isUserInteractionEnabled = false
+            stopButton.isUserInteractionEnabled = false
+            self.view.backgroundColor = UIColor.black
+            self.WaringTost(Title: "", Body: "请去打开相机权限")
+        }
+        do {
+            let audioInput = try AVCaptureDeviceInput(device: self.audioDevice)
+            self.captureSession.addInput(audioInput);
+        } catch {
+            self.WaringTost(Title: "", Body: "请去打开麦克风权限")
+        }
         //添加视频捕获输出
         self.captureSession.addOutput(self.fileOutput)
         
@@ -42,8 +54,7 @@ class VideoRecordingViewController: BaseViewController, AVCaptureFileOutputRecor
             self.view.layer.addSublayer(videoLayer)
         }
         
-        //创建按钮
-        self.setupButton()
+        
         //启动session会话
         self.captureSession.startRunning()
         self.addBackButton()
@@ -138,7 +149,7 @@ class VideoRecordingViewController: BaseViewController, AVCaptureFileOutputRecor
             if isSuccess {
                 message = "保存成功!"
             } else{
-                message = "保存失败：\(error!.localizedDescription)"
+                message = "保存失败：请去打开视频权限"
             }
             
             DispatchQueue.main.async {

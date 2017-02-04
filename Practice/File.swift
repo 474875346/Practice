@@ -98,16 +98,17 @@ func cameraPermissions() -> Bool{
         return true
     }
 }
-func audioSession() -> Bool {
+func audioSession() -> Bool? {
     let audioSession = AVAudioSession.sharedInstance()
     var isaudio : Bool?
-    audioSession.requestRecordPermission { (allowed) in
-        if !allowed{
+    audioSession.requestRecordPermission({ (granted) in
+        if (!granted) {
             isaudio = false
         } else {
             isaudio = true
         }
-    }
+    })
+    print(isaudio as Any)
     return isaudio!
 }
 /**

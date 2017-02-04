@@ -9,8 +9,8 @@
 import UIKit
 
 class HomePageViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource {
-    let imgArray = ["qiandao","yuebao","yuebaojilu"]
-    let titleArray = ["签到","月报","月报记录"]
+    let imgArray = ["qiandao","yuebao","yuebaojilu","",""]
+    let titleArray = ["签到","月报","月报记录","在线咨询","一键呼救"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +18,6 @@ class HomePageViewController: BaseViewController,UICollectionViewDelegate,UIColl
         self.addNavTitle(Title: "主页")
         self.CreateUI()
         self.addSlide()
-        self.HelpButton()
     }
 }
 extension HomePageViewController {
@@ -57,21 +56,21 @@ extension HomePageViewController {
             let nav = UINavigationController(rootViewController: MonthlyReportViewController())
             self.present(nav, animated: true, completion: nil)
             break
-        default:
+        case 2:
             let nav = UINavigationController(rootViewController: MonthlyRecordViewController())
             self.present(nav, animated: true, completion: nil)
             break
+        case 3:
+            break
+        case 4:
+            self.help()
+            break
+        default:
+            break;
         }
     }
 }
 private extension HomePageViewController {
-    func HelpButton() -> Void {
-        let btn = UIButton(type:.custom)
-        btn.frame = CGRect(x: SCREEN_WIDTH-100, y: 20, width: 80, height: 44)
-        btn.setTitle("一键呼救", for: .normal)
-        btn.addTarget(self, action: #selector((self.help)), for: .touchUpInside)
-        self.view.addSubview(btn)
-    }
     func CreateUI() -> Void {
         //定义collectionView的布局类型，流布局
         let layout = UICollectionViewFlowLayout()

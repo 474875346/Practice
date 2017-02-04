@@ -30,9 +30,9 @@ class SwiftSlideRootViewController: UIViewController {
     init(leftVc: UIViewController, mainVc: UIViewController, slideTranlationX: CGFloat) {
         
         super.init(nibName: nil, bundle: nil)
-        self.slideTranlationX = 200
+        self.slideTranlationX = SCREEN_WIDTH/4*3
         if (slideTranlationX < 200 || slideTranlationX == 0) {
-            self.slideTranlationX = 200
+            self.slideTranlationX = SCREEN_WIDTH/4*3
         }  else if (slideTranlationX > 0 && slideTranlationX < 100) {
             self.slideTranlationX = 100
         }
