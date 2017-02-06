@@ -6,7 +6,7 @@ import Photos
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 //let BaseURL = "http://gcm.systop.com.cn"
-let BaseURL = "http://172.16.1.120:9001"
+let BaseURL = "http://172.16.1.19:8080"
 let deviceUUID = UIDevice.current.identifierForVendor?.uuidString
 //取数据的key
 let ZToken = "access_token"
@@ -81,8 +81,8 @@ func CurrentDate() -> String {
     return strNowTime
 }
 //计算文字高度
-func getAttributeSize(text : NSString ,fontSize:Int) -> CGSize {
-    let size = text.boundingRect(with: CGSize(width: SCREEN_WIDTH, height: CGFloat(MAXFLOAT)), options: NSStringDrawingOptions.init(rawValue: 1), attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: CGFloat(fontSize))], context: nil).size
+func getAttributeSize(text : NSString ,fontSize:CGFloat,With:CGFloat) -> CGSize {
+    let size = text.boundingRect(with: CGSize(width: With, height: 1000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: fontSize)], context: nil).size
     return size
 }
 /**

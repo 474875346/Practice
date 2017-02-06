@@ -63,8 +63,8 @@ extension MonthlyRecordViewController {
     //MARK:返回行高
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let model = reportqueryArray[indexPath.row]
-        let size = getAttributeSize(text: model.plan as NSString, fontSize: 21)
-        return size.height+50
+        let size = getAttributeSize(text: model.plan as NSString, fontSize: 18, With: SCREEN_WIDTH-40)
+        return size.height+38
     }
     //MARK:表格点击方法
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

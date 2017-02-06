@@ -13,9 +13,9 @@ class MonthlyReportDetailsView: UIView {
         super.init(frame: frame)
         let titleLabel = CreateUI.Label(UIColor.black, backgroundColor: UIColor.clear, title: title, frame: CGRect(x: 10, y: 5, width: SCREEN_WIDTH, height: 20), font: 17)
         self.addSubview(titleLabel)
-        let size = getAttributeSize(text: content as NSString, fontSize: 21)
+        let size = getAttributeSize(text: content as NSString, fontSize: 17, With: SCREEN_WIDTH-20)
         
-        let contentLabel = CreateUI.Label(UIColor.black, backgroundColor: UIColor.clear, title: content, frame: CGRect(x: 10, y: YH(titleLabel)+5, width: SCREEN_WIDTH-20, height: size.height+50), font: 17)
+        let contentLabel = CreateUI.Label(UIColor.black, backgroundColor: UIColor.clear, title: content, frame: CGRect(x: 10, y: YH(titleLabel)+5, width: SCREEN_WIDTH-20, height: size.height+10), font: 17)
         contentLabel.numberOfLines = 0
         self.addSubview(contentLabel)
         

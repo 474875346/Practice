@@ -35,6 +35,7 @@
 		895212BB1E24B0090053B8A1 /* MonthlyReportDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895212BA1E24B0090053B8A1 /* MonthlyReportDetailsView.swift */; };
 		895212BD1E24BCC50053B8A1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895212BC1E24BCC50053B8A1 /* MobileCoreServices.framework */; };
 		895212C01E24C90F0053B8A1 /* PlayTheVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895212BF1E24C90F0053B8A1 /* PlayTheVideo.swift */; };
+		895761AA1E482404002201C2 /* QuestionHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895761A91E482404002201C2 /* QuestionHistoryViewController.swift */; };
 		89788F601E149EE400C5477F /* InputPasswordCollege.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89788F5F1E149EE400C5477F /* InputPasswordCollege.swift */; };
 		89788F621E150D5D00C5477F /* SwiftMessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89788F611E150D5D00C5477F /* SwiftMessageManager.swift */; };
 		897EFE391E1B42790082D6F4 /* SwiftSlideRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE371E1B42790082D6F4 /* SwiftSlideRootViewController.swift */; };
@@ -44,6 +45,12 @@
 		897EFE431E1B445C0082D6F4 /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE421E1B445C0082D6F4 /* PersonalInformationViewController.swift */; };
 		897EFE471E1B77A90082D6F4 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE461E1B77A90082D6F4 /* MessageModel.swift */; };
 		897EFE4A1E1B808E0082D6F4 /* MessageForDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE491E1B808E0082D6F4 /* MessageForDetailsViewController.swift */; };
+		898E63DC1E457BC400D8FD83 /* OnlineConsultingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E63DB1E457BC400D8FD83 /* OnlineConsultingViewController.swift */; };
+		898E63E51E459FEE00D8FD83 /* OnlineConsultingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E63E41E459FEE00D8FD83 /* OnlineConsultingModel.swift */; };
+		898E63E91E45A69F00D8FD83 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E63E81E45A69F00D8FD83 /* QuestionsViewController.swift */; };
+		898E63ED1E45C41500D8FD83 /* TeacherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E63EC1E45C41500D8FD83 /* TeacherModel.swift */; };
+		898E63F01E45D22300D8FD83 /* OnlineConsultingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E63EE1E45D22300D8FD83 /* OnlineConsultingTableViewCell.swift */; };
+		898E63F11E45D22300D8FD83 /* OnlineConsultingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 898E63EF1E45D22300D8FD83 /* OnlineConsultingTableViewCell.xib */; };
 		89927FD31E20C2B100BE00CD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89927FD21E20C2B100BE00CD /* CFNetwork.framework */; };
 		89927FD51E20C2BF00BE00CD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89927FD41E20C2BF00BE00CD /* CoreFoundation.framework */; };
 		89927FD71E20C30000BE00CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89927FD61E20C30000BE00CD /* UIKit.framework */; };
@@ -136,6 +143,7 @@
 		895212BA1E24B0090053B8A1 /* MonthlyReportDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyReportDetailsView.swift; sourceTree = "<group>"; };
 		895212BC1E24BCC50053B8A1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		895212BF1E24C90F0053B8A1 /* PlayTheVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayTheVideo.swift; sourceTree = "<group>"; };
+		895761A91E482404002201C2 /* QuestionHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionHistoryViewController.swift; sourceTree = "<group>"; };
 		89788F5F1E149EE400C5477F /* InputPasswordCollege.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputPasswordCollege.swift; sourceTree = "<group>"; };
 		89788F611E150D5D00C5477F /* SwiftMessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMessageManager.swift; sourceTree = "<group>"; };
 		897EFE371E1B42790082D6F4 /* SwiftSlideRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSlideRootViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +153,12 @@
 		897EFE421E1B445C0082D6F4 /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
 		897EFE461E1B77A90082D6F4 /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		897EFE491E1B808E0082D6F4 /* MessageForDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageForDetailsViewController.swift; sourceTree = "<group>"; };
+		898E63DB1E457BC400D8FD83 /* OnlineConsultingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineConsultingViewController.swift; sourceTree = "<group>"; };
+		898E63E41E459FEE00D8FD83 /* OnlineConsultingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineConsultingModel.swift; sourceTree = "<group>"; };
+		898E63E81E45A69F00D8FD83 /* QuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
+		898E63EC1E45C41500D8FD83 /* TeacherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherModel.swift; sourceTree = "<group>"; };
+		898E63EE1E45D22300D8FD83 /* OnlineConsultingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineConsultingTableViewCell.swift; sourceTree = "<group>"; };
+		898E63EF1E45D22300D8FD83 /* OnlineConsultingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnlineConsultingTableViewCell.xib; sourceTree = "<group>"; };
 		89927FD01E20C13800BE00CD /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		89927FD21E20C2B100BE00CD /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		89927FD41E20C2BF00BE00CD /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -384,6 +398,14 @@
 			name = "播放视频";
 			sourceTree = "<group>";
 		};
+		895761A81E4823C2002201C2 /* 问题回复 */ = {
+			isa = PBXGroup;
+			children = (
+				895761A91E482404002201C2 /* QuestionHistoryViewController.swift */,
+			);
+			name = "问题回复";
+			sourceTree = "<group>";
+		};
 		89788F5D1E149E4000C5477F /* C */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +437,7 @@
 		897EFE3B1E1B43B50082D6F4 /* 主页 */ = {
 			isa = PBXGroup;
 			children = (
+				898E63DA1E457B8900D8FD83 /* 在线咨询列表 */,
 				89DDE5711E28BCA500C2FF77 /* 签到与足迹 */,
 				89BB00D01E1F382900F73CB4 /* 月报记录 */,
 				89BB00CF1E1F382400F73CB4 /* 月报 */,
@@ -471,6 +494,76 @@
 				897EFE491E1B808E0082D6F4 /* MessageForDetailsViewController.swift */,
 			);
 			name = "消息详情";
+			sourceTree = "<group>";
+		};
+		898E63DA1E457B8900D8FD83 /* 在线咨询列表 */ = {
+			isa = PBXGroup;
+			children = (
+				895761A81E4823C2002201C2 /* 问题回复 */,
+				898E63E61E45A67500D8FD83 /* 提交咨询问题 */,
+				898E63E01E459F7C00D8FD83 /* M */,
+				898E63DF1E459F7000D8FD83 /* V */,
+				898E63DE1E459F6A00D8FD83 /* C */,
+			);
+			name = "在线咨询列表";
+			sourceTree = "<group>";
+		};
+		898E63DE1E459F6A00D8FD83 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				898E63DB1E457BC400D8FD83 /* OnlineConsultingViewController.swift */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		898E63DF1E459F7000D8FD83 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				898E63EE1E45D22300D8FD83 /* OnlineConsultingTableViewCell.swift */,
+				898E63EF1E45D22300D8FD83 /* OnlineConsultingTableViewCell.xib */,
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		898E63E01E459F7C00D8FD83 /* M */ = {
+			isa = PBXGroup;
+			children = (
+				898E63E41E459FEE00D8FD83 /* OnlineConsultingModel.swift */,
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
+		898E63E61E45A67500D8FD83 /* 提交咨询问题 */ = {
+			isa = PBXGroup;
+			children = (
+				898E63EB1E45C3FF00D8FD83 /* M */,
+				898E63EA1E45C3FA00D8FD83 /* V */,
+				898E63E71E45A68400D8FD83 /* C */,
+			);
+			name = "提交咨询问题";
+			sourceTree = "<group>";
+		};
+		898E63E71E45A68400D8FD83 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				898E63E81E45A69F00D8FD83 /* QuestionsViewController.swift */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		898E63EA1E45C3FA00D8FD83 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		898E63EB1E45C3FF00D8FD83 /* M */ = {
+			isa = PBXGroup;
+			children = (
+				898E63EC1E45C41500D8FD83 /* TeacherModel.swift */,
+			);
+			name = M;
 			sourceTree = "<group>";
 		};
 		89927FDB1E20E14000BE00CD /* C */ = {
@@ -898,6 +991,7 @@
 				89C594081E1C99FF003002EE /* PersonalInformationTableViewCell.xib in Resources */,
 				89D538A81E1E185900CC5240 /* PersonalTableViewCell.xib in Resources */,
 				89927FE01E20E16500BE00CD /* SignInRecordTableViewCell.xib in Resources */,
+				898E63F11E45D22300D8FD83 /* OnlineConsultingTableViewCell.xib in Resources */,
 				89C594131E1CD236003002EE /* gcm.systop.com.cn.cer in Resources */,
 				89F9CCA81E120FA800295C70 /* LaunchScreen.storyboard in Resources */,
 				89D538AE1E1E3F4600CC5240 /* HomeCollectionViewCell.xib in Resources */,
@@ -977,6 +1071,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				898E63ED1E45C41500D8FD83 /* TeacherModel.swift in Sources */,
 				89BB00D21E1F384500F73CB4 /* SignInViewController.swift in Sources */,
 				89F82A241E123DD00070A857 /* RegularExpressions.swift in Sources */,
 				895212BB1E24B0090053B8A1 /* MonthlyReportDetailsView.swift in Sources */,
@@ -989,7 +1084,10 @@
 				89D538AD1E1E3F4600CC5240 /* HomeCollectionViewCell.swift in Sources */,
 				89BB00DC1E1F41FA00F73CB4 /* LineAndLabel.swift in Sources */,
 				89DDE5731E28BD0800C2FF77 /* SignWithFootprintViewController.swift in Sources */,
+				898E63E91E45A69F00D8FD83 /* QuestionsViewController.swift in Sources */,
 				897EFE391E1B42790082D6F4 /* SwiftSlideRootViewController.swift in Sources */,
+				898E63DC1E457BC400D8FD83 /* OnlineConsultingViewController.swift in Sources */,
+				898E63E51E459FEE00D8FD83 /* OnlineConsultingModel.swift in Sources */,
 				897EFE3A1E1B42790082D6F4 /* UIView+Extension.swift in Sources */,
 				892DBF2E1E2380910059F59C /* MonthlyRecordModel.swift in Sources */,
 				89F9CCD01E12103A00295C70 /* LabelAndTFView.swift in Sources */,
@@ -1001,6 +1099,7 @@
 				89C5940B1E1CA6D3003002EE /* PersonalViewController.swift in Sources */,
 				8922D21F1E139DBF00E93EF9 /* InputPasswordViewController.swift in Sources */,
 				8922D2211E13A61800E93EF9 /* URLaddress.swift in Sources */,
+				898E63F01E45D22300D8FD83 /* OnlineConsultingTableViewCell.swift in Sources */,
 				89F9CC9E1E120FA800295C70 /* AppDelegate.swift in Sources */,
 				89F9CCCE1E12103100295C70 /* HttpRequestTool.swift in Sources */,
 				89BB00D61E1F386D00F73CB4 /* MonthlyReportViewController.swift in Sources */,
@@ -1016,6 +1115,7 @@
 				892DBF221E2332770059F59C /* TextViewAndLine.swift in Sources */,
 				89F82A211E121D550070A857 /* BaseViewController.swift in Sources */,
 				895212C01E24C90F0053B8A1 /* PlayTheVideo.swift in Sources */,
+				895761AA1E482404002201C2 /* QuestionHistoryViewController.swift in Sources */,
 				89F82A1E1E121B720070A857 /* Registered ViewController.swift in Sources */,
 				89927FDF1E20E16500BE00CD /* SignInRecordTableViewCell.swift in Sources */,
 				892DBF251E2358B20059F59C /* ImageScrollview.swift in Sources */,

@@ -93,7 +93,7 @@ private extension ViewController {
             if status == 200 {
                 let data = success?["data"] as! NSDictionary
                 let token = data["access_token"]  as! String
-                let college = data["college_name"] as! String?
+                let college = data["collegeName"] as! String?
                 UserDefaultSave("access_token", Value: token)
                 UserDefaultSave("CollegeName", Value: college)
                 if (UserDefaults().objectIsForced(forKey: ZLogInOut) == true ) {

@@ -47,3 +47,11 @@ let Student_reportquery = "/api/report/query"
 let Student_positionsave = "/api/position/save"
 //一键呼救
 let Student_help = "/api/sos/help"
+//在线咨询问题列表
+let Student_questionlist = "/api/question/list"
+//获取老师列表
+let Student_questiongetTeacher = "/api/question/getTeacher"
+//提交咨询问题
+let Student_questionconsult = "/api/question/consult"
+//咨询问题历史
+let Student_getQuestionHistory = "/api/question/getQuestionHistory"

@@ -61,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate,JPUSHRe
     //MARK:极光登录成功
     func networkDidLogin() -> Void {
         let registID = JPUSHService.registrationID()
+        print(registID as Any)
         UserDefaultSave(ZregistID, Value: registID)
         UserDefaults.standard.synchronize()
         if (UserDefauTake(ZToken) != nil) {
