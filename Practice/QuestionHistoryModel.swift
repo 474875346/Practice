@@ -12,10 +12,12 @@ class QuestionHistoryModel: NSObject {
     let content:String?
     let createTime:String?
     let id:String?
+    let replayPerson:String?
     
     init(dic:[String:Any]) {
         content = dic["content"] as! String?
         createTime = dic["createTime"] as! String?
         id = dic["id"] as! String?
+        replayPerson = dic["replayPerson"] as! String?
     }
 }

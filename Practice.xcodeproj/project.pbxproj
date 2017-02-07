@@ -30,6 +30,8 @@
 		892DBF2B1E237F410059F59C /* MonthlyRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 892DBF291E237F410059F59C /* MonthlyRecordTableViewCell.xib */; };
 		892DBF2E1E2380910059F59C /* MonthlyRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892DBF2D1E2380910059F59C /* MonthlyRecordModel.swift */; };
 		89515BAB1E4977FA004E0208 /* QuestionHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89515BAA1E4977FA004E0208 /* QuestionHistoryModel.swift */; };
+		89515BAE1E49AD87004E0208 /* QuestionHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89515BAC1E49AD87004E0208 /* QuestionHistoryTableViewCell.swift */; };
+		89515BAF1E49AD87004E0208 /* QuestionHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89515BAD1E49AD87004E0208 /* QuestionHistoryTableViewCell.xib */; };
 		895212291E246BAC0053B8A1 /* jcore-ios-1.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 895212271E246BAC0053B8A1 /* jcore-ios-1.0.0.a */; };
 		8952122A1E246BAC0053B8A1 /* jpush-ios-3.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 895212281E246BAC0053B8A1 /* jpush-ios-3.0.0.a */; };
 		895212B71E24AFA80053B8A1 /* MonthlyReportDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895212B61E24AFA80053B8A1 /* MonthlyReportDetailsViewController.swift */; };
@@ -140,6 +142,8 @@
 		892DBF291E237F410059F59C /* MonthlyRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthlyRecordTableViewCell.xib; sourceTree = "<group>"; };
 		892DBF2D1E2380910059F59C /* MonthlyRecordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyRecordModel.swift; sourceTree = "<group>"; };
 		89515BAA1E4977FA004E0208 /* QuestionHistoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionHistoryModel.swift; sourceTree = "<group>"; };
+		89515BAC1E49AD87004E0208 /* QuestionHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		89515BAD1E49AD87004E0208 /* QuestionHistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		895212271E246BAC0053B8A1 /* jcore-ios-1.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "jcore-ios-1.0.0.a"; path = "Practice/jcore-ios-1.0.0.a"; sourceTree = "<group>"; };
 		895212281E246BAC0053B8A1 /* jpush-ios-3.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "jpush-ios-3.0.0.a"; path = "Practice/jpush-ios-3.0.0.a"; sourceTree = "<group>"; };
 		895212B61E24AFA80053B8A1 /* MonthlyReportDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyReportDetailsViewController.swift; sourceTree = "<group>"; };
@@ -424,6 +428,8 @@
 			isa = PBXGroup;
 			children = (
 				895761AE1E4841B4002201C2 /* InputboxView.swift */,
+				89515BAC1E49AD87004E0208 /* QuestionHistoryTableViewCell.swift */,
+				89515BAD1E49AD87004E0208 /* QuestionHistoryTableViewCell.xib */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -1022,6 +1028,7 @@
 				89D538A81E1E185900CC5240 /* PersonalTableViewCell.xib in Resources */,
 				89927FE01E20E16500BE00CD /* SignInRecordTableViewCell.xib in Resources */,
 				898E63F11E45D22300D8FD83 /* OnlineConsultingTableViewCell.xib in Resources */,
+				89515BAF1E49AD87004E0208 /* QuestionHistoryTableViewCell.xib in Resources */,
 				89C594131E1CD236003002EE /* gcm.systop.com.cn.cer in Resources */,
 				89F9CCA81E120FA800295C70 /* LaunchScreen.storyboard in Resources */,
 				89D538AE1E1E3F4600CC5240 /* HomeCollectionViewCell.xib in Resources */,
@@ -1115,6 +1122,7 @@
 				89D538AD1E1E3F4600CC5240 /* HomeCollectionViewCell.swift in Sources */,
 				89BB00DC1E1F41FA00F73CB4 /* LineAndLabel.swift in Sources */,
 				89DDE5731E28BD0800C2FF77 /* SignWithFootprintViewController.swift in Sources */,
+				89515BAE1E49AD87004E0208 /* QuestionHistoryTableViewCell.swift in Sources */,
 				898E63E91E45A69F00D8FD83 /* QuestionsViewController.swift in Sources */,
 				897EFE391E1B42790082D6F4 /* SwiftSlideRootViewController.swift in Sources */,
 				898E63DC1E457BC400D8FD83 /* OnlineConsultingViewController.swift in Sources */,

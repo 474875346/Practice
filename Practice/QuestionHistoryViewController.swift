@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestionHistoryViewController: BaseViewController,UITableViewDataSource,UITableViewDelegate {
+class QuestionHistoryViewController: BaseViewController,UITableViewDataSource,UITableViewDelegate,UITextViewDelegate {
     var Model:OnlineConsultingModel?
     var send:UIButton?
     var textview:UITextView?
@@ -22,7 +22,7 @@ class QuestionHistoryViewController: BaseViewController,UITableViewDataSource,UI
     }()
     var InputBox = UIView()
     var QuestionHistoryArray = [QuestionHistoryModel]()
-    
+    var mHeightTextView:CGFloat = 44
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,7 @@ class QuestionHistoryViewController: BaseViewController,UITableViewDataSource,UI
         send = input.send
         InputBox = input
         textview = input.textview
+        textview?.delegate = self
         self.view.addSubview(input)
     }
 }
@@ -49,32 +50,55 @@ extension QuestionHistoryViewController {
         if section == 0 {
             return 1
         } else {
-             return QuestionHistoryArray.count
+            return QuestionHistoryArray.count
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let  cell = Bundle.main.loadNibNamed("OnlineConsultingTableViewCell", owner: nil, options: nil)?.first as! OnlineConsultingTableViewCell?
         if indexPath.section == 0 {
+            let  cell = Bundle.main.loadNibNamed("QuestionHistoryTableViewCell", owner: nil, options: nil)?.first as! QuestionHistoryTableViewCell?
             cell?.title?.text = Model?.title
-            cell?.content.text = Model?.content
+            cell?.Hcontent.text = Model?.content
+            cell?.selectionStyle = .none
+            return cell!
         } else {
+            let  cell = Bundle.main.loadNibNamed("QuestionHistoryTableViewCell", owner: nil, options: nil)?.last as! QuestionHistoryTableViewCell?
             let model = QuestionHistoryArray[indexPath.row]
-            cell?.title?.text = model.createTime!
-            cell?.content.text = model.content!
+            cell?.name.text = model.replayPerson!
+            cell?.time?.text = model.createTime!
+            cell?.Content.text = model.content!
+            cell?.selectionStyle = .none
+            return cell!
         }
-        cell?.selectionStyle = .none
-        return cell!
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section != 0 {
             let model = QuestionHistoryArray[indexPath.row]
-            let size = getAttributeSize(text: model.content! as NSString, fontSize: 17, With: SCREEN_WIDTH-40)
-            return size.height+38
+            let size = getAttributeSize(text: model.content! as NSString, fontSize: 20, With: SCREEN_WIDTH)
+            return size.height+40
         } else {
             let string = "\(Model?.content!)" as NSString
-            let size = getAttributeSize(text:string, fontSize: 17, With: SCREEN_WIDTH-40)
-            return size.height+38
+            let size = getAttributeSize(text:string, fontSize: 20, With: SCREEN_WIDTH)
+            return size.height+50
         }
+    }
+    func textViewDidChange(_ textView: UITextView) {
+        let size = textView.sizeThatFits(CGSize(width: SCREEN_WIDTH-105, height: 110))
+        print(size.height)
+        var content:CGFloat = 44
+        if size.height > 110 {
+            content = 110
+            textView.isScrollEnabled = true
+        } else {
+            content = size.height
+            textView.isScrollEnabled = false
+        }
+        if mHeightTextView != content  {
+            self.textview?.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH-100, height:content)
+            self.InputBox.frame = CGRect(x: 0, y: SCREEN_HEIGHT-content, width: SCREEN_WIDTH, height: content)
+            self.QuestionHistorytableView.frame = CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64-content)
+        }
+        send?.frame = CGRect(x: SCREEN_WIDTH-100, y: H(InputBox)-44, width: 100, height: 44)
+        self.scrollsToBottomAnimated()
     }
 }
 private extension QuestionHistoryViewController {
@@ -87,7 +111,8 @@ private extension QuestionHistoryViewController {
                 self.textview?.resignFirstResponder()
                 self.send?.frame = CGRect(x: SCREEN_WIDTH-100, y: 0, width: 100, height: 44)
                 self.textview?.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH-100, height:44)
-                 self.InputBox.frame = CGRect(x: 0, y: SCREEN_HEIGHT-44, width: SCREEN_WIDTH-100, height:44)
+                self.InputBox.frame = CGRect(x: 0, y: SCREEN_HEIGHT-44, width: SCREEN_WIDTH-100, height:44)
+                self.QuestionHistorytableView.frame = CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-108)
                 self.getQuestionHistoryData()
             } else {
                 let msg = success?["msg"] as! String
@@ -113,8 +138,14 @@ private extension QuestionHistoryViewController {
                 self.WaringTost(Title: "", Body: msg)
             }
             self.QuestionHistorytableView.reloadData()
+            //            self.scrollsToBottomAnimated()
         }) { (error) in
             self.ErrorTost()
         }
+    }
+    //MARK:滑动到最底部
+    func scrollsToBottomAnimated() -> Void {
+        let index = IndexPath(row: self.QuestionHistoryArray.count-1, section: 1)
+        self.QuestionHistorytableView.scrollToRow(at: index , at: .bottom, animated: false)
     }
 }

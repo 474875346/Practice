@@ -8,6 +8,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - SnapKit (3.1.2)
   - SwiftMessages (3.1.4)
   - TZImagePickerController (1.7.8)
 
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - MJRefresh
   - NVActivityIndicatorView
   - SDWebImage
+  - SnapKit
   - SwiftMessages
   - TZImagePickerController
 
@@ -30,9 +32,10 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   NVActivityIndicatorView: 28942c18ced111a6a3ce5e6f5b27d9d40116d639
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
   SwiftMessages: 08386e74abe1b32fa8ac2075edb4043c56db709d
   TZImagePickerController: 87a138ae5d585225aaa6c8abe2cface0f0ad19dd
 
-PODFILE CHECKSUM: 2cd842cc8bdb8041d633ebe353d7638356b7346f
+PODFILE CHECKSUM: f9b6af65413fa7071a8f405317c5564c95198a87
 
-COCOAPODS: 1.2.0.beta.3
+COCOAPODS: 1.2.0.rc.1

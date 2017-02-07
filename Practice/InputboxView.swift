@@ -8,19 +8,18 @@
 
 import UIKit
 
-class InputboxView: UIView ,UITextViewDelegate{
+class InputboxView: UIView{
     let textview = UITextView()
     var send:UIButton?
     var keyboardheight:CGFloat?
     var InputBlock:(()->Void)?
-    var mHeightTextView:CGFloat = 44
+    
     
     init(frame: CGRect,VC:UIViewController) {
         super.init(frame: frame)
-        textview.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH-100, height: mHeightTextView)
-        textview.font = UIFont.systemFont(ofSize: 24)
+        textview.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH-100, height: 44)
+        textview.font = UIFont.systemFont(ofSize: 22)
         textview.backgroundColor = RGBA(247, g: 247, b: 247, a: 1.0)
-        textview.delegate = self
         self.addSubview(textview)
         send = UIButton(type: .custom)
         send?.frame = CGRect(x: SCREEN_WIDTH-100, y: 0, width: 100, height: 44)
@@ -35,26 +34,6 @@ class InputboxView: UIView ,UITextViewDelegate{
     }
 }
 extension InputboxView {
-    func textViewDidChange(_ textView: UITextView) {
-
-    }
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        let size = textView.sizeThatFits(CGSize(width: SCREEN_WIDTH-100, height: 0))
-        var content:CGFloat = 44
-        if size.height > 110 {
-            content = 110
-            textView.isScrollEnabled = true
-        } else {
-            content = size.height
-            textView.isScrollEnabled = false
-        }
-        if mHeightTextView != content  {
-            self.textview.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH-100, height:content)
-            self.frame = CGRect(x: 0, y: SCREEN_HEIGHT-content, width: SCREEN_WIDTH, height: content)
-        }
-        send?.frame = CGRect(x: SCREEN_WIDTH-100, y: H(self)-44, width: 100, height: 44)
-        return true
-    }
 }
 private extension InputboxView {
     @objc func sendClick() -> Void {
