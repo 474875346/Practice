@@ -55,3 +55,5 @@ let Student_questiongetTeacher = "/api/question/getTeacher"
 let Student_questionconsult = "/api/question/consult"
 //咨询问题历史
 let Student_getQuestionHistory = "/api/question/getQuestionHistory"
+//咨询问题学生回复
+let Student_questionreplay = "/api/question/replay"

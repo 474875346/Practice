@@ -29,6 +29,7 @@
 		892DBF2A1E237F410059F59C /* MonthlyRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892DBF281E237F410059F59C /* MonthlyRecordTableViewCell.swift */; };
 		892DBF2B1E237F410059F59C /* MonthlyRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 892DBF291E237F410059F59C /* MonthlyRecordTableViewCell.xib */; };
 		892DBF2E1E2380910059F59C /* MonthlyRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892DBF2D1E2380910059F59C /* MonthlyRecordModel.swift */; };
+		89515BAB1E4977FA004E0208 /* QuestionHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89515BAA1E4977FA004E0208 /* QuestionHistoryModel.swift */; };
 		895212291E246BAC0053B8A1 /* jcore-ios-1.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 895212271E246BAC0053B8A1 /* jcore-ios-1.0.0.a */; };
 		8952122A1E246BAC0053B8A1 /* jpush-ios-3.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 895212281E246BAC0053B8A1 /* jpush-ios-3.0.0.a */; };
 		895212B71E24AFA80053B8A1 /* MonthlyReportDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895212B61E24AFA80053B8A1 /* MonthlyReportDetailsViewController.swift */; };
@@ -36,6 +37,7 @@
 		895212BD1E24BCC50053B8A1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895212BC1E24BCC50053B8A1 /* MobileCoreServices.framework */; };
 		895212C01E24C90F0053B8A1 /* PlayTheVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895212BF1E24C90F0053B8A1 /* PlayTheVideo.swift */; };
 		895761AA1E482404002201C2 /* QuestionHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895761A91E482404002201C2 /* QuestionHistoryViewController.swift */; };
+		895761AF1E4841B4002201C2 /* InputboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895761AE1E4841B4002201C2 /* InputboxView.swift */; };
 		89788F601E149EE400C5477F /* InputPasswordCollege.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89788F5F1E149EE400C5477F /* InputPasswordCollege.swift */; };
 		89788F621E150D5D00C5477F /* SwiftMessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89788F611E150D5D00C5477F /* SwiftMessageManager.swift */; };
 		897EFE391E1B42790082D6F4 /* SwiftSlideRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897EFE371E1B42790082D6F4 /* SwiftSlideRootViewController.swift */; };
@@ -137,6 +139,7 @@
 		892DBF281E237F410059F59C /* MonthlyRecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyRecordTableViewCell.swift; sourceTree = "<group>"; };
 		892DBF291E237F410059F59C /* MonthlyRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthlyRecordTableViewCell.xib; sourceTree = "<group>"; };
 		892DBF2D1E2380910059F59C /* MonthlyRecordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyRecordModel.swift; sourceTree = "<group>"; };
+		89515BAA1E4977FA004E0208 /* QuestionHistoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionHistoryModel.swift; sourceTree = "<group>"; };
 		895212271E246BAC0053B8A1 /* jcore-ios-1.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "jcore-ios-1.0.0.a"; path = "Practice/jcore-ios-1.0.0.a"; sourceTree = "<group>"; };
 		895212281E246BAC0053B8A1 /* jpush-ios-3.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "jpush-ios-3.0.0.a"; path = "Practice/jpush-ios-3.0.0.a"; sourceTree = "<group>"; };
 		895212B61E24AFA80053B8A1 /* MonthlyReportDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyReportDetailsViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +147,7 @@
 		895212BC1E24BCC50053B8A1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		895212BF1E24C90F0053B8A1 /* PlayTheVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayTheVideo.swift; sourceTree = "<group>"; };
 		895761A91E482404002201C2 /* QuestionHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionHistoryViewController.swift; sourceTree = "<group>"; };
+		895761AE1E4841B4002201C2 /* InputboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputboxView.swift; sourceTree = "<group>"; };
 		89788F5F1E149EE400C5477F /* InputPasswordCollege.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputPasswordCollege.swift; sourceTree = "<group>"; };
 		89788F611E150D5D00C5477F /* SwiftMessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMessageManager.swift; sourceTree = "<group>"; };
 		897EFE371E1B42790082D6F4 /* SwiftSlideRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSlideRootViewController.swift; sourceTree = "<group>"; };
@@ -401,9 +405,35 @@
 		895761A81E4823C2002201C2 /* 问题回复 */ = {
 			isa = PBXGroup;
 			children = (
-				895761A91E482404002201C2 /* QuestionHistoryViewController.swift */,
+				895761AD1E483FE0002201C2 /* M */,
+				895761AC1E483FDB002201C2 /* V */,
+				895761AB1E483FD3002201C2 /* C */,
 			);
 			name = "问题回复";
+			sourceTree = "<group>";
+		};
+		895761AB1E483FD3002201C2 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				895761A91E482404002201C2 /* QuestionHistoryViewController.swift */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		895761AC1E483FDB002201C2 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				895761AE1E4841B4002201C2 /* InputboxView.swift */,
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		895761AD1E483FE0002201C2 /* M */ = {
+			isa = PBXGroup;
+			children = (
+				89515BAA1E4977FA004E0208 /* QuestionHistoryModel.swift */,
+			);
+			name = M;
 			sourceTree = "<group>";
 		};
 		89788F5D1E149E4000C5477F /* C */ = {
@@ -1073,6 +1103,7 @@
 			files = (
 				898E63ED1E45C41500D8FD83 /* TeacherModel.swift in Sources */,
 				89BB00D21E1F384500F73CB4 /* SignInViewController.swift in Sources */,
+				89515BAB1E4977FA004E0208 /* QuestionHistoryModel.swift in Sources */,
 				89F82A241E123DD00070A857 /* RegularExpressions.swift in Sources */,
 				895212BB1E24B0090053B8A1 /* MonthlyReportDetailsView.swift in Sources */,
 				897EFE4A1E1B808E0082D6F4 /* MessageForDetailsViewController.swift in Sources */,
@@ -1106,6 +1137,7 @@
 				89C594171E1CD47A003002EE /* ChangePswViewController.swift in Sources */,
 				897EFE471E1B77A90082D6F4 /* MessageModel.swift in Sources */,
 				89F82A261E123FDD0070A857 /* MessageIdentifyViewController.swift in Sources */,
+				895761AF1E4841B4002201C2 /* InputboxView.swift in Sources */,
 				89BB00D41E1F385B00F73CB4 /* SignInRecordViewController.swift in Sources */,
 				897EFE3F1E1B44190082D6F4 /* HomePageViewController.swift in Sources */,
 				89C5941A1E1CE284003002EE /* PersonalModel.swift in Sources */,

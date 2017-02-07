@@ -47,8 +47,8 @@ extension OnlineConsultingViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let  cell = Bundle.main.loadNibNamed("OnlineConsultingTableViewCell", owner: nil, options: nil)?.first as! OnlineConsultingTableViewCell?
         let model = OnlineConsultingArray[indexPath.row]
-        cell?.title?.text = model.title
-        cell?.content.text = model.content
+        cell?.title?.text = model.title!
+        cell?.content.text = model.content!
         cell?.selectionStyle = .none
         return cell!
     }
@@ -59,7 +59,10 @@ extension OnlineConsultingViewController {
         return size.height+38
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(QuestionHistoryViewController(), animated: true)
+        let model = self.OnlineConsultingArray[indexPath.row]
+        let QuestionHistory = QuestionHistoryViewController()
+        QuestionHistory.Model = model
+        self.navigationController?.pushViewController(QuestionHistory, animated: true)
     }
 }
 private extension OnlineConsultingViewController {
