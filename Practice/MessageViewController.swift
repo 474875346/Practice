@@ -76,7 +76,7 @@ extension MessageViewController {
         let Details = MessageForDetailsViewController()
 //        cell?.heroID = messagemodel.notice["url"]!
         Details.MessageURL = messagemodel.notice["url"]!
-        self.navigationController?.pushViewController(Details, animated: true)
+        self.present(Details, animated: true, completion: nil)
     }
     
 }

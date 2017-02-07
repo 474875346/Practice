@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-import NVActivityIndicatorView
+
 //创建请求类枚举
 enum RequestType: Int {
     case GET
@@ -17,8 +17,6 @@ enum RequestType: Int {
 //创建一个闭包(注:oc中block)
 typealias sendVlesClosure = (AnyObject?, NSError?)->Void
 typealias uploadClosure = (AnyObject?, NSError?,Int64?,Int64?,Int64?)->Void
-let activityIndi​​catorView:NVActivityIndicatorView? = NVActivityIndicatorView(frame: CGRect(x: SCREEN_WIDTH/2-25, y: SCREEN_HEIGHT/2, width: 50, height: 50), type: NVActivityIndicatorType(rawValue: Int(arc4random())%27), color: UIColor.red, padding: 1.0)
-
 class HttpRequestTool: NSObject {
     /*
      *单例类

@@ -7,10 +7,10 @@
 //
 
 import UIKit
-
+import NVActivityIndicatorView
 class MessageForDetailsViewController: BaseViewController,UIWebViewDelegate {
     var MessageURL = String()
-    
+        let View = NVActivityIndicatorView(frame: CGRect(x: SCREEN_WIDTH/2-25, y: SCREEN_HEIGHT/2-64, width: 50, height: 50), type:NVActivityIndicatorType(rawValue: 1), color: UIColor.red, padding: 1.0)
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBackImg()
@@ -20,7 +20,10 @@ class MessageForDetailsViewController: BaseViewController,UIWebViewDelegate {
          self.tabBarHidden()
     }
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        activityIndi​​catorView?.stopAnimating()
+        View.stopAnimating()
+    }
+    override func BackButton() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 private extension MessageForDetailsViewController {
@@ -33,5 +36,7 @@ private extension MessageForDetailsViewController {
         web.loadRequest(URLRequest(url: NSURL(string: urlString) as! URL))
 //        web.heroID = MessageURL
         self.view.addSubview(web)
+        web.addSubview(View)
+        View.startAnimating()
     }
 }

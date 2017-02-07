@@ -33,7 +33,7 @@ class OnlineConsultingViewController: BaseViewController,UITableViewDelegate,UIT
         self.addNavBackImg()
         self.addBackButton()
         self.addNavTitle(Title: "在线咨询列表")
-        self.questionlistData()
+        self.OnlineConsultingtableView.mj_header.beginRefreshing()
         self.OnlineConsultingButton()
     }
 }

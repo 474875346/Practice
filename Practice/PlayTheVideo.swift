@@ -10,7 +10,7 @@ import UIKit
 import NVActivityIndicatorView
 class PlayTheVideo: BaseViewController,UIWebViewDelegate {
     var URLString = ""
-    let View = NVActivityIndicatorView(frame: CGRect(x: SCREEN_WIDTH/2-25, y: SCREEN_HEIGHT/2-64, width: 50, height: 50), type:NVActivityIndicatorType(rawValue: Int(arc4random())%27), color: UIColor.red, padding: 1.0)
+    let View = NVActivityIndicatorView(frame: CGRect(x: SCREEN_WIDTH/2-25, y: SCREEN_HEIGHT/2-64, width: 50, height: 50), type:NVActivityIndicatorType(rawValue: 1), color: UIColor.red, padding: 1.0)
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBackImg()
