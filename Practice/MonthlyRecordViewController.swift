@@ -35,7 +35,8 @@ class MonthlyRecordViewController: BaseViewController,UITableViewDelegate,UITabl
         self.addNavBackImg()
         self.addNavTitle(Title: "月报记录")
         self.addBackButton()
-        self.reportquery()
+//        self.reportquery()
+        self.MonthlyRecordtableView.mj_header.beginRefreshing()
     }
 
 }
