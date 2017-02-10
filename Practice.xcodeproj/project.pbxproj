@@ -372,6 +372,15 @@
 			name = M;
 			sourceTree = "<group>";
 		};
+		893925851E4BF9B8009D4866 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				89515BAC1E49AD87004E0208 /* QuestionHistoryTableViewCell.swift */,
+				89515BAD1E49AD87004E0208 /* QuestionHistoryTableViewCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		895212B51E24AF7D0053B8A1 /* 详情 */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,8 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				895761AE1E4841B4002201C2 /* InputboxView.swift */,
-				89515BAC1E49AD87004E0208 /* QuestionHistoryTableViewCell.swift */,
-				89515BAD1E49AD87004E0208 /* QuestionHistoryTableViewCell.xib */,
+				893925851E4BF9B8009D4866 /* Cell */,
 			);
 			name = V;
 			sourceTree = "<group>";

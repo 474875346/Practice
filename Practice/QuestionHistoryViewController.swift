@@ -61,12 +61,15 @@ extension QuestionHistoryViewController {
             cell?.selectionStyle = .none
             return cell!
         } else {
-            let  cell = Bundle.main.loadNibNamed("QuestionHistoryTableViewCell", owner: nil, options: nil)?.last as! QuestionHistoryTableViewCell?
+            var cell = tableView.dequeueReusableCell(withIdentifier: "history2") as! QuestionHistoryTableViewCell?
+            if cell == nil {
+                cell = Bundle.main.loadNibNamed("QuestionHistoryTableViewCell", owner: nil, options: nil)?.last as! QuestionHistoryTableViewCell?
+            }
             let model = QuestionHistoryArray[indexPath.row]
             cell?.name.text = model.replayPerson!
             cell?.time?.text = model.createTime!
             cell?.Content.text = model.content!
-            cell?.selectionStyle = .none
+                        cell?.selectionStyle = .none
             return cell!
         }
     }
@@ -78,7 +81,7 @@ extension QuestionHistoryViewController {
         } else {
             let string = "\(Model?.content!)" as NSString
             let size = getAttributeSize(text:string, fontSize: 20, With: SCREEN_WIDTH)
-            return size.height+50
+            return size.height+40
         }
     }
     func textViewDidChange(_ textView: UITextView) {
@@ -104,6 +107,9 @@ extension QuestionHistoryViewController {
 private extension QuestionHistoryViewController {
     //MARK:问题回复
     func questionreplayData() -> Void {
+        if (self.textview?.text.isEmpty)! {
+            return
+        }
         HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_questionreplay, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"questionId":(Model?.id)!,"replay":(self.textview?.text)!], SafetyCertification: true, successed: { (success) in
             let status = success?["status"] as! Int
             if status == 200 {
