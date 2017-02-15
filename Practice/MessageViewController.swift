@@ -13,6 +13,7 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
     lazy var MessageTableView:UITableView = {
         let  MessageTableView = CreateUI.TableView(self as UITableViewDelegate, dataSource: self as UITableViewDataSource, frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-108), style: .plain)
         MessageTableView.separatorStyle = .none
+        MessageTableView.rowHeight = 88
         MessageTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self.pageNum = 1
             self.MessageData()
@@ -46,35 +47,26 @@ extension MessageViewController {
         return self.MessageDataArray.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        if !(cell != nil) {
-            cell = UITableViewCell.init(style:.subtitle, reuseIdentifier: "cell")
-            let label = CreateUI.Label(UIColor.clear, backgroundColor: UIColor.red, title: "", frame: CGRect(x: SCREEN_WIDTH-20, y: 22, width: 10, height: 10), font: 0)
-            LRViewBorderRadius(label, Radius: 5, Width: 0, Color: UIColor.clear)
-            label.isHidden = true
-            label.tag = indexPath.row+1
-            cell?.addSubview(label)
-            let line = CreateUI.Label(UIColor.clear, backgroundColor: UIColor.lightGray, title: "", frame: CGRect(x: 0, y: 43, width: SCREEN_WIDTH, height: 1), font: 0)
-            cell?.addSubview(line)
+        var cell = tableView.dequeueReusableCell(withIdentifier: "message") as! MessageTableViewCell?
+        if cell == nil {
+            cell = Bundle.main.loadNibNamed("MessageTableViewCell", owner: nil, options: nil)?.first as! MessageTableViewCell?
         }
+        LRViewBorderRadius((cell?.circle)!, Radius: 5, Width: 0, Color: UIColor.clear)
         let messagemodel = self.MessageDataArray[indexPath.row]
         if messagemodel.status.isEqual(to: "N") {
-            let label = cell?.viewWithTag(indexPath.row+1)
-            label?.isHidden = false
+            cell?.circle.isHidden = false
         } else if messagemodel.status.isEqual(to: "Y") {
-            let label = cell?.viewWithTag(indexPath.row+1)
-            label?.isHidden = true
+            cell?.circle.isHidden = true
         }
-        cell?.detailTextLabel?.text = messagemodel.createTime
-        cell?.textLabel?.text = messagemodel.notice["title"]
-        cell?.textLabel?.font = UIFont.systemFont(ofSize: 15)
+        cell?.time?.text = messagemodel.createTime
+        cell?.content?.text = messagemodel.notice["title"]
         return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let cell  = tableView.cellForRow(at: indexPath)
+        //        let cell  = tableView.cellForRow(at: indexPath)
         let messagemodel = self.MessageDataArray[indexPath.row]
         let Details = MessageForDetailsViewController()
-//        cell?.heroID = messagemodel.notice["url"]!
+        //        cell?.heroID = messagemodel.notice["url"]!
         Details.MessageURL = messagemodel.notice["url"]!
         self.present(Details, animated: true, completion: nil)
     }

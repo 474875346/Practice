@@ -9,8 +9,8 @@
 import UIKit
 
 class HomePageViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource {
-    let imgArray = ["qiandao","yuebao","yuebaojilu","qiandao","qiandao"]
-    let titleArray = ["签到","月报","月报记录","在线咨询","一键呼救"]
+    let imgArray = ["qiandao","yuebao","yuebaojilu","qiandao","qiandao","qiandao","qiandao"]
+    let titleArray = ["签到","月报","月报记录","在线咨询","一键呼救","调查问卷","知识课堂"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +72,15 @@ extension HomePageViewController {
         case 4:
             self.help()
             break
+        case 5:
+            let nav = UINavigationController(rootViewController: QuestionnairepageQueryViewController())
+            nav.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
+            self.present(nav, animated: true, completion: nil)
+            break
         default:
+            let nav = UINavigationController(rootViewController: KnowledgepageQueryViewController())
+            nav.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
+            self.present(nav, animated: true, completion: nil)
             break;
         }
     }

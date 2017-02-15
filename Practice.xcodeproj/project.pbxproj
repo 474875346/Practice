@@ -19,6 +19,14 @@
 		890ECC391E1F6A7100AE0F3D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890ECC381E1F6A7100AE0F3D /* CoreTelephony.framework */; };
 		8922D21F1E139DBF00E93EF9 /* InputPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922D21E1E139DBF00E93EF9 /* InputPasswordViewController.swift */; };
 		8922D2211E13A61800E93EF9 /* URLaddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922D2201E13A61800E93EF9 /* URLaddress.swift */; };
+		892A6C5E1E529E310002EDF0 /* KnowledgepageQueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892A6C5D1E529E310002EDF0 /* KnowledgepageQueryViewController.swift */; };
+		892A6C631E52A2320002EDF0 /* KnowledgepageQueryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892A6C621E52A2320002EDF0 /* KnowledgepageQueryModel.swift */; };
+		892A6C661E52A38B0002EDF0 /* KnowledgepageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892A6C651E52A38B0002EDF0 /* KnowledgepageDetailsViewController.swift */; };
+		892A6C6A1E52AA2C0002EDF0 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892A6C681E52AA2C0002EDF0 /* MessageTableViewCell.swift */; };
+		892A6C6B1E52AA2C0002EDF0 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 892A6C691E52AA2C0002EDF0 /* MessageTableViewCell.xib */; };
+		892A6C6E1E52CFFD0002EDF0 /* QuestionnairepageQueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892A6C6D1E52CFFD0002EDF0 /* QuestionnairepageQueryViewController.swift */; };
+		892A6C721E52D1510002EDF0 /* QuestionnairepageQueryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892A6C711E52D1510002EDF0 /* QuestionnairepageQueryModel.swift */; };
+		892A6C751E52D38C0002EDF0 /* QuestionnairepagedetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892A6C741E52D38C0002EDF0 /* QuestionnairepagedetailsViewController.swift */; };
 		892B24A01E1C83E600DAB36C /* tomcat.cer in Resources */ = {isa = PBXBuildFile; fileRef = 892B249E1E1C83E600DAB36C /* tomcat.cer */; };
 		892B24A11E1C83E600DAB36C /* client.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 892B249F1E1C83E600DAB36C /* client.p12 */; };
 		892DBF191E2323180059F59C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 892DBF181E2323180059F59C /* AVFoundation.framework */; };
@@ -131,6 +139,14 @@
 		890ECC3A1E1F6CE200AE0F3D /* Practice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Practice.entitlements; path = Practice/Practice.entitlements; sourceTree = "<group>"; };
 		8922D21E1E139DBF00E93EF9 /* InputPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputPasswordViewController.swift; sourceTree = "<group>"; };
 		8922D2201E13A61800E93EF9 /* URLaddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLaddress.swift; sourceTree = "<group>"; };
+		892A6C5D1E529E310002EDF0 /* KnowledgepageQueryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnowledgepageQueryViewController.swift; sourceTree = "<group>"; };
+		892A6C621E52A2320002EDF0 /* KnowledgepageQueryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnowledgepageQueryModel.swift; sourceTree = "<group>"; };
+		892A6C651E52A38B0002EDF0 /* KnowledgepageDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KnowledgepageDetailsViewController.swift; path = Assets.xcassets/KnowledgepageDetailsViewController.swift; sourceTree = "<group>"; };
+		892A6C681E52AA2C0002EDF0 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		892A6C691E52AA2C0002EDF0 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		892A6C6D1E52CFFD0002EDF0 /* QuestionnairepageQueryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnairepageQueryViewController.swift; sourceTree = "<group>"; };
+		892A6C711E52D1510002EDF0 /* QuestionnairepageQueryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnairepageQueryModel.swift; sourceTree = "<group>"; };
+		892A6C741E52D38C0002EDF0 /* QuestionnairepagedetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnairepagedetailsViewController.swift; sourceTree = "<group>"; };
 		892B249E1E1C83E600DAB36C /* tomcat.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = tomcat.cer; sourceTree = "<group>"; };
 		892B249F1E1C83E600DAB36C /* client.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = client.p12; sourceTree = "<group>"; };
 		892DBF181E2323180059F59C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -303,6 +319,91 @@
 				2D3A0EBDD55672EB18A279A5 /* Pods_Practice.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		892A6C5C1E529E100002EDF0 /* 知识课堂 */ = {
+			isa = PBXGroup;
+			children = (
+				892A6C641E52A35F0002EDF0 /* 知识课堂详情 */,
+				892A6C611E52A21A0002EDF0 /* M */,
+				892A6C601E52A2150002EDF0 /* V */,
+				892A6C5F1E52A20E0002EDF0 /* C */,
+			);
+			name = "知识课堂";
+			sourceTree = "<group>";
+		};
+		892A6C5F1E52A20E0002EDF0 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				892A6C5D1E529E310002EDF0 /* KnowledgepageQueryViewController.swift */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		892A6C601E52A2150002EDF0 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		892A6C611E52A21A0002EDF0 /* M */ = {
+			isa = PBXGroup;
+			children = (
+				892A6C621E52A2320002EDF0 /* KnowledgepageQueryModel.swift */,
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
+		892A6C641E52A35F0002EDF0 /* 知识课堂详情 */ = {
+			isa = PBXGroup;
+			children = (
+				892A6C651E52A38B0002EDF0 /* KnowledgepageDetailsViewController.swift */,
+			);
+			name = "知识课堂详情";
+			sourceTree = "<group>";
+		};
+		892A6C671E52AA090002EDF0 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				892A6C681E52AA2C0002EDF0 /* MessageTableViewCell.swift */,
+				892A6C691E52AA2C0002EDF0 /* MessageTableViewCell.xib */,
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		892A6C6C1E52CFCD0002EDF0 /* 调查问卷 */ = {
+			isa = PBXGroup;
+			children = (
+				892A6C731E52D3590002EDF0 /* 调查问卷详情 */,
+				892A6C701E52D1390002EDF0 /* M */,
+				892A6C6F1E52D1340002EDF0 /* C */,
+			);
+			name = "调查问卷";
+			sourceTree = "<group>";
+		};
+		892A6C6F1E52D1340002EDF0 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				892A6C6D1E52CFFD0002EDF0 /* QuestionnairepageQueryViewController.swift */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		892A6C701E52D1390002EDF0 /* M */ = {
+			isa = PBXGroup;
+			children = (
+				892A6C711E52D1510002EDF0 /* QuestionnairepageQueryModel.swift */,
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
+		892A6C731E52D3590002EDF0 /* 调查问卷详情 */ = {
+			isa = PBXGroup;
+			children = (
+				892A6C741E52D38C0002EDF0 /* QuestionnairepagedetailsViewController.swift */,
+			);
+			name = "调查问卷详情";
 			sourceTree = "<group>";
 		};
 		892DBF171E23230D0059F59C /* C */ = {
@@ -481,6 +582,8 @@
 		897EFE3B1E1B43B50082D6F4 /* 主页 */ = {
 			isa = PBXGroup;
 			children = (
+				892A6C6C1E52CFCD0002EDF0 /* 调查问卷 */,
+				892A6C5C1E529E100002EDF0 /* 知识课堂 */,
 				898E63DA1E457B8900D8FD83 /* 在线咨询列表 */,
 				89DDE5711E28BCA500C2FF77 /* 签到与足迹 */,
 				89BB00D01E1F382900F73CB4 /* 月报记录 */,
@@ -498,6 +601,7 @@
 			children = (
 				897EFE481E1B804E0082D6F4 /* 消息详情 */,
 				897EFE451E1B77930082D6F4 /* M */,
+				892A6C671E52AA090002EDF0 /* V */,
 				897EFE441E1B778E0082D6F4 /* C */,
 			);
 			name = "消息";
@@ -1036,6 +1140,7 @@
 				89D538A81E1E185900CC5240 /* PersonalTableViewCell.xib in Resources */,
 				89927FE01E20E16500BE00CD /* SignInRecordTableViewCell.xib in Resources */,
 				898E63F11E45D22300D8FD83 /* OnlineConsultingTableViewCell.xib in Resources */,
+				892A6C6B1E52AA2C0002EDF0 /* MessageTableViewCell.xib in Resources */,
 				89515BAF1E49AD87004E0208 /* QuestionHistoryTableViewCell.xib in Resources */,
 				89C594131E1CD236003002EE /* gcm.systop.com.cn.cer in Resources */,
 				89F9CCA81E120FA800295C70 /* LaunchScreen.storyboard in Resources */,
@@ -1137,14 +1242,19 @@
 				898E63E51E459FEE00D8FD83 /* OnlineConsultingModel.swift in Sources */,
 				897EFE3A1E1B42790082D6F4 /* UIView+Extension.swift in Sources */,
 				892DBF2E1E2380910059F59C /* MonthlyRecordModel.swift in Sources */,
+				892A6C6E1E52CFFD0002EDF0 /* QuestionnairepageQueryViewController.swift in Sources */,
+				892A6C6A1E52AA2C0002EDF0 /* MessageTableViewCell.swift in Sources */,
 				89F9CCD01E12103A00295C70 /* LabelAndTFView.swift in Sources */,
+				892A6C631E52A2320002EDF0 /* KnowledgepageQueryModel.swift in Sources */,
 				897EFE431E1B445C0082D6F4 /* PersonalInformationViewController.swift in Sources */,
+				892A6C661E52A38B0002EDF0 /* KnowledgepageDetailsViewController.swift in Sources */,
 				89788F601E149EE400C5477F /* InputPasswordCollege.swift in Sources */,
 				892DBF2A1E237F410059F59C /* MonthlyRecordTableViewCell.swift in Sources */,
 				89927FE31E20E3D100BE00CD /* SignInRecordModel.swift in Sources */,
 				89F9CCCD1E12103100295C70 /* File.swift in Sources */,
 				89C5940B1E1CA6D3003002EE /* PersonalViewController.swift in Sources */,
 				8922D21F1E139DBF00E93EF9 /* InputPasswordViewController.swift in Sources */,
+				892A6C5E1E529E310002EDF0 /* KnowledgepageQueryViewController.swift in Sources */,
 				8922D2211E13A61800E93EF9 /* URLaddress.swift in Sources */,
 				898E63F01E45D22300D8FD83 /* OnlineConsultingTableViewCell.swift in Sources */,
 				89F9CC9E1E120FA800295C70 /* AppDelegate.swift in Sources */,
@@ -1156,6 +1266,7 @@
 				895761AF1E4841B4002201C2 /* InputboxView.swift in Sources */,
 				89BB00D41E1F385B00F73CB4 /* SignInRecordViewController.swift in Sources */,
 				897EFE3F1E1B44190082D6F4 /* HomePageViewController.swift in Sources */,
+				892A6C751E52D38C0002EDF0 /* QuestionnairepagedetailsViewController.swift in Sources */,
 				89C5941A1E1CE284003002EE /* PersonalModel.swift in Sources */,
 				897EFE411E1B443D0082D6F4 /* MessageViewController.swift in Sources */,
 				89788F621E150D5D00C5477F /* SwiftMessageManager.swift in Sources */,
@@ -1168,6 +1279,7 @@
 				89927FDF1E20E16500BE00CD /* SignInRecordTableViewCell.swift in Sources */,
 				892DBF251E2358B20059F59C /* ImageScrollview.swift in Sources */,
 				892DBF1E1E2323D00059F59C /* VideoRecordingViewController.swift in Sources */,
+				892A6C721E52D1510002EDF0 /* QuestionnairepageQueryModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

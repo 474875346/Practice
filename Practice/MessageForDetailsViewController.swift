@@ -26,6 +26,7 @@ class MessageForDetailsViewController: BaseViewController,UIWebViewDelegate {
         self.dismiss(animated: true, completion: nil)
     }
 }
+
 private extension MessageForDetailsViewController {
     func CreatUI() -> Void {
         activityIndi​​catorView?.startAnimating()

@@ -6,7 +6,7 @@ import Photos
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 //let BaseURL = "http://gcm.systop.com.cn"
-let BaseURL = "http://172.16.1.120:8080"
+let BaseURL = "http://172.16.1.22:9000"
 let deviceUUID = UIDevice.current.identifierForVendor?.uuidString
 //取数据的key
 let ZToken = "access_token"

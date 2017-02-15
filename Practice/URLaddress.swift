@@ -57,3 +57,9 @@ let Student_questionconsult = "/api/question/consult"
 let Student_getQuestionHistory = "/api/question/getQuestionHistory"
 //咨询问题学生回复
 let Student_questionreplay = "/api/question/replay"
+//知识课堂列表
+let Student_knowledgepageQuery = "/api/knowledge/pageQuery"
+//调查问卷列表
+let Student_questionnaireppageQuery = "/api/survey/pageQuery"
+//调查问卷详情
+let Student_questionnairepindex = "/api/survey/index"

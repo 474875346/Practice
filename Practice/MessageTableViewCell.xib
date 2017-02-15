@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="message" id="KGk-i7-Jjw" customClass="MessageTableViewCell" customModule="Practice" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ym-Mf-hgo">
+                        <rect key="frame" x="302" y="39" width="10" height="10"/>
+                        <color key="backgroundColor" red="1" green="0.1858188513" blue="0.1870622498" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="4vC-N7-GnN"/>
+                            <constraint firstAttribute="width" constant="10" id="RNa-kB-e52"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNS-51-18B">
+                        <rect key="frame" x="-8" y="87" width="336" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="dka-0j-mMJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="卡机的离开发简历到付款及案例可适当卡的疯狂卡里的飞机快拉倒就" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Xf-dA-V5X">
+                        <rect key="frame" x="8" y="8" width="274" height="41"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="41" id="i7L-OP-myk"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEm-au-EE3">
+                        <rect key="frame" x="8" y="59" width="304" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="82z-TD-w7O"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tEm-au-EE3" firstAttribute="top" secondItem="2Xf-dA-V5X" secondAttribute="bottom" constant="10" id="3pv-zT-fSg"/>
+                    <constraint firstItem="5ym-Mf-hgo" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="92W-85-092"/>
+                    <constraint firstAttribute="bottom" secondItem="fNS-51-18B" secondAttribute="bottom" id="9Xw-Gl-Dm8"/>
+                    <constraint firstItem="5ym-Mf-hgo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9dH-7h-bVW"/>
+                    <constraint firstItem="2Xf-dA-V5X" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="J3R-vt-wbT"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="tEm-au-EE3" secondAttribute="trailing" id="MEQ-Me-k5A"/>
+                    <constraint firstItem="tEm-au-EE3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="RGh-NF-X3T"/>
+                    <constraint firstAttribute="trailing" secondItem="fNS-51-18B" secondAttribute="trailing" constant="-8" id="Vth-az-tDb"/>
+                    <constraint firstItem="2Xf-dA-V5X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="wMa-gF-Rm4"/>
+                    <constraint firstItem="fNS-51-18B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="-8" id="yh2-BT-cBk"/>
+                    <constraint firstItem="5ym-Mf-hgo" firstAttribute="leading" secondItem="2Xf-dA-V5X" secondAttribute="trailing" constant="20" id="zKB-mb-W6B"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="circle" destination="5ym-Mf-hgo" id="WWB-ID-9FX"/>
+                <outlet property="content" destination="2Xf-dA-V5X" id="cTx-Ri-xhG"/>
+                <outlet property="time" destination="tEm-au-EE3" id="dkJ-Kf-iMV"/>
+            </connections>
+            <point key="canvasLocation" x="-104" y="-216"/>
+        </tableViewCell>
+    </objects>
+</document>
