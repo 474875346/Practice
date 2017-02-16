@@ -37,9 +37,6 @@ class KnowledgepageQueryViewController: BaseViewController,UITableViewDelegate,U
     }
 }
 extension KnowledgepageQueryViewController {
-    override func BackButton() {
-        self.dismiss(animated: true, completion: nil)
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return KnowledgepageQueryArray.count
     }

@@ -35,11 +35,12 @@ class OnlineConsultingViewController: BaseViewController,UITableViewDelegate,UIT
         self.addNavTitle(Title: "在线咨询列表")
         self.OnlineConsultingtableView.mj_header.beginRefreshing()
         self.OnlineConsultingButton()
+        NotificationCenter.default.addObserver(self, selector:#selector(didMsgRecv(notification:)),name: NSNotification.Name(rawValue: "question"), object: nil)
     }
 }
 extension OnlineConsultingViewController {
-    override func BackButton() {
-        self.dismiss(animated: true, completion: nil)
+    func didMsgRecv(notification:NSNotification){
+        self.questionlistData()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return OnlineConsultingArray.count

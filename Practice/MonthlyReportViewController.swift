@@ -35,9 +35,6 @@ extension MonthlyReportViewController {
         super.viewWillAppear(animated)
         self.tabBarHidden()
     }
-    override func BackButton() {
-        self.dismiss(animated: true, completion: nil)
-    }
 }
 private extension MonthlyReportViewController {
     func CreatUI() -> Void {

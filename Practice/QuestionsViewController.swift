@@ -96,7 +96,7 @@ private extension QuestionsViewController {
         if UserDefauTake(ZregistID) == nil {
             UserDefaultSave(ZregistID, Value: "")
         }
-        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_questionconsult, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"title":(titleTextView?.text)!,"content":(contentTextView?.text)!,"userId":Teacherid,"registrationId":UserDefauTake(ZregistID)!], SafetyCertification: true, successed: { (success) in
+        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_questionconsult, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"title":(titleTextView?.text)!,"content":(contentTextView?.text)!,"userId":Teacherid], SafetyCertification: true, successed: { (success) in
             let status = success?["status"] as! Int
             if status == 200 {
                 self.Block!()

@@ -33,9 +33,6 @@ class SignWithFootprintViewController: BaseViewController,UITabBarDelegate,UIScr
     }
 }
 extension SignWithFootprintViewController {
-    override func BackButton() {
-        self.dismiss(animated: true, completion: nil)
-    }
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         scrollview.contentOffset = CGPoint(x: SCREEN_WIDTH*ConversionCGFloat(item.tag), y: 0)
         if item.tag == 0 {

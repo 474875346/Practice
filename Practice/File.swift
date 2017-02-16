@@ -17,7 +17,7 @@ let ZhaveBieMing = "haveBieMing"
 let CompressionVideoPaht = "\(NSHomeDirectory())/Library/Viedo"
 let Zlatitude = "latitude"
 let Zlongitude = "longitude"
-
+let Zrefresh_token = "refresh_token"
 //颜色
 func RGBA(_ r:Int,g:Int,b:Int,a:Float) -> UIColor {
     let R = Float(r)

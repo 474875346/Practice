@@ -43,6 +43,7 @@ class QuestionHistoryViewController: BaseViewController,UITableViewDataSource,UI
     }
 }
 extension QuestionHistoryViewController {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }

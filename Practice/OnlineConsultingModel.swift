@@ -9,15 +9,18 @@
 import UIKit
 
 class OnlineConsultingModel: NSObject {
-    let title:String?
-    let content:String?
-    let createTime:String?
-    let id:String?
+    var title:String?
+    var content:String?
+    var createTime:String?
+    var id:String?
     
     init(dic:[String:Any]) {
         title = dic["title"] as! String?
         content = dic["content"] as! String?
         createTime = dic["createTime"] as! String?
         id = dic["id"] as! String?
+    }
+    override init() {
+        
     }
 }

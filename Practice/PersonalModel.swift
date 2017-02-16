@@ -44,13 +44,15 @@ class PersonalModel: NSObject {
     var name:String = ""
     
     var post:String = ""
+    
+    var registrationId = ""
+    
     init(dic:[String:Any]) {
         super.init()
         setValuesForKeys(dic)
     }
 }
 class college: NSObject {
-    var collegeId:String = ""
     var id:String = ""
     var name:String = ""
 }

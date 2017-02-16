@@ -59,7 +59,7 @@ extension HttpRequestTool {
                 print(DataResponse.result.value!)
                 successed(DataResponse.result.value as AnyObject?)
             }else {
-                print(DataResponse.result.error as Any)
+                print((DataResponse.result.error?.localizedDescription)! as String)
                 failed(DataResponse.result.error as NSError?)
             }
             activityIndi​​catorView?.stopAnimating()

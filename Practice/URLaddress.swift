@@ -63,3 +63,5 @@ let Student_knowledgepageQuery = "/api/knowledge/pageQuery"
 let Student_questionnaireppageQuery = "/api/survey/pageQuery"
 //调查问卷详情
 let Student_questionnairepindex = "/api/survey/index"
+//刷新token
+let Student_refresh = "/api/student/refresh"

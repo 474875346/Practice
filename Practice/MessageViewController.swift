@@ -32,9 +32,14 @@ class MessageViewController: BaseViewController,UITableViewDataSource,UITableVie
         self.addNavTitle(Title: "消息")
         self.MessageData()
         self.addSlide()
+        NotificationCenter.default.addObserver(self, selector:#selector(didMsgRecv(notification:)),name: NSNotification.Name(rawValue: "notice"), object: nil)
     }
 }
 extension MessageViewController {
+    func didMsgRecv(notification:NSNotification){
+        self.MessageData()
+        self.Unread()
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.MessageData()

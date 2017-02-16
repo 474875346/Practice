@@ -50,37 +50,43 @@ extension HomePageViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            let nav = UINavigationController(rootViewController: SignWithFootprintViewController())
-            nav.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
-            self.present(nav, animated: true, completion: nil)
+            //            let nav = UINavigationController(rootViewController: SignWithFootprintViewController())
+            //            nav.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
+            //            self.present(nav, animated: true, completion: nil)
+            self.navigationController?.pushViewController(SignWithFootprintViewController(), animated: true)
             break
         case 1:
-            let nav = UINavigationController(rootViewController: MonthlyReportViewController())
-            nav.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
-            self.present(nav, animated: true, completion: nil)
+            //            let nav = UINavigationController(rootViewController: MonthlyReportViewController())
+            //            nav.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
+            //            self.present(nav, animated: true, completion: nil)
+            self.navigationController?.pushViewController(MonthlyReportViewController(), animated: true)
             break
         case 2:
-            let nav = UINavigationController(rootViewController: MonthlyRecordViewController())
-            nav.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
-            self.present(nav, animated: true, completion: nil)
+            //            let nav = UINavigationController(rootViewController: MonthlyRecordViewController())
+            //            nav.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
+            //            self.present(nav, animated: true, completion: nil)
+            self.navigationController?.pushViewController(MonthlyRecordViewController(), animated: true)
             break
         case 3:
-            let nav = UINavigationController(rootViewController: OnlineConsultingViewController())
-            nav.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
-            self.present(nav, animated: true, completion: nil)
+            //            let nav = UINavigationController(rootViewController: OnlineConsultingViewController())
+            //            nav.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
+            //            self.present(nav, animated: true, completion: nil)
+            self.navigationController?.pushViewController(OnlineConsultingViewController(), animated: true)
             break
         case 4:
             self.help()
             break
         case 5:
-            let nav = UINavigationController(rootViewController: QuestionnairepageQueryViewController())
-            nav.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
-            self.present(nav, animated: true, completion: nil)
+            //            let nav = UINavigationController(rootViewController: QuestionnairepageQueryViewController())
+            //            nav.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
+            //            self.present(nav, animated: true, completion: nil)
+            self.navigationController?.pushViewController(QuestionnairepageQueryViewController(), animated: true)
             break
         default:
-            let nav = UINavigationController(rootViewController: KnowledgepageQueryViewController())
-            nav.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
-            self.present(nav, animated: true, completion: nil)
+            //            let nav = UINavigationController(rootViewController: KnowledgepageQueryViewController())
+            //            nav.modalTransitionStyle = UIModalTransitionStyle(rawValue: 2)!
+            //            self.present(nav, animated: true, completion: nil)
+            self.navigationController?.pushViewController(KnowledgepageQueryViewController(), animated: true)
             break;
         }
     }

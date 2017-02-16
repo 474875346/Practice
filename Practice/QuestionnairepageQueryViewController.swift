@@ -35,12 +35,8 @@ class QuestionnairepageQueryViewController: BaseViewController,UITableViewDelega
         self.addNavTitle(Title: "调查问卷列表")
         self.QuestionnairepageQueryView.mj_header.beginRefreshing()
     }
-
 }
 extension QuestionnairepageQueryViewController {
-    override func BackButton() {
-        self.dismiss(animated: true, completion: nil)
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return QuestionnairepageQueryArray.count
     }

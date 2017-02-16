@@ -88,14 +88,21 @@ private extension ViewController {
             self.btnAnimate()
             return
         }
-        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_Login, type: .POST, parameters: ["client":deviceUUID!,"phone":self.phoneTF.text!,"password":pswTF.text!], SafetyCertification: true,successed: { (success) in
+        var registrationId = ""
+        if UserDefauTake(ZregistID) != nil {
+            registrationId = UserDefauTake(ZregistID)!
+        }
+
+        HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_Login, type: .POST, parameters: ["client":deviceUUID!,"phone":self.phoneTF.text!,"password":pswTF.text!,"registrationId":registrationId], SafetyCertification: true,successed: { (success) in
             let status = success?["status"] as! Int
             if status == 200 {
                 let data = success?["data"] as! NSDictionary
                 let token = data["access_token"]  as! String
                 let college = data["collegeName"] as! String?
+                let refresh_token = data["refresh_token"] as! String?
                 UserDefaultSave("access_token", Value: token)
                 UserDefaultSave("CollegeName", Value: college)
+                UserDefaultSave(Zrefresh_token, Value: refresh_token)
                 if (UserDefaults().objectIsForced(forKey: ZLogInOut) == true ) {
                     self.dismiss(animated: true, completion: nil)
                     UserDefaults().set(false, forKey: ZLogInOut)
