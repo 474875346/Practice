@@ -10,10 +10,12 @@ import UIKit
 import NVActivityIndicatorView
 class KnowledgepageDetailsViewController: BaseViewController,UIWebViewDelegate {
     var URL:String?
+    var Name:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNavBackImg()
-        self.addNavTitle(Title: "知识课堂详情")
+        self.addNavTitle(Title:Name!)
         self.addBackButton()
         self.CreatUI()
     }

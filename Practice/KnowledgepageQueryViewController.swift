@@ -51,6 +51,7 @@ extension KnowledgepageQueryViewController {
         let model = self.KnowledgepageQueryArray[indexPath.row]
         let Knowledgepage = KnowledgepageDetailsViewController()
         Knowledgepage.URL = model.url
+        Knowledgepage.Name = model.name
         self.navigationController?.pushViewController(Knowledgepage, animated: true)
     }
 }
