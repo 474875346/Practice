@@ -52,6 +52,7 @@ extension QuestionnairepageQueryViewController {
         let model = self.QuestionnairepageQueryArray[indexPath.row]
         let Knowledgepage = QuestionnairepagedetailsViewController()
         Knowledgepage.id = model.id
+        Knowledgepage.titleSting = model.title
         self.navigationController?.pushViewController(Knowledgepage, animated: true)
     }
 

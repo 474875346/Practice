@@ -1,0 +1,2 @@
+/Users/xinlongkeji/Library/Developer/Xcode/DerivedData/Practice-dbynyswvzsmlyeeymityrgpaewhs/Build/Products/Debug-iphonesimulator/Practice.app
+-

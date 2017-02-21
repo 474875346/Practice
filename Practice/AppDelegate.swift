@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,BMKGeneralDelegate,JPUSHRe
     //经度
     var longitude = ""
     
+    var isLoction = false
+    
     var ocSlide = SwiftSlideRootViewController.init(nil)
     var window: UIWindow?
     let tabbar = UITabBarController()
@@ -95,6 +97,7 @@ extension AppDelegate {
     //MARK:极光自定义消息
     func networkDidReceiveMessage(notification:NSNotification) ->Void  {
         let userInfo = notification.userInfo
+        print(userInfo as Any)
         let title = userInfo?["title"] as! String
         let content = userInfo?["content"] as! String
         let type = userInfo?["content_type"] as! String
@@ -155,19 +158,24 @@ extension AppDelegate {
         let point1 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake(UserDefaults().object(forKey: Zlatitude)! as! CLLocationDegrees,UserDefaults().object(forKey: Zlongitude)! as! CLLocationDegrees));
         let point2 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake(userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude));
         let distance = BMKMetersBetweenMapPoints(point1,point2);
-        print(distance)
+        longitude = "\(userLocation.location.coordinate.longitude)"
+        latitude = "\(userLocation.location.coordinate.latitude)"
+//        print(distance)
         if distance > 2000 {
             UserDefaults().set(userLocation.location.coordinate.latitude, forKey: Zlatitude)
             UserDefaults().set(userLocation.location.coordinate.longitude, forKey: Zlongitude)
-            longitude = "\(userLocation.location.coordinate.longitude)"
-            latitude = "\(userLocation.location.coordinate.latitude)"
             self.save()
+        } else {
+            if isLoction == false {
+                self.save()
+            }
         }
     }
     //MARK:存储坐标
     func save() -> Void {
         if (UserDefauTake(ZToken) != nil) && (UserDefauTake(ZregistID) != nil) {
             HttpRequestTool.sharedInstance.HttpRequestJSONDataWithUrl(url: Student_positionsave, type: .POST, parameters: ["app_token":UserDefauTake(ZToken)!,"client":deviceUUID!,"longitude":longitude,"latitude":latitude,"registerId":UserDefauTake(ZregistID)!], SafetyCertification: true, successed: { (success) in
+                self.isLoction = true
             }) { (error) in
             }
         }
@@ -251,7 +259,12 @@ extension AppDelegate {
             (btn) in
             switch type {
             case "help":
-                
+                let help = HelpViewController()
+                help.name = extras["name"] as! String?
+                help.phone = extras["phone"] as! String?
+                help.latitude = extras["latitude"] as! String?
+                help.longitude = extras["longitude"] as! String?
+                nav.pushViewController(help, animated: true)
                 break
             case "notice":
                 self.tabbar.selectedIndex = 1

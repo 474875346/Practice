@@ -152,7 +152,9 @@ private extension QuestionHistoryViewController {
     }
     //MARK:滑动到最底部
     func scrollsToBottomAnimated() -> Void {
-        let index = IndexPath(row: self.QuestionHistoryArray.count-1, section: 1)
-        self.QuestionHistorytableView.scrollToRow(at: index , at: .bottom, animated: false)
+        if self.QuestionHistoryArray.count>0 {
+            let index = IndexPath(row: self.QuestionHistoryArray.count-1, section: 1)
+            self.QuestionHistorytableView.scrollToRow(at: index , at: .bottom, animated: false)
+        }
     }
 }

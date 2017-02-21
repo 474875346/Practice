@@ -37,6 +37,7 @@
 		892DBF2A1E237F410059F59C /* MonthlyRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892DBF281E237F410059F59C /* MonthlyRecordTableViewCell.swift */; };
 		892DBF2B1E237F410059F59C /* MonthlyRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 892DBF291E237F410059F59C /* MonthlyRecordTableViewCell.xib */; };
 		892DBF2E1E2380910059F59C /* MonthlyRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892DBF2D1E2380910059F59C /* MonthlyRecordModel.swift */; };
+		8939D7271E559B1600858BBF /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8939D7261E559B1600858BBF /* HelpViewController.swift */; };
 		89515BAB1E4977FA004E0208 /* QuestionHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89515BAA1E4977FA004E0208 /* QuestionHistoryModel.swift */; };
 		89515BAE1E49AD87004E0208 /* QuestionHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89515BAC1E49AD87004E0208 /* QuestionHistoryTableViewCell.swift */; };
 		89515BAF1E49AD87004E0208 /* QuestionHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89515BAD1E49AD87004E0208 /* QuestionHistoryTableViewCell.xib */; };
@@ -157,6 +158,7 @@
 		892DBF281E237F410059F59C /* MonthlyRecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyRecordTableViewCell.swift; sourceTree = "<group>"; };
 		892DBF291E237F410059F59C /* MonthlyRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthlyRecordTableViewCell.xib; sourceTree = "<group>"; };
 		892DBF2D1E2380910059F59C /* MonthlyRecordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyRecordModel.swift; sourceTree = "<group>"; };
+		8939D7261E559B1600858BBF /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		89515BAA1E4977FA004E0208 /* QuestionHistoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionHistoryModel.swift; sourceTree = "<group>"; };
 		89515BAC1E49AD87004E0208 /* QuestionHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		89515BAD1E49AD87004E0208 /* QuestionHistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionHistoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -923,6 +925,7 @@
 			children = (
 				89F9CC9D1E120FA800295C70 /* AppDelegate.swift */,
 				89F9CC9F1E120FA800295C70 /* ViewController.swift */,
+				8939D7261E559B1600858BBF /* HelpViewController.swift */,
 			);
 			name = C;
 			sourceTree = "<group>";
@@ -1240,6 +1243,7 @@
 				897EFE391E1B42790082D6F4 /* SwiftSlideRootViewController.swift in Sources */,
 				898E63DC1E457BC400D8FD83 /* OnlineConsultingViewController.swift in Sources */,
 				898E63E51E459FEE00D8FD83 /* OnlineConsultingModel.swift in Sources */,
+				8939D7271E559B1600858BBF /* HelpViewController.swift in Sources */,
 				897EFE3A1E1B42790082D6F4 /* UIView+Extension.swift in Sources */,
 				892DBF2E1E2380910059F59C /* MonthlyRecordModel.swift in Sources */,
 				892A6C6E1E52CFFD0002EDF0 /* QuestionnairepageQueryViewController.swift in Sources */,

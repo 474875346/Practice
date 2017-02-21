@@ -45,9 +45,6 @@ extension MonthlyRecordViewController {
         super.viewWillAppear(animated)
         self.tabBarHidden()
     }
-    override func BackButton() {
-        self.dismiss(animated: true, completion: nil)
-    }
     //MARK:返回行数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reportqueryArray.count

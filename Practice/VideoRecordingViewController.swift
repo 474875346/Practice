@@ -20,14 +20,14 @@ class VideoRecordingViewController: BaseViewController, AVCaptureFileOutputRecor
     let fileOutput = AVCaptureMovieFileOutput()
     
     //开始、停止按钮
-    var startButton, stopButton : UIButton!
+    var startButton = UIButton()
+    var stopButton = UIButton()
     //表示当时是否在录像中
     var isRecording = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //创建按钮
-        self.setupButton()
+
         //添加视频、音频输入设备
         do {
             let videoInput = try AVCaptureDeviceInput(device: self.videoDevice)
@@ -54,9 +54,10 @@ class VideoRecordingViewController: BaseViewController, AVCaptureFileOutputRecor
             self.view.layer.addSublayer(videoLayer)
         }
         
-        
         //启动session会话
         self.captureSession.startRunning()
+        //创建按钮
+        self.setupButton()
         self.addBackButton()
     }
     override func BackButton() {
@@ -65,7 +66,7 @@ class VideoRecordingViewController: BaseViewController, AVCaptureFileOutputRecor
     //创建按钮
     func setupButton(){
         //创建开始按钮
-        self.startButton = UIButton(frame: CGRect(x:0,y:0,width:120,height:50))
+        self.startButton.frame = CGRect(x:0,y:0,width:120,height:50)
         self.startButton.backgroundColor = UIColor.red
         self.startButton.layer.masksToBounds = true
         self.startButton.setTitle("开始", for: .normal)
@@ -76,7 +77,7 @@ class VideoRecordingViewController: BaseViewController, AVCaptureFileOutputRecor
                                    for: .touchUpInside)
         
         //创建停止按钮
-        self.stopButton = UIButton(frame: CGRect(x:0,y:0,width:120,height:50))
+        self.stopButton.frame =  CGRect(x:0,y:0,width:120,height:50)
         self.stopButton.backgroundColor = UIColor.gray
         self.stopButton.layer.masksToBounds = true
         self.stopButton.setTitle("停止", for: .normal)
@@ -135,6 +136,11 @@ class VideoRecordingViewController: BaseViewController, AVCaptureFileOutputRecor
     func capture(_ captureOutput: AVCaptureFileOutput!,
                  didStartRecordingToOutputFileAt fileURL: URL!,
                  fromConnections connections: [Any]!) {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            
+        }else{
+            print("读取相册错误")
+        }
     }
     
     //录像结束的代理方法

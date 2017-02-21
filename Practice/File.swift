@@ -6,7 +6,7 @@ import Photos
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 //let BaseURL = "http://gcm.systop.com.cn"
-let BaseURL = "http://172.16.1.22:9000"
+let BaseURL = "http://172.16.1.32:8080"
 let deviceUUID = UIDevice.current.identifierForVendor?.uuidString
 //取数据的key
 let ZToken = "access_token"
@@ -18,6 +18,8 @@ let CompressionVideoPaht = "\(NSHomeDirectory())/Library/Viedo"
 let Zlatitude = "latitude"
 let Zlongitude = "longitude"
 let Zrefresh_token = "refresh_token"
+let ZLocationSave = "LocationSave"
+
 //颜色
 func RGBA(_ r:Int,g:Int,b:Int,a:Float) -> UIColor {
     let R = Float(r)
