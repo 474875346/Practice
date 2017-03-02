@@ -22,70 +22,98 @@
 
 import UIKit
 
-public class HeroDefaultAnimator:HeroAnimator{
-  var context:HeroContext!
-  var viewContexts:[UIView: HeroDefaultAnimatorViewContext] = [:]
+internal extension UIView {
+  func optimizedDuration(targetState state: HeroTargetState) -> TimeInterval {
+    let fromPos = (layer.presentation() ?? layer).position
+    let toPos = state.position ?? fromPos
+    let fromSize = (layer.presentation() ?? layer).bounds.size
+    let toSize = state.size ?? fromSize
+    let fromTransform = (layer.presentation() ?? layer).transform
+    let toTransform = state.transform ?? fromTransform
 
-  public func seekTo(timePassed:TimeInterval) {
-    for viewContext in viewContexts.values{
+    let realFromPos = CGPoint.zero.transform(fromTransform) + fromPos
+    let realToPos = CGPoint.zero.transform(toTransform) + toPos
+
+    let realFromSize = fromSize.transform(fromTransform)
+    let realToSize = toSize.transform(toTransform)
+
+    let movePoints = (realFromPos.distance(realToPos) + realFromSize.point.distance(realToSize.point))
+
+    // duration is 0.2 @ 0 to 0.375 @ 500
+    let duration = 0.208 + Double(movePoints.clamp(0, 500)) / 3000
+    return duration
+  }
+}
+
+internal class HeroDefaultAnimator<ViewContext>: HeroAnimator where ViewContext: HeroAnimatorViewContext {
+  weak public var context: HeroContext!
+  var viewContexts: [UIView: ViewContext] = [:]
+
+  public func seekTo(timePassed: TimeInterval) {
+    for viewContext in viewContexts.values {
       viewContext.seek(timePassed: timePassed)
     }
   }
-  
-  public func resume(timePassed:TimeInterval, reverse:Bool) -> TimeInterval{
-    var duration:TimeInterval = 0
-    for view in viewContexts.keys{
-      viewContexts[view]!.resume(timePassed: timePassed, reverse: reverse)
-      duration = max(duration, viewContexts[view]!.duration)
+
+  public func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval {
+    var duration: TimeInterval = 0
+    for (_, context) in viewContexts {
+      context.resume(timePassed: timePassed, reverse: reverse)
+      duration = max(duration, context.duration)
     }
     return duration
   }
-  
-  public func temporarilySet(view:UIView, targetState:HeroTargetState){
-    guard viewContexts[view] != nil else {
-      print("HERO: unable to temporarily set to \(view). The view must be running at least one animation before it can be interactively changed")
-      return
+
+  public func apply(state: HeroTargetState, to view: UIView) {
+    if let context = viewContexts[view] {
+      context.apply(state:state)
     }
-    viewContexts[view]!.temporarilySet(targetState:targetState)
   }
 
-  public func canAnimate(context:HeroContext, view:UIView, appearing:Bool) -> Bool{
+  public func canAnimate(view: UIView, appearing: Bool) -> Bool {
     guard let state = context[view] else { return false }
-    return state.position != nil ||
-           state.size != nil ||
-           state.transform != nil ||
-           state.cornerRadius != nil ||
-           state.opacity != nil
+    return ViewContext.canAnimate(view: view, state: state, appearing: appearing)
   }
 
-  public func animate(context:HeroContext, fromViews:[UIView], toViews:[UIView]) -> TimeInterval{
-    self.context = context
-    
-    var duration:TimeInterval = 0
+  public func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
+    var duration: TimeInterval = 0
 
     // animate
-    for v in fromViews{
-      animate(view: v, appearing: false)
+    for v in fromViews { animate(view: v, appearing: false) }
+    for v in toViews { animate(view: v, appearing: true) }
+
+    // infinite duration means matching the duration of the longest animation
+    var infiniteDurationViewContexts = [ViewContext]()
+    for viewContext in viewContexts.values {
+      if viewContext.duration == .infinity {
+        infiniteDurationViewContexts.append(viewContext)
+      } else {
+        duration = max(duration, viewContext.duration)
+      }
     }
-    for v in toViews{
-      animate(view: v, appearing: true)
+
+    for viewContext in infiniteDurationViewContexts {
+      duration = max(duration, viewContext.snapshot.optimizedDuration(targetState: viewContext.targetState))
     }
-    
-    for viewContext in viewContexts.values{
-      duration = max(duration, viewContext.duration)
+
+    for viewContext in infiniteDurationViewContexts {
+      viewContext.apply(state: [.duration(duration)])
     }
 
     return duration
   }
-  
-  func animate(view:UIView, appearing:Bool){
+
+  func animate(view: UIView, appearing: Bool) {
     let snapshot = context.snapshotView(for: view)
-    let viewContext = HeroDefaultAnimatorViewContext(animator:self, snapshot: snapshot, targetState: context[view]!, appearing: appearing)
+    let viewContext = ViewContext(animator:self, snapshot: snapshot, targetState: context[view]!)
     viewContexts[view] = viewContext
+    viewContext.startAnimations(appearing: appearing)
   }
-  
-  public func clean(){
-    context = nil
+
+  public func clean() {
+    for vc in viewContexts.values {
+      vc.clean()
+    }
     viewContexts.removeAll()
   }
 }

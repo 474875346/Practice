@@ -233,7 +233,7 @@ extension AppDelegate {
                 let data = success?["data"] as! NSDictionary
                 let token = data["access_token"]  as! String
                 let refresh_token = data["refresh_token"] as! String?
-                UserDefaultSave("access_token", Value: token)
+                UserDefaultSave(ZToken, Value: token)
                 UserDefaultSave(Zrefresh_token, Value: refresh_token)
             }
         }) { (error) in

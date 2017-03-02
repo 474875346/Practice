@@ -9,7 +9,10 @@
 import UIKit
 import AVFoundation
 import Photos
+import PermissionScope
 class VideoRecordingViewController: BaseViewController, AVCaptureFileOutputRecordingDelegate {
+    //获取权限
+    let pscope = PermissionScope()
     //视频捕获会话。它是input和output的桥梁。它协调着intput到output的数据传输
     let captureSession = AVCaptureSession()
     //视频输入设备
@@ -27,7 +30,14 @@ class VideoRecordingViewController: BaseViewController, AVCaptureFileOutputRecor
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        pscope.requestPhotos()
+//        pscope.addPermission(PhotosPermission(),
+//                             message: "调用相册")
+//        pscope.show({ finished, results in
+//            print("got results \(results)")
+//        }, cancelled: { (results) -> Void in
+//            print("thing was cancelled\(results)")
+//        })
         //添加视频、音频输入设备
         do {
             let videoInput = try AVCaptureDeviceInput(device: self.videoDevice)

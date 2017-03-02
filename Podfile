@@ -27,4 +27,5 @@ pod 'TZImagePickerController' #多选照片
 pod 'Hero' #转场动画
 pod 'NVActivityIndicatorView' #加载指示器
 pod 'SnapKit' #Swift约束
+pod 'PermissionScope' #权限调用
 end

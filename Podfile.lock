@@ -1,15 +1,16 @@
 PODS:
-  - Alamofire (4.3.0)
+  - Alamofire (4.4.0)
   - BaiduMapKit (3.2.1)
-  - Hero (0.1.1)
+  - Hero (0.3.3)
   - IQKeyboardManager (4.0.8)
   - MJRefresh (3.1.12)
-  - NVActivityIndicatorView (3.2)
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
-  - SnapKit (3.1.2)
-  - SwiftMessages (3.1.4)
+  - NVActivityIndicatorView (3.5.1)
+  - PermissionScope (1.1.1)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+  - SnapKit (3.2.0)
+  - SwiftMessages (3.1.5)
   - TZImagePickerController (1.7.8)
 
 DEPENDENCIES:
@@ -19,23 +20,25 @@ DEPENDENCIES:
   - IQKeyboardManager
   - MJRefresh
   - NVActivityIndicatorView
+  - PermissionScope
   - SDWebImage
   - SnapKit
   - SwiftMessages
   - TZImagePickerController
 
 SPEC CHECKSUMS:
-  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   BaiduMapKit: 9c748785aa3dddfc41dcb70c14b21ce32f680930
-  Hero: b855122bc80662e7446300ca18c9e4bcb0679540
+  Hero: bee4e762e84185b16a902dd11335c119515bb912
   IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  NVActivityIndicatorView: 28942c18ced111a6a3ce5e6f5b27d9d40116d639
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
-  SwiftMessages: 08386e74abe1b32fa8ac2075edb4043c56db709d
+  NVActivityIndicatorView: 075563b3547445ebcff840e3297ce9dd4a23731f
+  PermissionScope: a30c16e015779ba27c97c124e7539e27b5829de2
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  SwiftMessages: bb85d7c30e85256f9367214b0907e1f409e1870a
   TZImagePickerController: 87a138ae5d585225aaa6c8abe2cface0f0ad19dd
 
-PODFILE CHECKSUM: f9b6af65413fa7071a8f405317c5564c95198a87
+PODFILE CHECKSUM: 500658a41a41e609b3c881939a44484e9f9c6d82
 
-COCOAPODS: 1.2.0.rc.1
+COCOAPODS: 1.2.0

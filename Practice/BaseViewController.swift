@@ -11,8 +11,6 @@ import SwiftMessages
 import NVActivityIndicatorView
 let activityIndi​​catorView:NVActivityIndicatorView? = NVActivityIndicatorView(frame: CGRect(x: SCREEN_WIDTH/2-25, y: SCREEN_HEIGHT/2, width: 50, height: 50), type: NVActivityIndicatorType(rawValue: 1), color: UIColor.red, padding: 1.0)
 class BaseViewController: UIViewController {
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //        isHeroEnabled = true

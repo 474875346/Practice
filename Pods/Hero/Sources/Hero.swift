@@ -22,196 +22,279 @@
 
 import UIKit
 
-public class Hero:NSObject {
-  public static var shared = Hero()
-  
-  public weak var toViewController:UIViewController?
-  public weak var fromViewController:UIViewController?
-  
-  var interactive = false
+/**
+ ### The singleton class/object for controlling interactive transitions.
+ 
+ ```swift
+   Hero.shared
+ ```
+ 
+ #### Use the following methods for controlling the interactive transition:
 
-  public var container: UIView! {
-    return animatingViewContainer
-  }
-  public var transitioning:Bool{
-    return transitionContainer != nil
-  }
-  var transitionContainer:UIView!
-  public fileprivate(set) var presenting = true
-  fileprivate var completionCallback: (() -> Void)?
-  
-  fileprivate var maxDurationNeeded: TimeInterval = 0.0
-  fileprivate var inContainerController = false
-  fileprivate weak var transitionContext: UIViewControllerContextTransitioning?
-  
-  fileprivate var toView: UIView { return toViewController!.view }
-  fileprivate var fromView: UIView { return fromViewController!.view }
-  
-  fileprivate var context: HeroContext!
-  fileprivate var animatingViewContainer: UIView!
-  
-  fileprivate var processors: [HeroPreprocessor]!
-  fileprivate var animators: [HeroAnimator]!
-  fileprivate var plugins: [HeroPlugin]!
-  
-  fileprivate static let builtInProcessors: [HeroPreprocessor] = [
-    IgnoreSubviewModifiersPreprocessor(),
-    MatchPreprocessor(),
-    SourcePreprocessor(),
-    CascadePreprocessor()
-  ]
+ ```swift
+   func update(progress:Double)
+   func end()
+   func cancel()
+   func apply(modifiers:[HeroModifier], to view:UIView)
+ ```
+ */
+public class Hero: HeroBaseController {
+  // MARK: Shared Access
 
-  fileprivate static let builtInAnimator = [
-    HeroDefaultAnimator()
-  ]
-  
-  fileprivate static var enabledPlugins: [HeroPlugin.Type] = []
-  var lastProgress:Double = 0
-  
-  fileprivate override init(){}
-}
+  /// Shared singleton object for controlling the transition
+  public static let shared = Hero()
 
-internal extension Hero {
-  static func isEnabled(plugin: HeroPlugin.Type) -> Bool {
-    return enabledPlugins.index(where: { return $0 == plugin}) != nil
-  }
-  
-  static func enable(plugin: HeroPlugin.Type) {
-    disable(plugin: plugin)
-    enabledPlugins.append(plugin)
-  }
+  // MARK: Properties
 
-  static func disable(plugin: HeroPlugin.Type) {
-    if let index = enabledPlugins.index(where: { return $0 == plugin}) {
-      enabledPlugins.remove(at: index)
+  /// destination view controller
+  public internal(set) var toViewController: UIViewController?
+  /// source view controller
+  public internal(set) var fromViewController: UIViewController?
+  /// whether or not we are presenting the destination view controller
+  public internal(set) var presenting = true
+
+  /// progress of the current transition. 0 if no transition is happening
+  public override var progress: Double {
+    didSet {
+      if transitioning {
+        transitionContext?.updateInteractiveTransition(CGFloat(progress))
+      }
     }
   }
+
+  /// a UIViewControllerContextTransitioning object provided by UIKit,
+  /// might be nil when transitioning. This happens when calling heroReplaceViewController
+  internal weak var transitionContext: UIViewControllerContextTransitioning?
+
+  internal var fullScreenSnapshot: UIView!
+
+  internal var defaultAnimation: HeroDefaultAnimationType = .auto
+  internal var containerColor: UIColor?
+
+  // By default, Hero will always appear to be interactive to UIKit. This forces it to appear non-interactive.
+  // Used when doing a hero_replaceViewController within a UINavigationController, to fix a bug with
+  // UINavigationController.setViewControllers not able to handle interactive transition
+  internal var forceNotInteractive = false
+
+  internal var insertToViewFirst = false
+
+  internal var inNavigationController = false
+  internal var inTabBarController = false
+  internal var inContainerController: Bool {
+    return inNavigationController || inTabBarController
+  }
+  internal var toOverFullScreen: Bool {
+    return !inContainerController && (toViewController!.modalPresentationStyle == .overFullScreen || toViewController!.modalPresentationStyle == .overCurrentContext)
+  }
+  internal var fromOverFullScreen: Bool {
+    return !inContainerController && (fromViewController!.modalPresentationStyle == .overFullScreen || toViewController!.modalPresentationStyle == .overCurrentContext)
+  }
+
+  internal var toView: UIView { return toViewController!.view }
+  internal var fromView: UIView { return fromViewController!.view }
+
+  internal override init() { super.init() }
 }
 
-fileprivate extension Hero {
-  func closureProcessForHeroDelegate<T: UIViewController>(vc: T, closure: (HeroViewControllerDelegate)->()) {
-    if let delegate = vc as? HeroViewControllerDelegate {
-      closure(delegate)
-    }
-    
-    if let navigationController = vc as? UINavigationController,
-      let delegate = navigationController.topViewController as? HeroViewControllerDelegate {
-      closure(delegate)
-    }
+public extension Hero {
+
+  /// Turn off built-in animation for next transition
+  func disableDefaultAnimationForNextTransition() {
+    defaultAnimation = .none
+  }
+
+  /// Set the default animation for next transition
+  /// This usually overrides rootView's heroModifiers during the transition
+  ///
+  /// - Parameter animation: animation type
+  func setDefaultAnimationForNextTransition(_ animation: HeroDefaultAnimationType) {
+    defaultAnimation = animation
+  }
+
+  /// Set the container color for next transition
+  ///
+  /// - Parameter color: container color
+  func setContainerColorForNextTransition(_ color: UIColor?) {
+    containerColor = color
   }
 }
 
+// internal methods for transition
 internal extension Hero {
   func start() {
-    if plugins == nil {
-      plugins = Hero.enabledPlugins.map({ return $0.init() })
-    }
-    processors = Hero.builtInProcessors
-    animators = Hero.builtInAnimator
-    
-    // swift 3 bug. no idea why it wont let me to use append(contentsOf:) or + operator
-    for plugin in plugins {
-      processors.append(plugin)
-      animators.append(plugin)
-    }
-    
+    guard transitioning else { return }
     if let fvc = fromViewController, let tvc = toViewController {
       closureProcessForHeroDelegate(vc: fvc) {
-          $0.heroWillStartTransition?()
-          $0.heroWillStartAnimatingTo?(viewController: tvc)
+        $0.heroWillStartTransition?()
+        $0.heroWillStartAnimatingTo?(viewController: tvc)
       }
-        
+
       closureProcessForHeroDelegate(vc: tvc) {
         $0.heroWillStartTransition?()
         $0.heroWillStartAnimatingFrom?(viewController: fvc)
       }
     }
 
-    transitionContainer.isUserInteractionEnabled = false
-    
-    // a view to hold all the animation views
-    animatingViewContainer = UIView(frame: transitionContainer.bounds)
-    transitionContainer.addSubview(animatingViewContainer)
-    
-    // create a snapshot view to hide all the flashing that might happen
-    let completeSnapshot = fromView.snapshotView(afterScreenUpdates: true)!
-    transitionContainer.addSubview(completeSnapshot)
-    
-    animatingViewContainer.addSubview(fromView)
-    animatingViewContainer.insertSubview(toView, belowSubview: fromView)
-    animatingViewContainer.backgroundColor = toView.backgroundColor
+    // take a snapshot to hide all the flashing that might happen
+    fullScreenSnapshot = transitionContainer.window?.snapshotView(afterScreenUpdates: true) ?? fromView.snapshotView(afterScreenUpdates: true)
+    (transitionContainer.window ?? transitionContainer)?.addSubview(fullScreenSnapshot)
 
+    if let oldSnapshots = fromViewController?.heroStoredSnapshots {
+      for snapshot in oldSnapshots {
+        snapshot.removeFromSuperview()
+      }
+      fromViewController?.heroStoredSnapshots = nil
+    }
+    if let oldSnapshots = toViewController?.heroStoredSnapshots {
+      for snapshot in oldSnapshots {
+        snapshot.removeFromSuperview()
+      }
+      toViewController?.heroStoredSnapshots = nil
+    }
+
+    prepareForTransition()
+
+    context.loadViewAlpha(rootView: toView)
+    context.loadViewAlpha(rootView: fromView)
+    context.hide(view: toView)
+    container.addSubview(toView)
+    container.addSubview(fromView)
+
+    toView.frame = fromView.frame
     toView.updateConstraints()
     toView.setNeedsLayout()
     toView.layoutIfNeeded()
-    
-    context = HeroContext(container:animatingViewContainer, fromView: fromView, toView:toView)
-    
-    // ask each preprocessor to process
 
-    for processor in processors {
-      processor.process(context:context, fromViews: context.fromViews, toViews: context.toViews)
-    }
-    
-    var skipDefaultAnimation = false
-    var animatingViews = [([UIView],[UIView])]()
-    for animator in animators {
-      let currentFromViews = context.fromViews.filter{ [context] (view:UIView) -> Bool in
-        return animator.canAnimate(context: context!, view: view, appearing: false)
-      }
-      let currentToViews = context.toViews.filter{ [context] (view:UIView) -> Bool in
-        return animator.canAnimate(context: context!, view: view, appearing: true)
-      }
-      if currentFromViews.first == fromView || currentToViews.first == toView{
-        skipDefaultAnimation = true
-      }
-      animatingViews.append((currentFromViews, currentToViews))
-    }
+    context.set(fromViews: fromView.flattenedViewHierarchy, toViews: toView.flattenedViewHierarchy)
 
-    if !skipDefaultAnimation {
-      // if no animator can animate toView & fromView, set the effect to fade // i.e. default effect
-      context[toView] = [.fade]
-      animatingViews[0].1.insert(toView, at: 0)
-    }
+    processContext()
 
-    // wait for a frame if using navigation controller.
-    // a bug with navigation controller. the snapshot is not captured if animating immediately
-    delay(inContainerController && presenting ? 0.02 : 0) {
-      for (currentFromViews, currentToViews) in animatingViews {
-        // auto hide all animated views
-        for view in currentFromViews {
-          self.context.hide(view: view)
-        }
-        for view in currentToViews {
-          self.context.hide(view: view)
-        }
-      }
-      
-      for (i, animator) in self.animators.enumerated() {
-        let duration = animator.animate(context: self.context,
-                                 fromViews: animatingViews[i].0,
-                                 toViews: animatingViews[i].1)
-        self.maxDurationNeeded = max(self.maxDurationNeeded, duration)
-      }
-      
-      // we are done with setting up, so remove the covering snapshot
-      completeSnapshot.removeFromSuperview()
-      
-      if self.interactive {
-        if self.lastProgress == 0 {
-          self.update(progress: 0)
+    prepareDefaultAnimation()
+
+    prepareForAnimation()
+
+    #if os(tvOS)
+      animate()
+    #else
+      if inNavigationController {
+        // When animating within navigationController, we have to dispatch later into the main queue.
+        // otherwise snapshots will be pure white. Possibly a bug with UIKit
+        DispatchQueue.main.async {
+          self.animate()
         }
       } else {
-        delay(self.maxDurationNeeded) {
-          self.end(finished: true)
-        }
+        animate()
       }
-    }
+    #endif
   }
 
-  internal func transition(from: UIViewController, to: UIViewController, in view: UIView, completion: (() -> Void)? = nil) {
+  override func animate() {
+    context.unhide(view: toView)
+
+    if let containerColor = containerColor {
+      container.backgroundColor = containerColor
+    } else if !toOverFullScreen && !fromOverFullScreen {
+      container.backgroundColor = toView.backgroundColor
+    }
+
+    super.animate()
+
+    if case .none = defaultAnimation {
+    } else if insertToViewFirst {
+      let toViewSnapshot = context.snapshotView(for: toView)
+      let fromViewSnapshot = context.snapshotView(for: fromView)
+      container.insertSubview(toViewSnapshot, belowSubview: fromViewSnapshot)
+    }
+
+    fullScreenSnapshot!.removeFromSuperview()
+  }
+
+  override func complete(finished: Bool) {
+    guard transitioning else { return }
+
+    if finished && presenting && toOverFullScreen {
+      // finished presenting a overFullScreen VC
+      context.unhide(rootView: toView)
+      context.removeSnapshots(rootView: toView)
+      context.storeViewAlpha(rootView: fromView)
+      fromViewController!.heroStoredSnapshots = context.snapshots(rootView: fromView)
+    } else if !finished && !presenting && fromOverFullScreen {
+      // cancelled dismissing a overFullScreen VC
+      context.unhide(rootView: fromView)
+      context.removeSnapshots(rootView: fromView)
+      context.storeViewAlpha(rootView: toView)
+      toViewController!.heroStoredSnapshots = context.snapshots(rootView: toView)
+    } else {
+      context.unhideAll()
+      context.removeAllSnapshots()
+    }
+
+    // move fromView & toView back from our container back to the one supplied by UIKit
+    if (toOverFullScreen && finished) || (fromOverFullScreen && !finished) {
+      transitionContainer.addSubview(finished ? fromView : toView)
+    }
+    transitionContainer.addSubview(finished ? toView : fromView)
+
+    if presenting != finished, !inContainerController {
+      // only happens when present a .overFullScreen VC
+      // bug: http://openradar.appspot.com/radar?id=5320103646199808
+      UIApplication.shared.keyWindow!.addSubview(presenting ? fromView : toView)
+    }
+
+    // use temp variables to remember these values
+    // because we have to reset everything before calling
+    // any delegate or completion block
+    let tContext = transitionContext
+    let fvc = fromViewController
+    let tvc = toViewController
+
+    transitionContext = nil
+    fromViewController = nil
+    toViewController = nil
+    containerColor = nil
+    inNavigationController = false
+    inTabBarController = false
+    forceNotInteractive = false
+    insertToViewFirst = false
+    defaultAnimation = .auto
+
+    super.complete(finished: finished)
+
+    if finished {
+      if let fvc = fvc, let tvc = tvc {
+        closureProcessForHeroDelegate(vc: fvc) {
+          $0.heroDidEndAnimatingTo?(viewController: tvc)
+          $0.heroDidEndTransition?()
+        }
+
+        closureProcessForHeroDelegate(vc: tvc) {
+          $0.heroDidEndAnimatingFrom?(viewController: fvc)
+          $0.heroDidEndTransition?()
+        }
+      }
+      tContext?.finishInteractiveTransition()
+    } else {
+      if let fvc = fvc, let tvc = tvc {
+        closureProcessForHeroDelegate(vc: fvc) {
+          $0.heroDidCancelAnimatingTo?(viewController: tvc)
+          $0.heroDidCancelTransition?()
+        }
+
+        closureProcessForHeroDelegate(vc: tvc) {
+          $0.heroDidCancelAnimatingFrom?(viewController: fvc)
+          $0.heroDidCancelTransition?()
+        }
+      }
+      tContext?.cancelInteractiveTransition()
+    }
+    tContext?.completeTransition(finished)
+  }
+}
+
+// custom transition helper, used in hero_replaceViewController
+internal extension Hero {
+  func transition(from: UIViewController, to: UIViewController, in view: UIView, completion: ((Bool) -> Void)? = nil) {
     guard !transitioning else { return }
-    inContainerController = false
     presenting = true
     transitionContainer = view
     fromViewController = from
@@ -219,108 +302,32 @@ internal extension Hero {
     completionCallback = completion
     start()
   }
-  
-  internal func end(finished: Bool) {
-    guard transitioning else { return }
-    for animator in animators{
-      animator.clean()
-    }
-    context.unhideAll()
-    
-    // move fromView & toView back from animatingViewContainer
-    transitionContainer.addSubview(finished ? toView : fromView)
+}
 
-    if presenting != finished, !inContainerController {
-      // bug: http://openradar.appspot.com/radar?id=5320103646199808
-      UIApplication.shared.keyWindow!.addSubview(toView)
+// delegate helper
+internal extension Hero {
+  func closureProcessForHeroDelegate<T: UIViewController>(vc: T, closure: (HeroViewControllerDelegate) -> Void) {
+    if let delegate = vc as? HeroViewControllerDelegate {
+      closure(delegate)
     }
 
-    animatingViewContainer.removeFromSuperview()
-    animatingViewContainer = nil
-    processors = nil
-    animators = nil
-    plugins = nil
-    context = nil
-    inContainerController = false
-    interactive = false
-    lastProgress = 0
-    maxDurationNeeded = 0
-    
-    transitionContainer!.isUserInteractionEnabled = true
-    let transitionContext = self.transitionContext
-    let completion = completionCallback
-    
-    transitionContext?.completeTransition(finished)
-    completion?()
-    
-    if let fvc = fromViewController, let tvc = toViewController {
-        closureProcessForHeroDelegate(vc: fvc) {
-            $0.heroDidEndAnimatingTo?(viewController: tvc)
-            $0.heroDidEndTransition?()
-        }
-        
-        closureProcessForHeroDelegate(vc: tvc) {
-            $0.heroDidEndAnimatingFrom?(viewController: fvc)
-            $0.heroDidEndTransition?()
-        }
+    if let navigationController = vc as? UINavigationController,
+       let delegate = navigationController.topViewController as? HeroViewControllerDelegate {
+      closure(delegate)
     }
 
-    transitionContainer = nil
-    self.transitionContext = nil
-    fromViewController = nil
-    toViewController = nil
-    completionCallback = nil
+    if let tabBarController = vc as? UITabBarController,
+       let delegate = tabBarController.viewControllers?[tabBarController.selectedIndex] as? HeroViewControllerDelegate {
+      closure(delegate)
+    }
   }
 }
 
-public extension Hero {
-  public func update(progress: Double) {
-    let p = max(0, min(1, progress))
-    lastProgress = p
-    guard transitioning else { return }
-    for animator in animators {
-      animator.seekTo(timePassed: p * maxDurationNeeded)
-    }
-    transitionContext?.updateInteractiveTransition(CGFloat(p))
-  }
+// MARK: UIKit Protocol Conformance
 
-  public func end() {
-    guard transitioning else { return }
-    var maxTime:TimeInterval = 0
-    for animator in animators {
-      maxTime = max(maxTime, animator.resume(timePassed:lastProgress*maxDurationNeeded, reverse: false))
-    }
-    transitionContext?.finishInteractiveTransition()
-    delay(maxTime) {
-      self.end(finished: true)
-    }
-  }
-
-  public func cancel() {
-    guard transitioning else { return }
-    var maxTime:TimeInterval = 0
-    for animator in animators {
-      maxTime = max(maxTime, animator.resume(timePassed:lastProgress*maxDurationNeeded, reverse: true))
-    }
-    transitionContext?.cancelInteractiveTransition()
-    delay(maxTime){
-      self.end(finished: false)
-    }
-  }
-
-  public func temporarilySet(view:UIView, modifiers:[HeroModifier]){
-    guard transitioning else { return }
-    let targetState = HeroTargetState(modifiers: modifiers)
-    if let otherView = context.pairedView(for: view){
-      for animator in animators {
-        animator.temporarilySet(view: otherView, targetState: targetState)
-      }
-    }
-    for animator in animators {
-        animator.temporarilySet(view: view, targetState: targetState)
-    }
-  }
-}
+/*****************************
+ * UIKit protocol extensions *
+ *****************************/
 
 extension Hero: UIViewControllerAnimatedTransitioning {
   public func animateTransition(using context: UIViewControllerContextTransitioning) {
@@ -331,28 +338,14 @@ extension Hero: UIViewControllerAnimatedTransitioning {
     transitionContainer = context.containerView
     start()
   }
-  
   public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-    return 0.375
+    return 0.375 // doesn't matter, real duration will be calculated later
   }
 }
 
 extension Hero:UIViewControllerTransitioningDelegate {
-  fileprivate var interactiveTransitioning: UIViewControllerInteractiveTransitioning? {
-    closureProcessForHeroDelegate(vc: fromViewController!) {
-      interactive = $0.wantInteractiveHeroTransition?() ?? false
-    }
-    
-    if !interactive {
-      Hero.enabledPlugins.map { $0.init() }.forEach {
-        if $0.wantInteractiveHeroTransition() {
-          interactive = true
-          return
-        }
-      }
-    }
-    
-    return interactive ? self : nil
+  var interactiveTransitioning: UIViewControllerInteractiveTransitioning? {
+    return forceNotInteractive ? nil : self
   }
 
   public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -361,7 +354,7 @@ extension Hero:UIViewControllerTransitioningDelegate {
     self.toViewController = toViewController ?? presented
     return self
   }
-  
+
   public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
     self.presenting = false
     self.fromViewController = fromViewController ?? dismissed
@@ -371,28 +364,30 @@ extension Hero:UIViewControllerTransitioningDelegate {
   public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
     return interactiveTransitioning
   }
-  
+
   public func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
     return interactiveTransitioning
   }
 }
 
 extension Hero: UIViewControllerInteractiveTransitioning {
+  public var wantsInteractiveStart: Bool {
+    return true
+  }
   public func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
     animateTransition(using: transitionContext)
   }
 }
 
 extension Hero: UINavigationControllerDelegate {
-  
   public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
     self.presenting = operation == .push
     self.fromViewController = fromViewController ?? fromVC
     self.toViewController = toViewController ?? toVC
-    self.inContainerController = true
+    self.inNavigationController = true
     return self
   }
-  
+
   public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
     return interactiveTransitioning
   }
@@ -402,12 +397,14 @@ extension Hero: UITabBarControllerDelegate {
   public func tabBarController(_ tabBarController: UITabBarController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
     return interactiveTransitioning
   }
-  
+
   public func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    self.presenting = true
+    let fromVCIndex = tabBarController.childViewControllers.index(of: fromVC)!
+    let toVCIndex = tabBarController.childViewControllers.index(of: toVC)!
+    self.presenting = toVCIndex > fromVCIndex
     self.fromViewController = fromViewController ?? fromVC
     self.toViewController = toViewController ?? toVC
-    self.inContainerController = true
+    self.inTabBarController = true
     return self
   }
 }
