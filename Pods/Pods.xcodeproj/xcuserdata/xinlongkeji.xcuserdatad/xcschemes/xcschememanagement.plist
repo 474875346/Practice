@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>EZSwiftExtensions.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Hero.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,7 +72,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>286BC773A6DF2A43B3ED1F4A207E95B2</key>
+		<key>09364D07138794106087C58670C7492D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1BAC2A72DADFB3161D6BDAF6E4930513</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,7 +87,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>87D09990990C37925840F2F93FBA6D0C</key>
+		<key>4A83C54EF2B071131DBB2502C7D85C16</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4C0DD9D2A75551B25F1396513C9200F2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,22 +107,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9CC1E53ADF52CDED89910FCF1A82A759</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9D446B2680CDC1DE24F2D8D4108291CC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AC7204B3AFE66F9F60B0EEA208D4A709</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B73873CEF9FB2A6984991CF9FE07CD21</key>
+		<key>A9570FF12A9252DBB13FF12BA4ADBC4B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,7 +122,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>DF33DAF82BBA27B5CBEF1A5280EBD027</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E14A62900910444707A5504D25EC98DC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F39BD775CA90434ACDD63A69931054C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

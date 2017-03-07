@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.4.0)
   - BaiduMapKit (3.2.1)
+  - EZSwiftExtensions (1.9)
   - Hero (0.3.3)
   - IQKeyboardManager (4.0.8)
   - MJRefresh (3.1.12)
@@ -10,12 +11,13 @@ PODS:
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
   - SnapKit (3.2.0)
-  - SwiftMessages (3.1.5)
+  - SwiftMessages (3.2.1)
   - TZImagePickerController (1.7.8)
 
 DEPENDENCIES:
   - Alamofire
   - BaiduMapKit
+  - EZSwiftExtensions
   - Hero
   - IQKeyboardManager
   - MJRefresh
@@ -29,6 +31,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   BaiduMapKit: 9c748785aa3dddfc41dcb70c14b21ce32f680930
+  EZSwiftExtensions: ce22bf6fc5c6e7c883fec413300b006e123735d0
   Hero: bee4e762e84185b16a902dd11335c119515bb912
   IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
@@ -36,9 +39,9 @@ SPEC CHECKSUMS:
   PermissionScope: a30c16e015779ba27c97c124e7539e27b5829de2
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
-  SwiftMessages: bb85d7c30e85256f9367214b0907e1f409e1870a
+  SwiftMessages: d114d273978678c0dce036f30273865af7303a35
   TZImagePickerController: 87a138ae5d585225aaa6c8abe2cface0f0ad19dd
 
-PODFILE CHECKSUM: 500658a41a41e609b3c881939a44484e9f9c6d82
+PODFILE CHECKSUM: 177ba080b699b61ae0137aa66b080e99a69fa9fd
 
 COCOAPODS: 1.2.0
